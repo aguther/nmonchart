@@ -1,0 +1,833 @@
+#!/usr/bin/ksh  
+
+# License GNU General Public License version 3.0 (GPLv3)
+# (c) Copyright 2015. Nigel Griffiths
+
+export nmonchart_version=23
+
+# Work around syntax differences in AIX and Linux
+if [[ -e /usr/sbin/aixpert ]]
+then
+# echo running on  AIX
+export ECHO="echo "
+export SORTARG=" +2 "
+else
+#echo running on  Linux 
+export ECHO="echo -e "
+export SORTARG=" -k2 "
+fi
+
+# first part of the .html file
+html_start() 
+{
+$ECHO '<html>'
+$ECHO '\t<head>'
+$ECHO '\t\t<title>nmonChart</title>'
+$ECHO '\t\t<script type="text/javascript" src="https://www.google.com/jsapi"></script>'
+$ECHO '\t\t<script type="text/javascript">'
+$ECHO '\t\tgoogle.load("visualization", "1.1", {packages:["corechart"]});'
+$ECHO 
+$ECHO '\t\tgoogle.setOnLoadCallback(setupCharts);'
+$ECHO '\t\t'
+$ECHO '\t\tfunction setupCharts() {'
+$ECHO '\t\t'
+$ECHO '\t\tvar chart = null;'
+$ECHO 
+}
+
+# declare array for the data
+chart_start()
+{
+$ECHO '\t\t\tvar data_'$1 '= google.visualization.arrayToDataTable(['
+}
+
+# finish the data area and create Area Chart 
+chart_end()
+{
+$ECHO '\t\t]);'
+$ECHO
+$ECHO '\t\tvar options_'$1' = {'
+$ECHO '\t\t\tchartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},'
+$ECHO '\t\t\ttitle: "'$2'",'
+$ECHO '\t\t\tfocusTarget: "category",'
+$ECHO '\t\t\thAxis: {'
+$ECHO '\t\t\t\tgridlines: {'
+$ECHO '\t\t\t\t\tcolor: "lightgrey",'
+$ECHO '\t\t\t\t\tcount: 30'
+$ECHO '\t\t\t\t}'
+$ECHO '\t\t\t},'
+$ECHO '\t\t\tvAxis: {'
+$ECHO '\t\t\t\tgridlines: {'
+$ECHO '\t\t\t\t\tcolor: "lightgrey",'
+$ECHO '\t\t\t\t\tcount: 11'
+$ECHO '\t\t\t\t}'
+$ECHO '\t\t\t},'
+$ECHO '\t\t\tisStacked: ' $3
+$ECHO '\t\t};'
+$ECHO
+$ECHO '\t\tdocument.getElementById("draw_'$1'").addEventListener("'click'", function() {'
+$ECHO '\t\tif (chart && chart.clearChart) chart.clearChart();'
+$ECHO 
+$ECHO '\t\tchart = new google.visualization.AreaChart(document.getElementById("chart_master"));'
+$ECHO '\t\tchart.draw( data_'$1', options_'$1');'
+$ECHO '\t\t});'
+$ECHO
+}
+
+# finish the data area and create Bar Chart 
+chart_end_column()
+{
+$ECHO '\t\t]);'
+$ECHO
+$ECHO '\t\tvar options_'$1' = {'
+$ECHO '\t\t\tchartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},'
+$ECHO '\t\t\ttitle: "'$2'",'
+$ECHO '\t\t\tfocusTarget: "category",'
+$ECHO '\t\t\tvAxis: {'
+$ECHO '\t\t\t\tgridlines: {'
+$ECHO '\t\t\t\t\tcolor: "lightgrey",'
+$ECHO '\t\t\t\t\tcount: 11'
+$ECHO '\t\t\t\t}'
+$ECHO '\t\t\t},'
+$ECHO '\t\t\tisStacked: ' $3
+$ECHO '\t\t};'
+$ECHO
+$ECHO '\t\tdocument.getElementById("draw_'$1'").addEventListener("'click'", function() {'
+$ECHO '\t\tif (chart && chart.clearChart) chart.clearChart();'
+$ECHO 
+$ECHO '\t\tchart = new google.visualization.ColumnChart(document.getElementById("chart_master"));'
+$ECHO '\t\tchart.draw( data_'$1', options_'$1');'
+$ECHO '\t\t});'
+$ECHO
+}
+
+# Variation of the above for TOPSUM graph
+chart_end_top()
+{
+$ECHO '\t\t]);'
+$ECHO
+$ECHO '\t\tvar options_TOPSUM = {'
+$ECHO '\t\t\tchartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},'
+$ECHO '\t\t\ttitle: "Top 20 processes by CPU correlation between CPU-seconds(Total), Character-I/O(Total), Memory-Size(Max) for each Command Name",'
+$ECHO '\t\t\thAxis: {title: "CPU seconds in Total"},'
+$ECHO '\t\t\tvAxis: {title: "Character I/O in Total"},'
+$ECHO '\t\t\tsizeAxis: {maxSize: 200},'
+$ECHO '\t\t\tbubble: {textStyle: {fontSize: 15}}'
+$ECHO '\t\t};'
+$ECHO
+$ECHO '\t\tdocument.getElementById("draw_TOPSUM").addEventListener("'click'", function() {'
+$ECHO '\t\tif (chart && chart.clearChart) chart.clearChart();'
+$ECHO 
+$ECHO '\t\tchart = new google.visualization.BubbleChart(document.getElementById("chart_master"));'
+$ECHO '\t\tchart.draw( data_TOPSUM, options_TOPSUM);'
+$ECHO '\t\t});'
+$ECHO
+}
+
+# data is reused and we just add the same chart but unstacked - used in Disk unstacked
+chart_add_unstacked()
+{
+$ECHO '\t\tvar options_'$1'u = {'
+$ECHO '\t\t\tchartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},'
+$ECHO '\t\t\ttitle: "'$2'",'
+$ECHO '\t\t\tfocusTarget: "category",'
+$ECHO '\t\t\thAxis: {'
+$ECHO '\t\t\t\tgridlines: {'
+$ECHO '\t\t\t\t\tcolor: "lightgrey",'
+$ECHO '\t\t\t\t\tcount: 30'
+$ECHO '\t\t\t\t}'
+$ECHO '\t\t\t},'
+$ECHO '\t\t\tvAxis: {'
+$ECHO '\t\t\t\tgridlines: {'
+$ECHO '\t\t\t\t\tcolor: "lightgrey",'
+$ECHO '\t\t\t\t\tcount: 11'
+$ECHO '\t\t\t\t}'
+$ECHO '\t\t\t},'
+$ECHO '\t\t\tisStacked: 0'
+$ECHO '\t\t};'
+$ECHO
+$ECHO '\t\tdocument.getElementById("draw_'$1'u").addEventListener("'click'", function() {'
+$ECHO '\t\tif (chart && chart.clearChart) chart.clearChart();'
+$ECHO 
+$ECHO '\t\tchart = new google.visualization.AreaChart(document.getElementById("chart_master"));'
+$ECHO '\t\tchart.draw( data_'$1', options_'$1'u);'
+$ECHO '\t\t});'
+$ECHO
+}
+
+# Finished the .html heads ections and entire the body then output top nmon file name
+html_mid() 
+{
+$ECHO '\t\t}'
+$ECHO '\t\t</script>'
+$ECHO '\t</head>'
+$ECHO '\t <body bgcolor="#EEEEFF">'
+$ECHO '\tnmon data file: <b>'$ORIGINAL'</b>'
+$ECHO '\t<br>'
+#$ECHO '\t <hr>'
+}
+
+# Add and the graph drawing buttouns at the top of the page
+chart_button() 
+{
+$ECHO '\t<button id="draw_'$1'" style="color:'$2';">'$1'</button>'
+}
+
+# This is the placement of where the graphs get placed
+chart_draw()
+{
+$ECHO ""
+$ECHO '\t<div id="chart_master" style="width:100%; height:75%;">'
+$ECHO '\t<h2 style="color:blue">Click on a Graph button above, to display that graph</h2>'
+$ECHO '\t</div>'
+$ECHO ""
+}
+
+# Finish the .html file
+html_end() 
+{
+$ECHO '\t</body>'
+$ECHO '</html>'
+}
+
+# Called to generate the data for the fixed format nmon file lines - just extract the data colum needed and reformat it necessary
+# The parameter is graph name
+chart()
+{
+# note: '\'' is VERY special and means to get around the impossible ' in a awk string
+#	'   = end the awk program string 
+#	\'  = escaped so its just a character
+#	'   = start the awk program string again
+#	strings are concatenated to the end and start disappear but this allows a ' char to be added
+# as strings are concatenated by the shell before awk gets it, this just adds a single quote = '
+
+	chart_start $1
+	case $1 in
+
+	PHYSICAL_CPU) 
+	awk -F , '
+	/^LPAR,L/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'','\''" $4 "'\'','\''" $7 "'\'']" }
+	/^LPAR,T/ { print ",['\''" $2 "'\''," $3 ","  $4 "," $7 "]" }
+	' <$INPUT
+	;;
+
+	CPU_UTIL) 
+if (( hasSTEAL ))
+then
+	awk -F , '
+	/^CPU_ALL,C/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'','\''"  $4 "'\'','\''"  $5 "'\'','\''" $6 "'\'','\''" $7 "'\'']" }
+	/^CPU_ALL,T/ { print ",['\''" $2 "'\''," $3 "," $4 "," $5 "," $6 "," $7 "]" }
+	' <$INPUT
+else
+	awk -F , '
+	/^CPU_ALL,C/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'','\''"  $4 "'\'','\''"  $5 "'\'','\''" $6 "'\'']" }
+	/^CPU_ALL,T/ { print ",['\''" $2 "'\''," $3 "," $4 "," $5 "," $6 "]" }
+	' <$INPUT
+fi
+	;;
+
+	POOLIDLE) 
+	awk -F , '
+	/^LPAR,L/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $6 "'\'','\''" $9 "'\'']" }
+	/^LPAR,T/ { print ",['\''" $2 "'\''," $6 "," $9 "]" }
+	' <$INPUT
+	;;
+
+	REALMEM) 
+	awk -F , '
+	/^MEM,M/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $5 "'\'','\''" $7 "'\'']" }
+	/^MEM,T/ { print ",['\''" $2 "'\''," $5 "," $7 "]" }
+	' <$INPUT
+	;;
+
+	MEM_LINUX) 
+	awk -F , '
+	/^MEM,M/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'','\''" $7 "'\'','\''" $12 "'\'','\''" $13 "'\'','\''" $15 "'\'','\''" $17"'\'']" }
+	/^MEM,T/ { print ",['\''" $2 "'\''," $3 "," $7 "," $12 "," $13 "," $15 "," $17 "]" }
+	' <$INPUT
+	;;
+
+	VIRTMEM) 
+	awk -F , '
+	/^MEM,M/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $6 "'\'','\''" $8 "'\'']" }
+	/^MEM,T/ { print ",['\''" $2 "'\''," $6 "," $8 "]" }
+	' <$INPUT
+	;;
+
+	SWAP_LINUX) 
+	awk -F , '
+	/^MEM,M/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $6 "'\'','\''" $10 "'\'']" }
+	/^MEM,T/ { print ",['\''" $2 "'\''," $6 "," $10 "]" }
+	' <$INPUT
+	;;
+
+	FSCACHE) 
+	awk -F , '
+	/^MEMUSE,M/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'','\''"  $4 "'\'','\''"  $5 "'\'']" }
+	/^MEMUSE,T/ { print ",['\''" $2 "'\''," $3 "," $4 "," $5 "]" }
+	' <$INPUT
+	;;
+	#;;
+
+	RUNQ) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $3 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $3 "]" }
+	' <$INPUT
+	;;
+
+	PSWITCH) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $5 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $5 "]" }
+	' <$INPUT
+	;;
+
+	SYSCALL) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $6 "'\'','\''" $7 "'\'','\''" $8 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $6 "," $7 "," $8 "]" }
+	' <$INPUT
+	;;
+
+	READWRITE) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $7 "'\'','\''" $8 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $7 "," $8 "]" }
+	' <$INPUT
+	;;
+
+	FORKEXEC) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $9 "'\'','\''" $10 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $9 "," $10 "]" }
+	' <$INPUT
+	;;
+
+	FILEIO) 
+	awk -F , '
+	/^FILE,F/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $6 "'\'','\''" $7 "'\'']" }
+	/^FILE,T/ { print ",['\''" $2 "'\''," $6 "," $7 "]" }
+	' <$INPUT
+	;;
+
+	PAGING) 
+	awk -F , '
+	/^PAGE,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $4 "'\'','\''"  $5 "'\'','\''"  $6 "'\'','\''" $7 "'\'']" }
+	/^PAGE,T/ { print ",['\''" $2 "'\''," $4 "," $5 "," $6 "," $7 "]" }
+	' <$INPUT
+	;;
+
+	SWAPIN) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $4 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $4 "]" }
+	' <$INPUT
+	;;
+
+	IPC) 
+	awk -F , '
+	/^PROC,P/ { print "[{type: '\''datetime'\'', label: '\''Datetime'\'' },'\''" $11 "'\'','\''" $12 "'\'']" }
+	/^PROC,T/ { print ",['\''" $2 "'\''," $11 "," $12 "]" }
+	' <$INPUT
+	;;
+
+	*) $ECHO Oh handling code for chart $1
+		;;
+	esac
+
+	chart_end $1 "$2" $3
+}
+
+# nmonchart command help
+hint()
+{
+	$ECHO 
+	$ECHO  Hint: $0 nmon_file html_file
+	$ECHO 
+	$ECHO  "\tnmon_file \t1st parameter is the nmon capatured data file like hostname_date_time.nmon"
+	$ECHO  "\thtml_file \t2nd parameter is the output file on your website directory like /webpages/docs/hostname_date_time.html"
+	$ECHO  
+	$ECHO  "\tExample: %0 mynmonfile.nmon /webpages/docs/mycharts.html"
+	$ECHO  
+	exit
+}
+
+#------------------------------------ Don't change anything above here
+#------------------------------------ Add new grpahs below
+
+# this function used to redirect output into the .html file
+generate()
+{
+html_start
+
+# Straight forward graphs where we have to pick the data out of the line with fixed numbers of columns
+if (( isAIX ))
+then
+ if (( hasLPARstats ))
+ then
+ chart PHYSICAL_CPU "VM Physical CPU Use of Shared CPU" 0
+ chart POOLIDLE "Whole machine Physical CPU Pool Use (If all PoolIdle=0 it means perf stats are not switch on at VM level)" 0
+ fi
+fi
+chart CPU_UTIL "CPU Utilisation Percentages" 1
+if (( isAIX ))
+then
+ chart REALMEM "Real Memory - RAM" 0
+ chart VIRTMEM "Virtual Memory - Paging Space" 0
+ chart FSCACHE "Filesystem Cache Memory Use Percentage" 0
+else 
+ chart MEM_LINUX "Real Memory - RAM" 0
+ chart SWAP_LINUX "Virtual Memory - Paging Space" 0
+fi
+chart RUNQ    "Run Queue - processes ready to run" 0
+chart PSWITCH "Process Switch - between processes" 0
+if (( isAIX ))
+then
+ chart SYSCALL "System calls from application to the kernel" 0
+ chart READWRITE "Read and Write System calls - for disk & network I/O" 0
+fi
+chart FORKEXEC "Fork and Exec System calls - creating processes" 0
+if (( isAIX ))
+then
+ chart FILEIO "File I/O through System call read & write = disk, pipe & sockets in bytes" 0
+fi
+if (( isAIX ))
+then
+ chart PAGING "Paging from Pagespace (pgin & pgout) & Paging from Filesystem (pgsin & pgsout)" 0
+ chart SWAPIN    "Process Swap-In per second" 0
+fi
+
+# CPU_USE
+chart_start CPU_USE
+$ECHO "['CPU','User-Time-Total','System-Util-Total']" 
+grep "^CPU[0-9]*,T"  $INPUT | awk -F, '
+{
+	count[$1] += 1;
+        usr[$1]   += $3;
+        sys[$1]   += $4;
+}
+END {
+        for (i in usr) {
+                printf "%s %.1f %.1f\n", i, usr[i]/count[i], sys[i]/count[i]
+        }
+}' | sed -e 's/CPU//' | sort -n | awk '{
+                printf ",['\''CPU%s'\'',%.1f,%.1f]\n", $1, $2, $3
+}'
+chart_end_column CPU_USE "Logical CPU Core Use (Power SMT or x86 Hyperthreads) Average(User%+System%)" 1
+
+
+if (( hasTOP ))
+then
+# TOPSUM Buble chart of CPU, I/O and RAM use
+ chart_start TOPSUM 
+# output the fixed header line
+ $ECHO  "['Command', 'CPU seconds', 'CharIO', 'Type', 'Memory KB' ]" 
+
+# extract filter out the rubish out  particularly for command names
+ grep "^TOP,[0-9]" $INPUT | sed -e "s/[ =<>\[\]-+\/:]/_/g" >$TOP
+
+cat $TOP | awk -F, '
+{
+	cpu[$14] += $4;
+	io[$14] += $11;
+	size[$14] = (size[$14] < ($9 + $10) ? ($9 + $10) : size[$14] );
+}
+END {
+	for (i in cpu) {
+		printf ",['\''%s'\'',%8.1f,%8d,'\''%s'\'',%8d]\n", i, cpu[i], io[i] / 1024, i, size[i]
+	}
+}' | sort -rn -t, $SORTARG | head -n 20 >>$TOP20
+ cat $TOP20
+ chart_end_top
+
+# TOP processes over time chart
+
+awk -F\' '
+	BEGIN { 
+		i=1 ; 
+		printf "BEGIN {\n" ;
+	}
+	{ 
+		printf "\tcmd[%d]=\"%s\";\n", i, $2 ;
+		i++  ;
+	}' <$TOP20 >$TOPAWKS
+
+$ECHO '
+}
+{
+        timestamp[$3]=$3;
+        cpu[$3 "_" $14] += $4;
+}
+END {
+        for (j in cmd) {
+                printf ",'\''%s'\''", cmd[j];
+        }
+        printf "]\\n" ;
+        for (i in timestamp) {
+                printf ",['\''%s'\''", i;
+                for (j in cmd) {
+                        printf ", %.1f", cpu[i "_" cmd[j]] ;
+                }
+                printf "]\\n" ;
+        }
+}' >>$TOPAWKS 
+
+# Now execute the dynamically created awk script
+chart_start TOPCMD
+print -n "[{type: 'datetime', label: 'Datetime' }"
+cat $TOP | awk -F, -f $TOPAWKS  | sort -n
+chart_end TOPCMD "Top Process Commands by CPU (Percentage of a core)" 0
+fi
+
+# These lines have different numbers of stats depending on the machine config
+# Assuming we want all the stats on a line then fortunately we just need to format them
+chart_start NET 
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^NET,N $INPUT | cut -f 3- -d, | sed -e "s/,$//"  -e "s/,/\',\'/g" -e "s/\$/\\']/" 
+grep ^NET,T $INPUT | \
+awk -F"," '{printf(",['\''%s'\''",$2); for(i=3; i<=NF; i++){if( i<=(((NF-2)/2+2)) ){printf(",%.1f",$i)} else {printf(",-%.1f",$i)}};printf("]\n")}'
+chart_end NET "Network Receive(read) & Send(write shown negatively) in KB per second" 0
+
+chart_start NETPACKET 
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^NETPACKET,N $INPUT | cut -f 3- -d, | sed -e "s/,$//"  -e "s/,/\',\'/g" -e "s/\$/\\']/" 
+grep ^NETPACKET,T $INPUT | sed -e "s/NETPACKET,/#\[\'/" -e "s/,/\',/"    -e "s/\$/\\]/" -e  "s/#/,/"
+chart_end NETPACKET "Network packet count per second" 0
+
+if (( isAIX ))
+then
+ if (( hasNETSIZE ))
+ then
+  chart_start NETSIZE 
+  print -n "[{type: 'datetime', label: 'Datetime' },'"
+  grep ^NETSIZE,N $INPUT | cut -f 3- -d, | sed -e "s/,$//"  -e "s/,/\',\'/g" -e "s/\$/\\']/" 
+  grep ^NETSIZE,T $INPUT | sed -e "s/NETSIZE,/#\[\'/" -e "s/,/\',/"    -e "s/\$/\\]/" -e  "s/#/,/"
+  chart_end NETSIZE "Network packet size (bytes)" 0
+ fi
+fi
+
+#--
+if (( isAIX ))
+then
+chart_start ADAPT_KBS
+grep ^IOADAPT,D $INPUT | \
+awk -F"," '{printf("[{type: '\''datetime'\'', label: '\''Datetime'\'' }"); for(i=3; i<=NF; i++){if( ((i+1)%3) || i<1 ){printf(",'\''%s'\''",$i)}}; printf("]\n")}'
+grep ^IOADAPT,T $INPUT | \
+awk -F"," 'NR!=1{printf(",['\''%s'\''",$2); for(i=3; i<=NF; i++){if( ((i+1)%3) || i<1 ){printf(",%.1f",$i)}};printf("]\n")}'
+chart_end ADAPT_KBS "I/O Adapter stats in KB per second (Stacked)" 1
+fi
+
+#---
+if (( isAIX ))
+then
+chart_start ADAPT_TPS
+grep ^IOADAPT,D $INPUT | \
+awk -F"," '{printf("[{type: '\''datetime'\'', label: '\''Datetime'\'' }"); for(i=5; i<=NF; i++){if( !((i+1)%3) || i<1 ){printf(",'\''%s'\''",$i)}}; printf("]\n")}'
+grep ^IOADAPT,T $INPUT | \
+awk -F"," 'NR!=1{printf(",['\''%s'\''",$2); for(i=5; i<=NF; i++){if( !((i+1)%3) || i<1  ){printf(",%.1f",$i)}};printf("]\n")}'
+chart_end ADAPT_TPS "I/O Adapter stats in Transfers per second (Stacked)" 1
+fi
+
+#--- next the disks graphs that have Stacked and Unstacked versions
+
+chart_start DISKBUSY
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^DISKBUSY,D $INPUT | cut -f 3- -d, | sed  -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^DISKBUSY,T $INPUT | sed -e "s/DISKBUSY,/#\[\'/" -e  "s/,/\',/"   -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end DISKBUSY "Disk Busy Percentage of the time (Stacked)" 1
+chart_add_unstacked DISKBUSY "Disk Busy Percentage of the time (UnStacked)"
+
+chart_start DISKREAD
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^DISKREAD,D $INPUT | cut -f 3- -d, | sed -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^DISKREAD,T $INPUT | sed -e "s/DISKREAD,/#\[\'/" -e  "s/,/\',/"    -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end DISKREAD "Disk Read KB per second (Stacked)" 1
+chart_add_unstacked DISKREAD "Disk Read KB per second (UnStacked)" 
+
+chart_start DISKWRITE
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^DISKWRITE,D $INPUT | cut -f 3- -d, | sed -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^DISKWRITE,T $INPUT | sed -e "s/DISKWRITE,/#\[\'/" -e  "s/,/\',/"    -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end DISKWRITE "Disk Write KB per second (Stacked)" 1
+chart_add_unstacked DISKWRITE "Disk Write KB per second (UnStacked)" 
+
+chart_start DISKBSIZE
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^DISKBSIZE,D $INPUT | cut -f 3- -d, | sed  -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^DISKBSIZE,T $INPUT | sed -e "s/DISKBSIZE,/#\[\'/" -e  "s/,/\',/"    -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end DISKBSIZE "Disk Block Size KB" 0
+
+chart_start DISKXFER
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^DISKXFER,D $INPUT | cut -f 3- -d, | sed -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^DISKXFER,T $INPUT | sed -e "s/DISKXFER,/#\[\'/" -e  "s/,/\',/"    -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end DISKXFER "Disk Transfers per second" 0
+
+chart_start JFS
+print -n "[{type: 'datetime', label: 'Datetime' },'"
+grep ^JFSFILE,J $INPUT | cut -f 3- -d, | sed -e  "s/,/\',\'/g" -e  "s/\$/\\']/"
+grep ^JFSFILE,T $INPUT | sed -e "s/JFSFILE,/#\[\'/" -e  "s/,/\',/"    -e  "s/\$/\\]/" -e  "s/#/,/"
+chart_end JFS "Journal File System Percent Full" 0
+
+if (( isAIX ))
+then
+chart IPC    "InterProcess Comms - Semaphore & Message Queues" 0
+fi
+
+html_mid
+
+if (( isAIX ))
+then
+ if (( hasLPARstats ))
+ then
+chart_button PHYSICAL_CPU      black
+chart_button POOLIDLE  black
+ fi
+chart_button CPU_UTIL      red
+chart_button CPU_USE      red
+chart_button RUNQ      red
+chart_button PSWITCH   red
+chart_button SYSCALL   red
+chart_button READWRITE red
+chart_button FORKEXEC  red
+chart_button FILEIO    red
+chart_button REALMEM   blue
+chart_button VIRTMEM   blue
+chart_button FSCACHE   blue
+chart_button PAGING    blue
+chart_button SWAPIN    blue
+if (( hasTOP ))
+then
+chart_button TOPSUM    black
+chart_button TOPCMD    black
+fi
+$ECHO '<br>' 
+chart_button NET       purple
+chart_button NETPACKET purple
+if (( hasNETSIZE ))
+then
+chart_button NETSIZE   purple
+fi
+chart_button ADAPT_KBS green
+chart_button ADAPT_TPS green
+chart_button DISKBUSY  brown
+chart_button DISKBUSYu  brown
+chart_button DISKREAD  brown
+chart_button DISKREADu  brown
+chart_button DISKWRITE brown
+chart_button DISKWRITEu brown
+chart_button DISKBSIZE brown
+chart_button DISKXFER  brown
+chart_button JFS       brown
+chart_button IPC       black
+else 
+# ------ Linux
+#chart_button PHYSICAL_CPU      black
+#chart_button POOLIDLE  black
+chart_button CPU_UTIL red
+chart_button CPU_USE      red
+chart_button RUNQ      red
+chart_button PSWITCH   red
+#chart_button SYSCALL   red
+#chart_button READWRITE red
+chart_button FORKEXEC  red
+#chart_button FILEIO    red
+chart_button MEM_LINUX   blue
+chart_button SWAP_LINUX   blue
+#chart_button FSCACHE   blue
+#chart_button PAGING    blue
+#chart_button SWAPIN    blue
+if (( hasTOP ))
+then
+chart_button TOPSUM    black
+chart_button TOPCMD    black
+fi
+$ECHO '<br>' 
+chart_button NET       purple
+chart_button NETPACKET purple
+#chart_button NETSIZE   purple
+#chart_button ADAPT_KBS green
+#chart_button ADAPT_TPS green
+chart_button DISKBUSY  brown
+chart_button DISKBUSYu  brown
+chart_button DISKREAD  brown
+chart_button DISKREADu  brown
+chart_button DISKWRITE brown
+chart_button DISKWRITEu brown
+chart_button DISKBSIZE brown
+chart_button DISKXFER brown
+chart_button JFS       brown
+#chart_button IPC       black
+fi
+
+chart_draw
+
+# Display the bottom text table with basic onfiguration data
+COUNT=`grep ZZZZ $INPUT | wc -l`
+grep "^AAA," $INPUT >$INFO
+$ECHO "<table><tr><td>"
+grep AAA,host, $INFO | sed 's/AAA,host,/<li>Host:/'
+grep AAA,date, $INFO | sed 's/AAA,date,/<li>Date:/'
+grep AAA,time, $INFO | sed 's/AAA,time,/<li>Time:/'
+grep AAA,interval, $INFO | sed 's/AAA,interval,/<li>Interval:/'
+$ECHO "<li>Snapshots:" $COUNT
+
+if (( isAIX))
+then
+$ECHO "<td>"
+grep ",lparstat -i," $INPUT >$INFO
+grep "Online Virtual CPU" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Entitled Capacity" $INFO | grep -v "Pool" | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Mode" $INFO | grep -v "Memory" | grep -v "Sub Proc" | grep -v Saving | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Online Memory" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Type" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+
+grep ",lsconf," $INPUT >$INFO
+$ECHO "<td>"
+grep "System Model" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Serial Number" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Processor Type" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Implementation Mode" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Processor Version" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+
+$ECHO "<td>"
+grep "Clock Speed" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "CPU Type" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Kernel Type" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "LPAR Info" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+grep "Platform Firmware level" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+else
+$ECHO "<td>"
+grep AAA,cpus,  $INFO | sed 's/AAA,cpus,/<li>Number of CPUs:/'
+grep AAA,disks, $INFO | sed 's/AAA,disks,/<li>Number of Disks:/'
+grep "AAA,OS,Linux," $INFO | awk -F, '{ printf "<li>Linux Kernel %s\n", $4 }'
+grep "^BBBP," $INPUT >$INFO
+grep "/etc/release," $INFO | sed 's/PRETTY_NAME=//' | grep -v = | grep -v LSB_VERSION | awk -F, 'NR == 1{ printf "<li>Linux Version %s\n", $4 }'
+
+fi
+grep ",oslevel," $INPUT | tail -1 >$INFO
+$ECHO "<td valign=top>"
+cat $INFO | awk -F \" '{ printf "<li>AIX Level %s\n", $2 }'
+grep ",lparstat -i," $INPUT >$INFO
+grep "Power Saving Mode" $INFO | awk -F \" '{ printf "<li>%s\n", $2 }'
+$ECHO "<hr>"
+$ECHO "<li>Graphed by nmonchart v" $nmonchart_version
+$ECHO "<li>Author: Nigel Griffiths @mr_nmon"
+$ECHO "</table>"
+
+html_end
+}
+
+################################### Main code starts here
+# -- Check the parameters
+if [[ "$1" == "" ]]
+then
+	$ECHO  $0 Error: No first parameter = nmon data file = filename.nmon
+	hint
+fi
+if [[ "$2" == "" ]]
+then
+	$ECHO  $0 Error: No second parameter = outputfile = filename.html
+	hint
+fi
+if [[ ! -r "$1" ]]
+then
+	$ECHO  $0 Error: Input file $1 is not readable
+	hint
+fi
+
+# --- save the parameters to avoid confusion
+ORIGINAL=$1
+OUTPUT=$2
+
+grep "^AAA,OS,Linux" $1>/dev/null
+if [[ $? == 0 ]]
+then
+        isLINUX=1
+        isAIX=0
+else
+        isLINUX=0
+        isAIX=1
+	grep "^LPAR,Logical" $1>/dev/null
+	if [[ $? == 0 ]]
+	then
+	    hasLPARstats=1
+	else
+	    hasLPARstats=0
+	fi
+fi
+
+grep "^AAA,steal,1" $1>/dev/null
+if [[ $? == 0 ]]
+then
+        hasSTEAL=1
+else
+        hasSTEAL=0
+fi
+
+grep "^NETSIZE.Network" $1>/dev/null
+if [[ $? == 0 ]]
+then
+        hasNETSIZE=1
+else
+        hasNETSIZE=0
+fi
+
+grep "^TOP,+PID" $1>/dev/null
+if [[ $? == 0 ]]
+then
+        hasTOP=1
+else
+        hasTOP=0
+fi
+
+#if (( $isLINUX ))
+#then
+#        $ECHO  is Linux $1
+#fi
+
+
+# --- make temporary file names
+TMP=/tmp/nmonchart.tmp.$$
+SED=/tmp/nmonchart.sed.$$
+INFO=/tmp/nmonchart.info.$$
+TOP=/tmp/nmonchart.top.$$
+TOP20=/tmp/nmonchart.top20.$$
+TOPAWKS=/tmp/nmonchart.topawks.$$
+###$ECHO  tmp=$TMP sed=$SED
+
+# Strip Control-M from input file as some people don't know how to use FTP!!!
+# Strip out end-of-line commas and add zeros for missing data from topas output!!!
+# Strip out "-0.0" and "-1.0" from Linux files - normally used as warning of errors or missing data
+INPUT=/tmp/nmonchart.input.$$
+sed -e 's///' -e 's/,,$//' -e 's/,$//' -e 's/,,/,0,/g' -e 's/-0.0/0.0/g' -e 's/-1.0/0.0/g' <$ORIGINAL >$INPUT
+
+# --- do the bulk of the work and save in tmp file
+generate >$TMP
+
+# --- Finally fix the time stamps 
+# Original Time and Date  in text format was too slow in graphing
+# grep ZZZZ $INPUT| sed -e 's?ZZZZ,?s/?' -e 's?,?/?' -e 's?,? on ?' -e 's?$?/?' >$SED
+
+# Changed to using the numeric Date() function 
+# Extract ZZZZ lines, transform with sed commands but split them out in to files of less that 1000 lines otherwise sed explodes
+# Change mnth names to numbers starting with zero: JAN to 0, FEB to 1 up to DEC to 11
+# Example ZZZZ,T0099,22:04:11,30-NOV-2015 to
+#         Date('2015', '10', '30', '22', '04', '11')
+grep ^ZZZZ,T $INPUT | sed -e 's/^M//' -e 's/-JAN-/- 0-/' -e 's/-FEB-/- 1-/' -e 's/-MAR-/- 2-/' -e 's/-APR-/- 3-/' -e 's/-MAY-/- 4-/' -e 's/-JUN-/- 5-/' -e 's/-JUL-/- 6-/' -e 's/-AUG-/- 7-/' -e 's/-SEP-/- 8-/' -e 's/-OCT-/- 9-/' -e 's/-NOV-/-10-/' -e 's/-DEC-/-11-/' | sed -e 's/^\(....\),\(T[0-9]*\),\(..\):\(..\):\(..\),\(..\)-\(..\)-\(....\)/s\/\2\/Date(\8, \7, \6, \3, \4, \5)\//' | split -l 999 - $SED 
+
+for i in $SED*
+do
+	sed -f $i $TMP >$OUTPUT
+	cp $OUTPUT $TMP  # ready for next loop
+done
+
+# --- make the output file user, group and other readable
+chmod ugo+r $OUTPUT
+# --- Cleanup
+rm $TMP $SED* $INFO $INPUT 
+if (( hasTOP ))
+then
+rm $TOP $TOP20 $TOPAWKS 
+fi

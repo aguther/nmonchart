@@ -1,0 +1,1897 @@
+<html>
+	<head>
+		<title>nmonChart</title>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+		google.load("visualization", "1.1", {packages:["corechart"]});
+
+		google.setOnLoadCallback(setupCharts);
+		
+		function setupCharts() {
+		
+		var chart = null;
+
+			var data_PHYSICAL_CPU = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'PhysicalCPU','virtualCPUs','entitled']
+,['Date(2014, 11, 01, 00, 20, 22)',2.108,9,7.00]
+,['Date(2014, 11, 01, 00, 40, 25)',1.306,9,7.00]
+,['Date(2014, 11, 01, 01, 00, 27)',1.321,9,7.00]
+,['Date(2014, 11, 01, 01, 20, 28)',1.584,9,7.00]
+,['Date(2014, 11, 01, 01, 40, 30)',1.545,9,7.00]
+,['Date(2014, 11, 01, 02, 00, 34)',1.401,9,7.00]
+,['Date(2014, 11, 01, 02, 20, 36)',2.266,9,7.00]
+,['Date(2014, 11, 01, 02, 40, 38)',1.592,9,7.00]
+,['Date(2014, 11, 01, 03, 00, 40)',2.128,9,7.00]
+,['Date(2014, 11, 01, 03, 20, 41)',1.801,9,7.00]
+,['Date(2014, 11, 01, 03, 40, 43)',1.580,9,7.00]
+,['Date(2014, 11, 01, 04, 00, 46)',1.793,9,7.00]
+,['Date(2014, 11, 01, 04, 20, 48)',1.454,9,7.00]
+,['Date(2014, 11, 01, 04, 40, 50)',2.801,9,7.00]
+,['Date(2014, 11, 01, 05, 00, 54)',3.495,9,7.00]
+,['Date(2014, 11, 01, 05, 20, 57)',4.405,9,7.00]
+,['Date(2014, 11, 01, 05, 41, 00)',3.998,9,7.00]
+,['Date(2014, 11, 01, 06, 01, 02)',3.753,9,7.00]
+,['Date(2014, 11, 01, 06, 21, 14)',4.094,9,7.00]
+,['Date(2014, 11, 01, 06, 41, 24)',4.137,9,7.00]
+,['Date(2014, 11, 01, 07, 01, 39)',3.871,9,7.00]
+,['Date(2014, 11, 01, 07, 21, 54)',4.291,9,7.00]
+,['Date(2014, 11, 01, 07, 42, 10)',4.156,9,7.00]
+,['Date(2014, 11, 01, 08, 02, 24)',4.087,9,7.00]
+,['Date(2014, 11, 01, 08, 43, 57)',6.380,9,7.0]
+,['Date(2014, 11, 01, 09, 04, 43)',5.964,9,7.0]
+,['Date(2014, 11, 01, 09, 25, 28)',4.030,9,7]
+,['Date(2014, 11, 01, 09, 46, 16)',4.149,9,7]
+,['Date(2014, 11, 01, 10, 07, 13)',4.187,9,7]
+,['Date(2014, 11, 01, 10, 28, 06)',4.120,9,7]
+		]);
+
+		var options_PHYSICAL_CPU = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "VM Physical CPU Use of Shared CPU",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_PHYSICAL_CPU").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_PHYSICAL_CPU, options_PHYSICAL_CPU);
+		});
+
+			var data_POOLIDLE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'poolCPUs','PoolIdle']
+,['Date(2014, 11, 01, 00, 20, 22)',25,3.60]
+,['Date(2014, 11, 01, 00, 40, 25)',25,5.00]
+,['Date(2014, 11, 01, 01, 00, 27)',25,3.00]
+,['Date(2014, 11, 01, 01, 20, 28)',25,2.30]
+,['Date(2014, 11, 01, 01, 40, 30)',25,4.50]
+,['Date(2014, 11, 01, 02, 00, 34)',25,4.00]
+,['Date(2014, 11, 01, 02, 20, 36)',25,5.00]
+,['Date(2014, 11, 01, 02, 40, 38)',25,4.20]
+,['Date(2014, 11, 01, 03, 00, 40)',25,3.60]
+,['Date(2014, 11, 01, 03, 20, 41)',25,8.00]
+,['Date(2014, 11, 01, 03, 40, 43)',25,6.00]
+,['Date(2014, 11, 01, 04, 00, 46)',25,7.00]
+,['Date(2014, 11, 01, 04, 20, 48)',25,9.00]
+,['Date(2014, 11, 01, 04, 40, 50)',25,7.00]
+,['Date(2014, 11, 01, 05, 00, 54)',25,8.00]
+,['Date(2014, 11, 01, 05, 20, 57)',25,6.00]
+,['Date(2014, 11, 01, 05, 41, 00)',25,3.31]
+,['Date(2014, 11, 01, 06, 01, 02)',25,6.00]
+,['Date(2014, 11, 01, 06, 21, 14)',25,7.00]
+,['Date(2014, 11, 01, 06, 41, 24)',25,5.00]
+,['Date(2014, 11, 01, 07, 01, 39)',25,6.00]
+,['Date(2014, 11, 01, 07, 21, 54)',25,4.00]
+,['Date(2014, 11, 01, 07, 42, 10)',25,6.00]
+,['Date(2014, 11, 01, 08, 02, 24)',25,0.00]
+,['Date(2014, 11, 01, 08, 43, 57)',25.00,1]
+,['Date(2014, 11, 01, 09, 04, 43)',25.00,1]
+,['Date(2014, 11, 01, 09, 25, 28)',25.00,1]
+,['Date(2014, 11, 01, 09, 46, 16)',25.00,1]
+,['Date(2014, 11, 01, 10, 07, 13)',25.00,1]
+,['Date(2014, 11, 01, 10, 28, 06)',25.00,1]
+		]);
+
+		var options_POOLIDLE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Whole machine Physical CPU Pool Use (If all PoolIdle=0 it means perf stats are not switch on at VM level)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_POOLIDLE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_POOLIDLE, options_POOLIDLE);
+		});
+
+			var data_CPU_UTIL = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'User%','Sys%','Wait%','Idle%']
+,['Date(2014, 11, 01, 00, 20, 22)',15.4,3.5,2.0,79.1]
+,['Date(2014, 11, 01, 00, 40, 25)',9.0,2.7,2.0,86.3]
+,['Date(2014, 11, 01, 01, 00, 27)',8.1,3.6,3.5,84.8]
+,['Date(2014, 11, 01, 01, 20, 28)',9.8,4.3,3.4,82.5]
+,['Date(2014, 11, 01, 01, 40, 30)',9.7,4.1,3.2,83.1]
+,['Date(2014, 11, 01, 02, 00, 34)',8.3,4.2,3.8,83.7]
+,['Date(2014, 11, 01, 02, 20, 36)',13.6,6.6,4.7,75.0]
+,['Date(2014, 11, 01, 02, 40, 38)',9.9,4.3,3.7,82.1]
+,['Date(2014, 11, 01, 03, 00, 40)',15.0,4.3,3.1,77.6]
+,['Date(2014, 11, 01, 03, 20, 41)',11.9,4.3,3.2,80.6]
+,['Date(2014, 11, 01, 03, 40, 43)',9.8,4.3,3.6,82.3]
+,['Date(2014, 11, 01, 04, 00, 46)',11.5,4.6,3.2,80.7]
+,['Date(2014, 11, 01, 04, 20, 48)',8.6,4.3,4.3,82.8]
+,['Date(2014, 11, 01, 04, 40, 50)',18.3,6.8,3.3,71.6]
+,['Date(2014, 11, 01, 05, 00, 54)',22.6,9.0,3.8,64.6]
+,['Date(2014, 11, 01, 05, 20, 57)',29.6,11.9,5.5,53.0]
+,['Date(2014, 11, 01, 05, 41, 00)',26.8,10.1,4.3,58.9]
+,['Date(2014, 11, 01, 06, 01, 02)',25.6,9.1,4.5,60.8]
+,['Date(2014, 11, 01, 06, 21, 14)',27.6,11.6,6.3,54.5]
+,['Date(2014, 11, 01, 06, 41, 24)',28.5,11.2,6.1,54.2]
+,['Date(2014, 11, 01, 07, 01, 39)',25.7,11.4,6.8,56.1]
+,['Date(2014, 11, 01, 07, 21, 54)',29.0,12.8,7.0,51.3]
+,['Date(2014, 11, 01, 07, 42, 10)',27.8,12.3,7.2,52.7]
+,['Date(2014, 11, 01, 08, 02, 24)',26.6,12.8,7.6,53.1]
+,['Date(2014, 11, 01, 08, 23, 13)',22.9,23.3,18.6,35.2]
+,['Date(2014, 11, 01, 08, 43, 57)',67.9,17.8,6.8,7.5]
+,['Date(2014, 11, 01, 09, 04, 43)',59.4,19.4,7.7,13.6]
+,['Date(2014, 11, 01, 09, 25, 28)',17.9,21.7,18.7,41.7]
+,['Date(2014, 11, 01, 09, 46, 16)',18.7,22.4,19.4,39.5]
+,['Date(2014, 11, 01, 10, 07, 13)',18.4,23.3,20.0,38.4]
+,['Date(2014, 11, 01, 10, 28, 06)',17.9,22.8,20.0,39.2]
+		]);
+
+		var options_CPU_UTIL = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "CPU Utilisation Percentages",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_CPU_UTIL").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_CPU_UTIL, options_CPU_UTIL);
+		});
+
+			var data_REALMEM = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'Real free(MB)','Real total(MB)']
+,['Date(2014, 11, 01, 00, 20, 22)',10936.1,63488.0]
+,['Date(2014, 11, 01, 00, 40, 25)',10930.7,63488.0]
+,['Date(2014, 11, 01, 01, 00, 27)',10921.6,63488.0]
+,['Date(2014, 11, 01, 01, 20, 28)',10937.6,63488.0]
+,['Date(2014, 11, 01, 01, 40, 30)',10927.2,63488.0]
+,['Date(2014, 11, 01, 02, 00, 34)',10922.6,63488.0]
+,['Date(2014, 11, 01, 02, 20, 36)',10937.8,63488.0]
+,['Date(2014, 11, 01, 02, 40, 38)',10933.3,63488.0]
+,['Date(2014, 11, 01, 03, 00, 40)',10931.5,63488.0]
+,['Date(2014, 11, 01, 03, 20, 41)',10936.9,63488.0]
+,['Date(2014, 11, 01, 03, 40, 43)',10935.9,63488.0]
+,['Date(2014, 11, 01, 04, 00, 46)',10924.6,63488.0]
+,['Date(2014, 11, 01, 04, 20, 48)',10926.2,63488.0]
+,['Date(2014, 11, 01, 04, 40, 50)',10935.6,63488.0]
+,['Date(2014, 11, 01, 05, 00, 54)',10922.5,63488.0]
+,['Date(2014, 11, 01, 05, 20, 57)',10924.0,63488.0]
+,['Date(2014, 11, 01, 05, 41, 00)',10930.6,63488.0]
+,['Date(2014, 11, 01, 06, 01, 02)',10923.0,63488.0]
+,['Date(2014, 11, 01, 06, 21, 14)',10932.7,63488.0]
+,['Date(2014, 11, 01, 06, 41, 24)',10920.5,63488.0]
+,['Date(2014, 11, 01, 07, 01, 39)',10915.5,63488.0]
+,['Date(2014, 11, 01, 07, 21, 54)',10938.7,63488.0]
+,['Date(2014, 11, 01, 07, 42, 10)',10907.8,63488.0]
+,['Date(2014, 11, 01, 08, 02, 24)',10896.8,63488.0]
+,['Date(2014, 11, 01, 08, 23, 13)',10861.3,63488.0]
+,['Date(2014, 11, 01, 08, 43, 57)',10806.6,63488.0]
+,['Date(2014, 11, 01, 09, 04, 43)',10808.0,63488.0]
+,['Date(2014, 11, 01, 09, 25, 28)',10816.5,63488.0]
+,['Date(2014, 11, 01, 09, 46, 16)',10820.8,63488.0]
+,['Date(2014, 11, 01, 10, 07, 13)',10812.4,63488.0]
+,['Date(2014, 11, 01, 10, 28, 06)',10822.5,63488.0]
+		]);
+
+		var options_REALMEM = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Real Memory - RAM",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_REALMEM").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_REALMEM, options_REALMEM);
+		});
+
+			var data_VIRTMEM = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'Virtual free(MB)','Virtual total(MB)']
+,['Date(2014, 11, 01, 00, 20, 22)',21094.7,25088.0]
+,['Date(2014, 11, 01, 00, 40, 25)',21106.5,25088.0]
+,['Date(2014, 11, 01, 01, 00, 27)',20793.5,25088.0]
+,['Date(2014, 11, 01, 01, 20, 28)',20995.4,25088.0]
+,['Date(2014, 11, 01, 01, 40, 30)',21032.8,25088.0]
+,['Date(2014, 11, 01, 02, 00, 34)',20792.8,25088.0]
+,['Date(2014, 11, 01, 02, 20, 36)',20926.6,25088.0]
+,['Date(2014, 11, 01, 02, 40, 38)',20928.2,25088.0]
+,['Date(2014, 11, 01, 03, 00, 40)',20869.3,25088.0]
+,['Date(2014, 11, 01, 03, 20, 41)',20888.0,25088.0]
+,['Date(2014, 11, 01, 03, 40, 43)',20773.4,25088.0]
+,['Date(2014, 11, 01, 04, 00, 46)',20743.6,25088.0]
+,['Date(2014, 11, 01, 04, 20, 48)',20198.8,25088.0]
+,['Date(2014, 11, 01, 04, 40, 50)',20120.4,25088.0]
+,['Date(2014, 11, 01, 05, 00, 54)',19663.3,25088.0]
+,['Date(2014, 11, 01, 05, 20, 57)',19558.3,25088.0]
+,['Date(2014, 11, 01, 05, 41, 00)',19427.6,25088.0]
+,['Date(2014, 11, 01, 06, 01, 02)',19241.7,25088.0]
+,['Date(2014, 11, 01, 06, 21, 14)',19881.0,25088.0]
+,['Date(2014, 11, 01, 06, 41, 24)',19606.7,25088.0]
+,['Date(2014, 11, 01, 07, 01, 39)',19568.9,25088.0]
+,['Date(2014, 11, 01, 07, 21, 54)',19549.1,25088.0]
+,['Date(2014, 11, 01, 07, 42, 10)',19202.8,25088.0]
+,['Date(2014, 11, 01, 08, 02, 24)',18494.3,25088.0]
+,['Date(2014, 11, 01, 08, 23, 13)',17032.1,25088.0]
+,['Date(2014, 11, 01, 08, 43, 57)',14846.9,25088.0]
+,['Date(2014, 11, 01, 09, 04, 43)',14498.5,25088.0]
+,['Date(2014, 11, 01, 09, 25, 28)',15004.0,25088.0]
+,['Date(2014, 11, 01, 09, 46, 16)',15000.8,25088.0]
+,['Date(2014, 11, 01, 10, 07, 13)',14990.9,25088.0]
+,['Date(2014, 11, 01, 10, 28, 06)',17494.7,25088.0]
+		]);
+
+		var options_VIRTMEM = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Virtual Memory - Paging Space",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_VIRTMEM").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_VIRTMEM, options_VIRTMEM);
+		});
+
+			var data_FSCACHE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'%numperm','%minperm','%maxperm']
+,['Date(2014, 11, 01, 00, 20, 22)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 00, 40, 25)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 01, 00, 27)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 01, 20, 28)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 01, 40, 30)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 02, 00, 34)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 02, 20, 36)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 02, 40, 38)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 03, 00, 40)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 03, 20, 41)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 03, 40, 43)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 04, 00, 46)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 04, 20, 48)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 04, 40, 50)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 05, 00, 54)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 05, 20, 57)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 05, 41, 00)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 06, 01, 02)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 06, 21, 14)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 06, 41, 24)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 07, 01, 39)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 07, 21, 54)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 07, 42, 10)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 08, 02, 24)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 08, 23, 13)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 08, 43, 57)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 09, 04, 43)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 09, 25, 28)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 09, 46, 16)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 10, 07, 13)',0.0,3.0,90.0]
+,['Date(2014, 11, 01, 10, 28, 06)',0.0,3.0,90.0]
+		]);
+
+		var options_FSCACHE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Filesystem Cache Memory Use Percentage",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_FSCACHE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_FSCACHE, options_FSCACHE);
+		});
+
+			var data_RUNQ = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'Runnable']
+,['Date(2014, 11, 01, 00, 20, 22)',4.43]
+,['Date(2014, 11, 01, 00, 40, 25)',3.91]
+,['Date(2014, 11, 01, 01, 00, 27)',4.26]
+,['Date(2014, 11, 01, 01, 20, 28)',4.29]
+,['Date(2014, 11, 01, 01, 40, 30)',4.43]
+,['Date(2014, 11, 01, 02, 00, 34)',4.38]
+,['Date(2014, 11, 01, 02, 20, 36)',4.79]
+,['Date(2014, 11, 01, 02, 40, 38)',4.52]
+,['Date(2014, 11, 01, 03, 00, 40)',4.70]
+,['Date(2014, 11, 01, 03, 20, 41)',4.50]
+,['Date(2014, 11, 01, 03, 40, 43)',4.59]
+,['Date(2014, 11, 01, 04, 00, 46)',4.58]
+,['Date(2014, 11, 01, 04, 20, 48)',4.51]
+,['Date(2014, 11, 01, 04, 40, 50)',4.61]
+,['Date(2014, 11, 01, 05, 00, 54)',5.09]
+,['Date(2014, 11, 01, 05, 20, 57)',6.10]
+,['Date(2014, 11, 01, 05, 41, 00)',5.68]
+,['Date(2014, 11, 01, 06, 01, 02)',5.49]
+,['Date(2014, 11, 01, 06, 21, 14)',6.15]
+,['Date(2014, 11, 01, 06, 41, 24)',5.96]
+,['Date(2014, 11, 01, 07, 01, 39)',6.08]
+,['Date(2014, 11, 01, 07, 21, 54)',6.34]
+,['Date(2014, 11, 01, 07, 42, 10)',6.21]
+,['Date(2014, 11, 01, 08, 02, 24)',6.16]
+,['Date(2014, 11, 01, 08, 23, 13)',7.36]
+,['Date(2014, 11, 01, 08, 43, 57)',40.62]
+,['Date(2014, 11, 01, 09, 04, 43)',60.20]
+,['Date(2014, 11, 01, 09, 25, 28)',6.71]
+,['Date(2014, 11, 01, 09, 46, 16)',6.89]
+,['Date(2014, 11, 01, 10, 07, 13)',7.08]
+,['Date(2014, 11, 01, 10, 28, 06)',6.81]
+		]);
+
+		var options_RUNQ = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Run Queue - processes ready to run",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_RUNQ").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_RUNQ, options_RUNQ);
+		});
+
+			var data_PSWITCH = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'pswitch']
+,['Date(2014, 11, 01, 00, 20, 22)',8027]
+,['Date(2014, 11, 01, 00, 40, 25)',5728]
+,['Date(2014, 11, 01, 01, 00, 27)',8381]
+,['Date(2014, 11, 01, 01, 20, 28)',10444]
+,['Date(2014, 11, 01, 01, 40, 30)',8768]
+,['Date(2014, 11, 01, 02, 00, 34)',8777]
+,['Date(2014, 11, 01, 02, 20, 36)',18017]
+,['Date(2014, 11, 01, 02, 40, 38)',9133]
+,['Date(2014, 11, 01, 03, 00, 40)',9672]
+,['Date(2014, 11, 01, 03, 20, 41)',8827]
+,['Date(2014, 11, 01, 03, 40, 43)',8916]
+,['Date(2014, 11, 01, 04, 00, 46)',9421]
+,['Date(2014, 11, 01, 04, 20, 48)',10966]
+,['Date(2014, 11, 01, 04, 40, 50)',17838]
+,['Date(2014, 11, 01, 05, 00, 54)',25397]
+,['Date(2014, 11, 01, 05, 20, 57)',33254]
+,['Date(2014, 11, 01, 05, 41, 00)',28652]
+,['Date(2014, 11, 01, 06, 01, 02)',25891]
+,['Date(2014, 11, 01, 06, 21, 14)',30417]
+,['Date(2014, 11, 01, 06, 41, 24)',30537]
+,['Date(2014, 11, 01, 07, 01, 39)',30776]
+,['Date(2014, 11, 01, 07, 21, 54)',33091]
+,['Date(2014, 11, 01, 07, 42, 10)',33314]
+,['Date(2014, 11, 01, 08, 02, 24)',36689]
+,['Date(2014, 11, 01, 08, 23, 13)',79738]
+,['Date(2014, 11, 01, 08, 43, 57)',227413]
+,['Date(2014, 11, 01, 09, 04, 43)',319134]
+,['Date(2014, 11, 01, 09, 25, 28)',79425]
+,['Date(2014, 11, 01, 09, 46, 16)',81596]
+,['Date(2014, 11, 01, 10, 07, 13)',83083]
+,['Date(2014, 11, 01, 10, 28, 06)',84538]
+		]);
+
+		var options_PSWITCH = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Process Switch - between processes",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_PSWITCH").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_PSWITCH, options_PSWITCH);
+		});
+
+			var data_SYSCALL = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'syscall','read','write']
+,['Date(2014, 11, 01, 00, 20, 22)',26803,2406,1034]
+,['Date(2014, 11, 01, 00, 40, 25)',21071,1692,540]
+,['Date(2014, 11, 01, 01, 00, 27)',22406,2290,703]
+,['Date(2014, 11, 01, 01, 20, 28)',38544,3091,8354]
+,['Date(2014, 11, 01, 01, 40, 30)',23300,2124,1107]
+,['Date(2014, 11, 01, 02, 00, 34)',22595,1887,1197]
+,['Date(2014, 11, 01, 02, 20, 36)',44533,5551,3930]
+,['Date(2014, 11, 01, 02, 40, 38)',22033,2496,1060]
+,['Date(2014, 11, 01, 03, 00, 40)',25268,2382,1013]
+,['Date(2014, 11, 01, 03, 20, 41)',23149,2346,1076]
+,['Date(2014, 11, 01, 03, 40, 43)',24545,2774,1022]
+,['Date(2014, 11, 01, 04, 00, 46)',24496,2915,1105]
+,['Date(2014, 11, 01, 04, 20, 48)',26780,2279,752]
+,['Date(2014, 11, 01, 04, 40, 50)',75861,3861,2465]
+,['Date(2014, 11, 01, 05, 00, 54)',97901,5981,5142]
+,['Date(2014, 11, 01, 05, 20, 57)',111985,6653,6169]
+,['Date(2014, 11, 01, 05, 41, 00)',101531,5350,5447]
+,['Date(2014, 11, 01, 06, 01, 02)',94468,4311,4285]
+,['Date(2014, 11, 01, 06, 21, 14)',104116,3925,2564]
+,['Date(2014, 11, 01, 06, 41, 24)',93196,3680,2696]
+,['Date(2014, 11, 01, 07, 01, 39)',76941,3432,1820]
+,['Date(2014, 11, 01, 07, 21, 54)',98952,3994,1701]
+,['Date(2014, 11, 01, 07, 42, 10)',87874,4106,1918]
+,['Date(2014, 11, 01, 08, 02, 24)',78903,4637,3248]
+,['Date(2014, 11, 01, 08, 23, 13)',33268,1752,965]
+,['Date(2014, 11, 01, 08, 43, 57)',908033,1305,746]
+,['Date(2014, 11, 01, 09, 04, 43)',732260,1369,748]
+,['Date(2014, 11, 01, 09, 25, 28)',21907,1535,819]
+,['Date(2014, 11, 01, 09, 46, 16)',30555,1376,776]
+,['Date(2014, 11, 01, 10, 07, 13)',23458,1747,1221]
+,['Date(2014, 11, 01, 10, 28, 06)',21107,1430,1302]
+		]);
+
+		var options_SYSCALL = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "System calls from application to the kernel",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_SYSCALL").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_SYSCALL, options_SYSCALL);
+		});
+
+			var data_READWRITE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'read','write']
+,['Date(2014, 11, 01, 00, 20, 22)',2406,1034]
+,['Date(2014, 11, 01, 00, 40, 25)',1692,540]
+,['Date(2014, 11, 01, 01, 00, 27)',2290,703]
+,['Date(2014, 11, 01, 01, 20, 28)',3091,8354]
+,['Date(2014, 11, 01, 01, 40, 30)',2124,1107]
+,['Date(2014, 11, 01, 02, 00, 34)',1887,1197]
+,['Date(2014, 11, 01, 02, 20, 36)',5551,3930]
+,['Date(2014, 11, 01, 02, 40, 38)',2496,1060]
+,['Date(2014, 11, 01, 03, 00, 40)',2382,1013]
+,['Date(2014, 11, 01, 03, 20, 41)',2346,1076]
+,['Date(2014, 11, 01, 03, 40, 43)',2774,1022]
+,['Date(2014, 11, 01, 04, 00, 46)',2915,1105]
+,['Date(2014, 11, 01, 04, 20, 48)',2279,752]
+,['Date(2014, 11, 01, 04, 40, 50)',3861,2465]
+,['Date(2014, 11, 01, 05, 00, 54)',5981,5142]
+,['Date(2014, 11, 01, 05, 20, 57)',6653,6169]
+,['Date(2014, 11, 01, 05, 41, 00)',5350,5447]
+,['Date(2014, 11, 01, 06, 01, 02)',4311,4285]
+,['Date(2014, 11, 01, 06, 21, 14)',3925,2564]
+,['Date(2014, 11, 01, 06, 41, 24)',3680,2696]
+,['Date(2014, 11, 01, 07, 01, 39)',3432,1820]
+,['Date(2014, 11, 01, 07, 21, 54)',3994,1701]
+,['Date(2014, 11, 01, 07, 42, 10)',4106,1918]
+,['Date(2014, 11, 01, 08, 02, 24)',4637,3248]
+,['Date(2014, 11, 01, 08, 23, 13)',1752,965]
+,['Date(2014, 11, 01, 08, 43, 57)',1305,746]
+,['Date(2014, 11, 01, 09, 04, 43)',1369,748]
+,['Date(2014, 11, 01, 09, 25, 28)',1535,819]
+,['Date(2014, 11, 01, 09, 46, 16)',1376,776]
+,['Date(2014, 11, 01, 10, 07, 13)',1747,1221]
+,['Date(2014, 11, 01, 10, 28, 06)',1430,1302]
+		]);
+
+		var options_READWRITE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Read and Write System calls - for disk & network I/O",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_READWRITE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_READWRITE, options_READWRITE);
+		});
+
+			var data_FORKEXEC = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'fork','exec']
+,['Date(2014, 11, 01, 00, 20, 22)',13,8]
+,['Date(2014, 11, 01, 00, 40, 25)',12,7]
+,['Date(2014, 11, 01, 01, 00, 27)',12,7]
+,['Date(2014, 11, 01, 01, 20, 28)',12,7]
+,['Date(2014, 11, 01, 01, 40, 30)',12,7]
+,['Date(2014, 11, 01, 02, 00, 34)',12,7]
+,['Date(2014, 11, 01, 02, 20, 36)',13,8]
+,['Date(2014, 11, 01, 02, 40, 38)',11,7]
+,['Date(2014, 11, 01, 03, 00, 40)',11,7]
+,['Date(2014, 11, 01, 03, 20, 41)',12,7]
+,['Date(2014, 11, 01, 03, 40, 43)',12,7]
+,['Date(2014, 11, 01, 04, 00, 46)',12,7]
+,['Date(2014, 11, 01, 04, 20, 48)',12,7]
+,['Date(2014, 11, 01, 04, 40, 50)',11,7]
+,['Date(2014, 11, 01, 05, 00, 54)',12,7]
+,['Date(2014, 11, 01, 05, 20, 57)',11,7]
+,['Date(2014, 11, 01, 05, 41, 00)',12,7]
+,['Date(2014, 11, 01, 06, 01, 02)',14,8]
+,['Date(2014, 11, 01, 06, 21, 14)',38,23]
+,['Date(2014, 11, 01, 06, 41, 24)',26,15]
+,['Date(2014, 11, 01, 07, 01, 39)',35,20]
+,['Date(2014, 11, 01, 07, 21, 54)',61,37]
+,['Date(2014, 11, 01, 07, 42, 10)',46,27]
+,['Date(2014, 11, 01, 08, 02, 24)',29,17]
+,['Date(2014, 11, 01, 08, 23, 13)',15,10]
+,['Date(2014, 11, 01, 08, 43, 57)',7,5]
+,['Date(2014, 11, 01, 09, 04, 43)',6,4]
+,['Date(2014, 11, 01, 09, 25, 28)',8,6]
+,['Date(2014, 11, 01, 09, 46, 16)',9,6]
+,['Date(2014, 11, 01, 10, 07, 13)',18,18]
+,['Date(2014, 11, 01, 10, 28, 06)',13,12]
+		]);
+
+		var options_FORKEXEC = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Fork and Exec System calls - creating processes",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_FORKEXEC").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_FORKEXEC, options_FORKEXEC);
+		});
+
+			var data_FILEIO = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'readch','writech']
+,['Date(2014, 11, 01, 00, 20, 22)',22098278,4791411]
+,['Date(2014, 11, 01, 00, 40, 25)',10173687,4831522]
+,['Date(2014, 11, 01, 01, 00, 27)',15367615,15622618]
+,['Date(2014, 11, 01, 01, 20, 28)',18054232,19467861]
+,['Date(2014, 11, 01, 01, 40, 30)',14812675,31263354]
+,['Date(2014, 11, 01, 02, 00, 34)',14585222,32889939]
+,['Date(2014, 11, 01, 02, 20, 36)',22931762,37568134]
+,['Date(2014, 11, 01, 02, 40, 38)',25308722,28814811]
+,['Date(2014, 11, 01, 03, 00, 40)',18753344,28532969]
+,['Date(2014, 11, 01, 03, 20, 41)',19164720,31270097]
+,['Date(2014, 11, 01, 03, 40, 43)',20817338,32694125]
+,['Date(2014, 11, 01, 04, 00, 46)',22049109,33139238]
+,['Date(2014, 11, 01, 04, 20, 48)',16522023,8229490]
+,['Date(2014, 11, 01, 04, 40, 50)',9057723,4156985]
+,['Date(2014, 11, 01, 05, 00, 54)',11148979,13385211]
+,['Date(2014, 11, 01, 05, 20, 57)',25207911,14579081]
+,['Date(2014, 11, 01, 05, 41, 00)',18046998,16902680]
+,['Date(2014, 11, 01, 06, 01, 02)',13164930,16234680]
+,['Date(2014, 11, 01, 06, 21, 14)',17107649,11300501]
+,['Date(2014, 11, 01, 06, 41, 24)',11577687,11258324]
+,['Date(2014, 11, 01, 07, 01, 39)',13719243,10287938]
+,['Date(2014, 11, 01, 07, 21, 54)',19913107,8074116]
+,['Date(2014, 11, 01, 07, 42, 10)',15549486,8476649]
+,['Date(2014, 11, 01, 08, 02, 24)',17779094,8134424]
+,['Date(2014, 11, 01, 08, 23, 13)',5955005,1368354]
+,['Date(2014, 11, 01, 08, 43, 57)',3612515,1092994]
+,['Date(2014, 11, 01, 09, 04, 43)',3404425,1320813]
+,['Date(2014, 11, 01, 09, 25, 28)',3885769,630102]
+,['Date(2014, 11, 01, 09, 46, 16)',4334160,1127125]
+,['Date(2014, 11, 01, 10, 07, 13)',4746598,928761]
+,['Date(2014, 11, 01, 10, 28, 06)',3286080,573446]
+		]);
+
+		var options_FILEIO = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "File I/O through System call read & write = disk, pipe & sockets in bytes",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_FILEIO").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_FILEIO, options_FILEIO);
+		});
+
+			var data_PAGING = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'pgin','pgout','pgsin','pgsout']
+,['Date(2014, 11, 01, 00, 20, 22)',3075.9,2426.7,2578.4,2028.5]
+,['Date(2014, 11, 01, 00, 40, 25)',2017.0,1398.4,1711.3,1273.1]
+,['Date(2014, 11, 01, 01, 00, 27)',3249.3,2977.9,2829.1,1917.1]
+,['Date(2014, 11, 01, 01, 20, 28)',3305.0,3418.4,2802.2,1734.9]
+,['Date(2014, 11, 01, 01, 40, 30)',3301.2,5093.4,2833.8,1972.2]
+,['Date(2014, 11, 01, 02, 00, 34)',3515.8,5773.0,2986.4,2134.6]
+,['Date(2014, 11, 01, 02, 20, 36)',5768.5,7707.2,4886.6,3668.0]
+,['Date(2014, 11, 01, 02, 40, 38)',3729.6,5288.4,3205.8,2182.5]
+,['Date(2014, 11, 01, 03, 00, 40)',3960.8,5008.4,3461.4,2201.2]
+,['Date(2014, 11, 01, 03, 20, 41)',3498.3,4965.6,3004.3,1982.6]
+,['Date(2014, 11, 01, 03, 40, 43)',3296.5,4840.0,2779.2,1946.6]
+,['Date(2014, 11, 01, 04, 00, 46)',3572.7,5262.4,3035.6,2135.4]
+,['Date(2014, 11, 01, 04, 20, 48)',4642.3,4145.4,4147.7,3364.7]
+,['Date(2014, 11, 01, 04, 40, 50)',6517.2,5944.0,6026.2,5503.2]
+,['Date(2014, 11, 01, 05, 00, 54)',8058.0,8004.0,7065.8,6366.6]
+,['Date(2014, 11, 01, 05, 20, 57)',11701.9,11121.9,10145.0,9234.8]
+,['Date(2014, 11, 01, 05, 41, 00)',10073.8,9173.2,8258.0,6823.9]
+,['Date(2014, 11, 01, 06, 01, 02)',9766.0,8631.2,7825.7,6336.1]
+,['Date(2014, 11, 01, 06, 21, 14)',14434.4,13956.8,11953.5,12347.5]
+,['Date(2014, 11, 01, 06, 41, 24)',14417.6,13380.9,12167.9,11729.8]
+,['Date(2014, 11, 01, 07, 01, 39)',15684.6,14536.4,13301.3,13097.4]
+,['Date(2014, 11, 01, 07, 21, 54)',16899.2,16293.2,13933.8,15135.0]
+,['Date(2014, 11, 01, 07, 42, 10)',16849.3,15885.0,14050.6,14683.1]
+,['Date(2014, 11, 01, 08, 02, 24)',17765.4,16633.7,15134.0,15504.3]
+,['Date(2014, 11, 01, 08, 23, 13)',49917.3,32013.5,43453.6,31743.5]
+,['Date(2014, 11, 01, 08, 43, 57)',45830.6,24882.1,40576.0,24743.9]
+,['Date(2014, 11, 01, 09, 04, 43)',48354.2,23025.0,42825.9,22834.2]
+,['Date(2014, 11, 01, 09, 25, 28)',51042.1,27036.7,45068.1,26919.9]
+,['Date(2014, 11, 01, 09, 46, 16)',52104.9,27783.6,45784.1,27596.1]
+,['Date(2014, 11, 01, 10, 07, 13)',53132.8,27435.1,46609.9,27301.9]
+,['Date(2014, 11, 01, 10, 28, 06)',54088.4,26313.7,47932.8,26210.6]
+		]);
+
+		var options_PAGING = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Paging from Pagespace (pgin & pgout) & Paging from Filesystem (pgsin & pgsout)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_PAGING").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_PAGING, options_PAGING);
+		});
+
+			var data_SWAPIN = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'Swap-in']
+,['Date(2014, 11, 01, 00, 20, 22)',1.95]
+,['Date(2014, 11, 01, 00, 40, 25)',1.24]
+,['Date(2014, 11, 01, 01, 00, 27)',1.72]
+,['Date(2014, 11, 01, 01, 20, 28)',2.18]
+,['Date(2014, 11, 01, 01, 40, 30)',1.88]
+,['Date(2014, 11, 01, 02, 00, 34)',1.98]
+,['Date(2014, 11, 01, 02, 20, 36)',3.14]
+,['Date(2014, 11, 01, 02, 40, 38)',2.23]
+,['Date(2014, 11, 01, 03, 00, 40)',2.09]
+,['Date(2014, 11, 01, 03, 20, 41)',2.09]
+,['Date(2014, 11, 01, 03, 40, 43)',2.28]
+,['Date(2014, 11, 01, 04, 00, 46)',2.36]
+,['Date(2014, 11, 01, 04, 20, 48)',2.10]
+,['Date(2014, 11, 01, 04, 40, 50)',2.74]
+,['Date(2014, 11, 01, 05, 00, 54)',3.76]
+,['Date(2014, 11, 01, 05, 20, 57)',5.90]
+,['Date(2014, 11, 01, 05, 41, 00)',5.33]
+,['Date(2014, 11, 01, 06, 01, 02)',5.56]
+,['Date(2014, 11, 01, 06, 21, 14)',7.94]
+,['Date(2014, 11, 01, 06, 41, 24)',8.16]
+,['Date(2014, 11, 01, 07, 01, 39)',8.35]
+,['Date(2014, 11, 01, 07, 21, 54)',9.19]
+,['Date(2014, 11, 01, 07, 42, 10)',9.19]
+,['Date(2014, 11, 01, 08, 02, 24)',9.89]
+,['Date(2014, 11, 01, 08, 23, 13)',40.57]
+,['Date(2014, 11, 01, 08, 43, 57)',39.54]
+,['Date(2014, 11, 01, 09, 04, 43)',41.46]
+,['Date(2014, 11, 01, 09, 25, 28)',39.19]
+,['Date(2014, 11, 01, 09, 46, 16)',39.42]
+,['Date(2014, 11, 01, 10, 07, 13)',43.06]
+,['Date(2014, 11, 01, 10, 28, 06)',41.64]
+		]);
+
+		var options_SWAPIN = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Process Swap-In per second",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_SWAPIN").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_SWAPIN, options_SWAPIN);
+		});
+
+			var data_CPU_USE = google.visualization.arrayToDataTable([
+['CPU','User-Time-Total','System-Util-Total']
+,['CPU01',36.2,28.1]
+,['CPU02',8.0,7.7]
+,['CPU03',3.3,4.3]
+,['CPU04',3.3,4.2]
+,['CPU05',28.3,22.7]
+,['CPU06',7.1,11.8]
+,['CPU07',3.3,9.1]
+,['CPU08',3.3,9.0]
+,['CPU09',22.9,28.6]
+,['CPU10',8.3,9.5]
+,['CPU11',3.0,4.7]
+,['CPU12',3.0,4.7]
+,['CPU13',17.9,19.9]
+,['CPU14',6.0,15.6]
+,['CPU15',3.3,13.5]
+,['CPU16',3.3,13.4]
+,['CPU17',15.0,25.2]
+,['CPU18',8.1,16.5]
+,['CPU19',3.0,12.2]
+,['CPU20',3.0,12.1]
+,['CPU21',11.5,12.7]
+,['CPU22',4.9,16.8]
+,['CPU23',3.2,15.1]
+,['CPU24',3.2,15.1]
+,['CPU25',12.2,24.0]
+,['CPU26',7.5,17.8]
+,['CPU27',2.9,14.0]
+,['CPU28',2.9,13.9]
+		]);
+
+		var options_CPU_USE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Logical CPU Core Use (Power SMT or x86 Hyperthreads) Average(User%+System%)",
+			focusTarget: "category",
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_CPU_USE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.ColumnChart(document.getElementById("chart_master"));
+		chart.draw( data_CPU_USE, options_CPU_USE);
+		});
+
+			var data_TOPSUM = google.visualization.arrayToDataTable([
+['Command', 'CPU seconds', 'CharIO', 'Type', 'Memory KB' ]
+,['oracle',  1865.0,  147384,'oracle',   71148]
+,['lrud',   500.5,       0,'lrud',     832]
+,['aioserver',    73.1,       0,'aioserver',     448]
+,['tnslsnr',    49.3,     144,'tnslsnr',    2320]
+,['java',    33.3,      51,'java',    7744]
+,['reaffin',    23.2,       0,'reaffin',     640]
+,['kuxagent',    18.1,     130,'kuxagent',    7516]
+,['emagent',     8.9,     270,'emagent',    3800]
+,['aixdp_daemon',     3.9,      76,'aixdp_daemon',    4436]
+,['topas_nmon',     2.8,       0,'topas_nmon',    4696]
+,['perl',     2.4,       0,'perl',    1440]
+,['topas',     1.8,       0,'topas',    2428]
+,['kulagent',     1.4,       0,'kulagent',     628]
+,['syncd',     0.9,       0,'syncd',      96]
+,['<defunct Zombie>',     0.3,       0,'<defunct Zombie>',       0]
+		]);
+
+		var options_TOPSUM = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Top 20 processes by CPU correlation between CPU-seconds(Total), Character-I/O(Total), Memory-Size(Max) for each Command Name",
+			hAxis: {title: "CPU seconds in Total"},
+			vAxis: {title: "Character I/O in Total"},
+			sizeAxis: {maxSize: 200},
+			bubble: {textStyle: {fontSize: 15}}
+		};
+
+		document.getElementById("draw_TOPSUM").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.BubbleChart(document.getElementById("chart_master"));
+		chart.draw( data_TOPSUM, options_TOPSUM);
+		});
+
+			var data_TOPCMD = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'lrud','aioserver','tnslsnr','java','reaffin','kuxagent','emagent','aixdp_daemon','topas_nmon','perl','topas','kulagent','syncd','<defunct Zombie>','oracle']
+,['Date(2014, 11, 01, 00, 40, 25)', 2.2, 0.4, 1.3, 0.5, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 42.9]
+,['Date(2014, 11, 01, 01, 00, 27)', 3.4, 1.3, 1.3, 0.6, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 30.8]
+,['Date(2014, 11, 01, 01, 20, 28)', 3.5, 2.1, 1.4, 0.7, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 40.3]
+,['Date(2014, 11, 01, 01, 40, 30)', 3.6, 3.1, 1.3, 0.6, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 48.8]
+,['Date(2014, 11, 01, 02, 00, 34)', 3.8, 3.5, 1.3, 0.7, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 37.5]
+,['Date(2014, 11, 01, 02, 20, 36)', 6.4, 4.4, 1.6, 0.7, 0.8, 0.4, 0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 58.7]
+,['Date(2014, 11, 01, 02, 40, 38)', 4.0, 3.2, 1.3, 0.8, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 49.5]
+,['Date(2014, 11, 01, 03, 00, 40)', 4.2, 2.7, 1.4, 0.6, 0.8, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 86.2]
+,['Date(2014, 11, 01, 03, 20, 41)', 3.9, 3.0, 1.4, 0.6, 1.1, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 63.8]
+,['Date(2014, 11, 01, 03, 40, 43)', 3.6, 3.1, 1.4, 0.7, 0.5, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 48.2]
+,['Date(2014, 11, 01, 04, 00, 46)', 4.0, 3.2, 1.4, 0.7, 0.9, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 55.7]
+,['Date(2014, 11, 01, 04, 20, 48)', 4.8, 1.1, 1.4, 0.8, 0.7, 0.3, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 36.5]
+,['Date(2014, 11, 01, 04, 40, 50)', 7.6, 0.9, 1.5, 0.7, 0.8, 0.4, 0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 43.2]
+,['Date(2014, 11, 01, 05, 00, 54)', 9.2, 3.3, 1.6, 0.9, 0.8, 0.4, 0.3, 0.1, 0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 111.1]
+,['Date(2014, 11, 01, 05, 20, 57)', 12.3, 5.2, 1.5, 1.0, 0.8, 0.5, 0.3, 0.1, 0.0, 0.2, 0.0, 0.0, 0.1, 0.0, 153.0]
+,['Date(2014, 11, 01, 05, 41, 00)', 10.6, 6.0, 1.6, 1.0, 0.8, 0.5, 0.3, 0.1, 0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 154.4]
+,['Date(2014, 11, 01, 06, 01, 02)', 10.2, 6.0, 1.7, 1.0, 0.8, 0.4, 0.3, 0.1, 0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 103.6]
+,['Date(2014, 11, 01, 06, 21, 14)', 17.6, 3.6, 2.5, 1.3, 0.8, 0.5, 0.3, 0.1, 0.0, 0.2, 0.0, 0.0, 0.0, 0.0, 90.9]
+,['Date(2014, 11, 01, 06, 41, 24)', 16.8, 4.2, 2.5, 1.3, 0.8, 0.5, 0.3, 0.1, 0.0, 0.2, 0.0, 0.0, 0.0, 0.0, 96.6]
+,['Date(2014, 11, 01, 07, 01, 39)', 18.5, 3.6, 2.8, 1.3, 0.8, 0.5, 0.3, 0.1, 0.0, 0.2, 0.0, 0.0, 0.0, 0.0, 57.0]
+,['Date(2014, 11, 01, 07, 21, 54)', 20.9, 2.8, 3.0, 1.5, 0.8, 0.6, 0.4, 0.1, 0.0, 0.2, 0.0, 0.1, 0.0, 0.0, 67.4]
+,['Date(2014, 11, 01, 07, 42, 10)', 20.1, 2.9, 2.8, 1.5, 0.8, 0.6, 0.3, 0.2, 0.0, 0.2, 0.0, 0.1, 0.0, 0.0, 54.7]
+,['Date(2014, 11, 01, 08, 02, 24)', 20.2, 2.8, 2.6, 1.4, 0.8, 0.7, 0.4, 0.2, 0.0, 0.2, 0.0, 0.0, 0.1, 0.0, 61.8]
+,['Date(2014, 11, 01, 08, 23, 13)', 44.8, 0.6, 1.8, 2.4, 0.8, 1.0, 0.6, 0.3, 0.0, 0.2, 0.0, 0.2, 0.0, 0.0, 40.7]
+,['Date(2014, 11, 01, 08, 43, 57)', 28.3, 0.0, 0.9, 1.2, 0.6, 0.9, 0.5, 0.2, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 34.6]
+,['Date(2014, 11, 01, 09, 04, 43)', 32.1, 0.0, 0.9, 2.0, 0.6, 1.1, 0.5, 0.3, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 31.6]
+,['Date(2014, 11, 01, 09, 25, 28)', 44.4, 0.0, 1.3, 1.3, 0.8, 1.3, 0.7, 0.3, 0.0, 0.2, 0.0, 0.2, 0.0, 0.0, 39.4]
+,['Date(2014, 11, 01, 09, 46, 16)', 46.0, 0.0, 1.4, 1.1, 0.8, 1.4, 0.7, 0.4, 0.1, 0.3, 0.0, 0.2, 0.0, 0.0, 45.1]
+,['Date(2014, 11, 01, 10, 07, 13)', 47.0, 0.0, 1.4, 0.5, 0.8, 1.4, 0.0, 0.4, 0.1, 0.0, 0.0, 0.2, 0.0, 0.0, 41.2]
+,['Date(2014, 11, 01, 10, 28, 06)', 46.5, 0.0, 1.2, 4.0, 0.8, 1.4, 0.2, 0.4, 2.6, 0.1, 1.8, 0.2, 0.0, 0.3, 39.6]
+		]);
+
+		var options_TOPCMD = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Top Process Commands by CPU (Percentage of a core)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_TOPCMD").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_TOPCMD, options_TOPCMD);
+		});
+
+			var data_NET = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'en8-read-KB/s','en9-read-KB/s','en10-read-KB/s','lo0-read-KB/s','en8-write-KB/s','en9-write-KB/s','en10-write-KB/s','lo0-write-KB/s']
+,['Date(2014, 11, 01, 00, 20, 22)',24.6,61.8,0.2,5.1,-50.0,-856.1,-2.0,-5.1]
+,['Date(2014, 11, 01, 00, 40, 25)',1.0,51.8,0.2,2.0,-1.1,-168.0,-2.0,-2.0]
+,['Date(2014, 11, 01, 01, 00, 27)',2.3,63.2,0.2,2.9,-3.0,-2630.7,-2.0,-2.9]
+,['Date(2014, 11, 01, 01, 20, 28)',124.6,72.0,0.2,4.5,-178.3,-4113.1,-2.0,-4.5]
+,['Date(2014, 11, 01, 01, 40, 30)',8.1,92.4,0.2,2.2,-10.7,-8153.5,-2.0,-2.2]
+,['Date(2014, 11, 01, 02, 00, 34)',5.8,99.6,0.2,3.4,-10.3,-9565.3,-1.9,-3.4]
+,['Date(2014, 11, 01, 02, 20, 36)',320.6,122.7,0.2,3.9,-600.9,-10620.3,-2.0,-3.9]
+,['Date(2014, 11, 01, 02, 40, 38)',1.2,109.9,0.2,2.4,-1.8,-8188.2,-2.0,-2.4]
+,['Date(2014, 11, 01, 03, 00, 40)',1.2,88.4,0.2,3.4,-2.1,-7362.4,-1.9,-3.4]
+,['Date(2014, 11, 01, 03, 20, 41)',1.0,88.5,0.2,4.0,-2.2,-7826.8,-1.9,-4.0]
+,['Date(2014, 11, 01, 03, 40, 43)',0.7,86.9,0.2,2.0,-0.8,-7553.7,-2.0,-2.0]
+,['Date(2014, 11, 01, 04, 00, 46)',3.2,90.6,0.2,3.4,-4.2,-8195.5,-1.9,-3.4]
+,['Date(2014, 11, 01, 04, 20, 48)',7.8,56.7,0.2,3.8,-13.5,-1850.1,-1.9,-3.8]
+,['Date(2014, 11, 01, 04, 40, 50)',305.0,52.0,0.2,2.0,-482.3,-981.4,-2.0,-2.0]
+,['Date(2014, 11, 01, 05, 00, 54)',624.9,71.0,0.2,4.7,-1041.2,-3725.6,-2.0,-4.7]
+,['Date(2014, 11, 01, 05, 20, 57)',689.3,69.7,0.2,5.9,-1122.5,-3876.3,-2.1,-5.9]
+,['Date(2014, 11, 01, 05, 41, 00)',526.7,75.8,0.2,3.3,-941.6,-4796.5,-2.1,-3.3]
+,['Date(2014, 11, 01, 06, 01, 02)',378.2,86.9,0.2,6.6,-663.2,-4644.7,-2.0,-6.6]
+,['Date(2014, 11, 01, 06, 21, 14)',194.3,130.6,0.2,8.0,-230.4,-3427.5,-2.1,-8.0]
+,['Date(2014, 11, 01, 06, 41, 24)',195.4,122.3,0.2,4.6,-236.2,-3449.5,-2.2,-4.6]
+,['Date(2014, 11, 01, 07, 01, 39)',24.3,159.4,0.2,8.6,-40.0,-3042.8,-2.2,-8.6]
+,['Date(2014, 11, 01, 07, 21, 54)',39.0,168.7,0.2,14.4,-54.1,-2494.0,-2.3,-14.4]
+,['Date(2014, 11, 01, 07, 42, 10)',58.5,155.9,0.2,9.0,-107.9,-2608.0,-2.6,-9.0]
+,['Date(2014, 11, 01, 08, 02, 24)',228.4,156.9,0.3,8.3,-384.3,-2399.1,-2.8,-8.3]
+,['Date(2014, 11, 01, 08, 23, 13)',36.0,88.7,0.2,3.7,-44.9,-435.7,-3.5,-3.7]
+,['Date(2014, 11, 01, 08, 43, 57)',46.5,52.7,0.3,2.3,-66.6,-190.9,-5.0,-2.3]
+,['Date(2014, 11, 01, 09, 04, 43)',51.3,154.3,0.3,4.7,-78.3,-366.0,-6.0,-4.7]
+,['Date(2014, 11, 01, 09, 25, 28)',43.3,44.7,0.4,2.4,-59.1,-216.4,-5.5,-2.4]
+,['Date(2014, 11, 01, 09, 46, 16)',35.9,59.7,0.4,2.4,-48.3,-232.3,-5.5,-2.3]
+,['Date(2014, 11, 01, 10, 07, 13)',30.2,79.1,0.3,4.5,-40.7,-253.7,-5.5,-4.5]
+,['Date(2014, 11, 01, 10, 28, 06)',26.8,50.8,0.5,1.9,-40.4,-165.9,-6.1,-1.9]
+		]);
+
+		var options_NET = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Network Receive(read) & Send(write shown negatively) in KB per second",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_NET").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_NET, options_NET);
+		});
+
+			var data_NETPACKET = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'en8-reads/s','en9-reads/s','en10-reads/s','lo0-reads/s','en8-writes/s','en9-writes/s','en10-writes/s','lo0-writes/s']
+,['Date(2014, 11, 01, 00, 20, 22)',189.6,384.1,3.7,20.1,189.6,384.1,3.7,20.1]
+,['Date(2014, 11, 01, 00, 40, 25)',11.0,281.9,3.1,9.7,11.0,281.9,3.1,9.7]
+,['Date(2014, 11, 01, 01, 00, 27)',27.2,572.9,2.9,12.2,27.2,572.9,2.9,12.2]
+,['Date(2014, 11, 01, 01, 20, 28)',831.2,746.8,2.8,17.5,831.2,746.8,2.8,17.5]
+,['Date(2014, 11, 01, 01, 40, 30)',51.6,1229.8,4.0,10.2,51.6,1229.8,4.0,10.2]
+,['Date(2014, 11, 01, 02, 00, 34)',53.2,1384.7,2.8,13.3,53.2,1384.7,2.8,13.3]
+,['Date(2014, 11, 01, 02, 20, 36)',2634.0,1504.6,2.8,17.0,2634.0,1504.6,2.8,17.0]
+,['Date(2014, 11, 01, 02, 40, 38)',11.9,1230.8,3.4,10.1,11.9,1230.8,3.4,10.1]
+,['Date(2014, 11, 01, 03, 00, 40)',14.1,1129.8,2.8,13.2,14.1,1129.8,2.8,13.2]
+,['Date(2014, 11, 01, 03, 20, 41)',9.0,1126.3,2.9,16.4,9.0,1126.3,2.9,16.4]
+,['Date(2014, 11, 01, 03, 40, 43)',8.4,1099.7,3.9,9.8,8.4,1099.7,3.9,9.8]
+,['Date(2014, 11, 01, 04, 00, 46)',27.9,1153.9,2.9,13.2,27.9,1153.9,2.9,13.2]
+,['Date(2014, 11, 01, 04, 20, 48)',68.8,437.9,2.7,16.4,68.8,437.9,2.7,16.4]
+,['Date(2014, 11, 01, 04, 40, 50)',1935.7,347.5,3.1,9.6,1935.7,347.5,3.1,9.6]
+,['Date(2014, 11, 01, 05, 00, 54)',4001.2,663.2,3.7,13.6,4001.2,663.2,3.7,13.6]
+,['Date(2014, 11, 01, 05, 20, 57)',4480.2,717.3,2.8,18.3,4480.2,717.3,2.8,18.3]
+,['Date(2014, 11, 01, 05, 41, 00)',3382.3,874.9,2.8,13.0,3382.3,874.9,2.8,13.0]
+,['Date(2014, 11, 01, 06, 01, 02)',2163.0,928.3,3.9,24.0,2163.0,928.3,3.9,24.0]
+,['Date(2014, 11, 01, 06, 21, 14)',973.5,905.4,2.8,23.4,973.5,905.4,2.8,23.4]
+,['Date(2014, 11, 01, 06, 41, 24)',964.1,950.1,2.8,16.2,964.1,950.1,2.8,16.2]
+,['Date(2014, 11, 01, 07, 01, 39)',140.4,978.4,4.0,30.3,140.4,978.4,4.0,30.3]
+,['Date(2014, 11, 01, 07, 21, 54)',233.4,929.4,2.9,42.5,233.4,929.4,2.9,42.5]
+,['Date(2014, 11, 01, 07, 42, 10)',469.6,930.5,3.0,29.9,469.6,930.5,3.0,29.9]
+,['Date(2014, 11, 01, 08, 02, 24)',1693.4,848.6,4.3,29.1,1693.4,848.6,4.3,29.1]
+,['Date(2014, 11, 01, 08, 23, 13)',348.8,389.1,3.4,16.3,348.8,389.1,3.4,16.3]
+,['Date(2014, 11, 01, 08, 43, 57)',449.7,205.9,4.2,10.6,449.7,205.9,4.2,10.6]
+,['Date(2014, 11, 01, 09, 04, 43)',506.3,254.3,4.8,17.6,506.3,254.3,4.8,17.6]
+,['Date(2014, 11, 01, 09, 25, 28)',515.7,213.4,6.5,9.0,515.7,213.4,6.5,9.0]
+,['Date(2014, 11, 01, 09, 46, 16)',396.5,235.1,6.8,10.4,396.5,235.1,6.8,10.4]
+,['Date(2014, 11, 01, 10, 07, 13)',305.6,236.6,5.3,16.9,305.6,236.6,5.3,16.9]
+,['Date(2014, 11, 01, 10, 28, 06)',290.6,171.0,7.5,8.6,290.6,171.0,7.5,8.6]
+		]);
+
+		var options_NETPACKET = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Network packet count per second",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_NETPACKET").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_NETPACKET, options_NETPACKET);
+		});
+
+			var data_NETSIZE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'en8-readsize','en9-readsize','en10-readsize','lo0-readsize','en8-writesize','en9-writesize','en10-writesize','lo0-writesize']
+,['Date(2014, 11, 01, 00, 20, 22)',132.7,164.8,62.6,257.9,266.8,2765.0,3092.6,257.9]
+,['Date(2014, 11, 01, 00, 40, 25)',89.9,188.0,64.2,207.1,99.8,632.7,3412.9,207.1]
+,['Date(2014, 11, 01, 01, 00, 27)',85.6,113.0,65.1,243.4,113.9,7930.2,3614.1,243.4]
+,['Date(2014, 11, 01, 01, 20, 28)',153.6,98.7,65.2,260.9,214.9,10612.6,3570.1,260.9]
+,['Date(2014, 11, 01, 01, 40, 30)',160.7,76.9,61.8,215.4,211.7,15800.4,2951.5,215.4]
+,['Date(2014, 11, 01, 02, 00, 34)',112.3,73.7,64.8,264.1,196.2,17255.2,3572.3,264.1]
+,['Date(2014, 11, 01, 02, 20, 36)',124.7,83.5,65.4,237.5,232.0,17471.4,3572.9,237.5]
+,['Date(2014, 11, 01, 02, 40, 38)',103.9,91.4,65.9,245.8,148.3,16357.2,2930.1,245.8]
+,['Date(2014, 11, 01, 03, 00, 40)',90.1,80.1,65.5,261.5,151.3,15277.0,3562.0,261.5]
+,['Date(2014, 11, 01, 03, 20, 41)',113.0,80.4,65.6,250.9,240.8,15689.5,3557.7,250.9]
+,['Date(2014, 11, 01, 03, 40, 43)',89.6,80.9,62.1,207.2,101.4,15562.8,2917.2,207.2]
+,['Date(2014, 11, 01, 04, 00, 46)',118.7,80.4,65.0,261.0,153.5,15998.5,3555.9,261.0]
+,['Date(2014, 11, 01, 04, 20, 48)',116.5,132.7,65.8,234.4,198.6,5926.5,3478.7,234.4]
+,['Date(2014, 11, 01, 04, 40, 50)',161.4,153.3,64.5,215.3,251.5,3618.0,3328.8,215.3]
+,['Date(2014, 11, 01, 05, 00, 54)',159.9,109.5,62.3,355.7,262.9,8637.2,3096.2,355.7]
+,['Date(2014, 11, 01, 05, 20, 57)',157.5,99.5,65.2,331.7,254.6,7243.9,3531.4,331.7]
+,['Date(2014, 11, 01, 05, 41, 00)',159.5,88.7,65.9,263.7,281.9,7573.6,3505.4,263.8]
+,['Date(2014, 11, 01, 06, 01, 02)',179.0,95.8,61.8,282.8,309.5,6977.4,2932.0,282.8]
+,['Date(2014, 11, 01, 06, 21, 14)',204.4,147.6,65.5,349.7,236.7,5123.6,3613.2,349.7]
+,['Date(2014, 11, 01, 06, 41, 24)',207.5,131.8,65.1,290.7,245.2,4728.2,3637.1,290.6]
+,['Date(2014, 11, 01, 07, 01, 39)',177.1,166.9,61.7,289.2,277.8,4014.3,3064.7,289.2]
+,['Date(2014, 11, 01, 07, 21, 54)',171.4,185.8,65.1,346.7,229.2,3383.3,3659.3,346.7]
+,['Date(2014, 11, 01, 07, 42, 10)',127.5,171.5,64.7,309.7,232.0,3597.2,3758.3,309.7]
+,['Date(2014, 11, 01, 08, 02, 24)',138.1,189.3,61.2,292.4,230.5,3695.0,3305.3,292.4]
+,['Date(2014, 11, 01, 08, 23, 13)',105.8,233.5,63.0,230.8,129.2,1199.2,3984.3,230.8]
+,['Date(2014, 11, 01, 08, 43, 57)',106.0,262.2,62.1,218.4,149.5,993.4,4142.2,218.4]
+,['Date(2014, 11, 01, 09, 04, 43)',103.8,621.5,62.3,276.0,156.4,2129.1,4042.6,276.0]
+,['Date(2014, 11, 01, 09, 25, 28)',85.9,214.5,65.1,274.3,116.1,1109.0,4016.9,274.2]
+,['Date(2014, 11, 01, 09, 46, 16)',92.7,260.1,66.0,230.8,123.2,1086.0,4256.7,230.7]
+,['Date(2014, 11, 01, 10, 07, 13)',101.2,342.1,65.0,271.2,133.8,1277.7,4242.3,271.2]
+,['Date(2014, 11, 01, 10, 28, 06)',94.6,304.4,64.4,223.5,140.2,1080.0,3934.9,223.5]
+		]);
+
+		var options_NETSIZE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Network packet size (bytes)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_NETSIZE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_NETSIZE, options_NETSIZE);
+		});
+
+			var data_ADAPT_KBS = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'fcs1_read-KB/s','fcs1_write-KB/s','fcs0_read-KB/s','fcs0_write-KB/s','fcs2_read-KB/s','fcs2_write-KB/s','fcs3_read-KB/s','fcs3_write-KB/s']
+,['Date(2014, 11, 01, 00, 40, 25)',3269.4,2510.0,3269.4,2510.0,3269.4,2523.6,1634.7,1260.1]
+,['Date(2014, 11, 01, 01, 00, 27)',5778.6,5185.7,5778.6,5165.3,5778.6,5178.9,2889.3,2609.9]
+,['Date(2014, 11, 01, 01, 20, 28)',6435.9,5566.7,6463.2,5576.9,6463.2,5628.0,3218.0,2814.0]
+,['Date(2014, 11, 01, 01, 40, 30)',5669.6,7700.3,5669.6,7741.2,5669.6,7669.6,2834.8,3833.1]
+,['Date(2014, 11, 01, 02, 00, 34)',5827.7,7921.1,5827.7,7900.7,5827.7,7904.1,2927.4,3950.4]
+,['Date(2014, 11, 01, 02, 20, 36)',9892.6,10223.1,9892.6,10281.0,9865.4,10229.9,4959.9,5116.6]
+,['Date(2014, 11, 01, 02, 40, 38)',8698.3,7283.8,8698.3,7287.2,8671.0,7331.5,4335.5,3652.1]
+,['Date(2014, 11, 01, 03, 00, 40)',7278.0,7451.7,7305.2,7475.6,7305.2,7417.7,3652.6,3722.5]
+,['Date(2014, 11, 01, 03, 20, 41)',6929.0,7815.6,6901.7,7771.3,6929.0,7750.8,3464.5,3899.3]
+,['Date(2014, 11, 01, 03, 40, 43)',7087.2,8194.5,7087.2,8191.1,7114.4,8160.5,3557.2,4085.3]
+,['Date(2014, 11, 01, 04, 00, 46)',7627.3,8274.2,7627.3,8301.4,7627.3,8315.1,3827.2,4157.5]
+,['Date(2014, 11, 01, 04, 20, 48)',7441.5,5070.0,7468.7,5035.9,7468.7,5022.3,3720.7,2526.5]
+,['Date(2014, 11, 01, 04, 40, 50)',7525.4,6301.8,7498.1,6305.3,7498.1,6288.2,3749.1,3140.7]
+,['Date(2014, 11, 01, 05, 00, 54)',9449.1,8819.4,9476.3,8805.8,9449.1,8809.2,4738.2,4401.2]
+,['Date(2014, 11, 01, 05, 20, 57)',16609.0,12089.1,16581.7,12102.8,16609.0,12106.2,8304.5,6053.1]
+,['Date(2014, 11, 01, 05, 41, 00)',13184.2,10177.5,13184.2,10160.5,13184.2,10198.0,6592.1,5092.2]
+,['Date(2014, 11, 01, 06, 01, 02)',11580.8,9639.4,11580.8,9625.7,11580.8,9629.1,5776.8,4802.6]
+,['Date(2014, 11, 01, 06, 21, 14)',16555.5,14628.0,16582.5,14668.6,16582.5,14644.9,8291.3,7322.5]
+,['Date(2014, 11, 01, 06, 41, 24)',15267.8,14025.9,15267.8,13985.3,15267.8,14022.5,7647.4,7004.5]
+,['Date(2014, 11, 01, 07, 01, 39)',16852.8,15288.8,16852.8,15231.5,16852.8,15245.0,8412.9,7642.7]
+,['Date(2014, 11, 01, 07, 21, 54)',19234.0,16826.4,19207.0,16826.4,19180.1,16819.7,9590.0,8413.2]
+,['Date(2014, 11, 01, 07, 42, 10)',18308.1,16440.9,18335.1,16390.4,18335.1,16414.0,9154.1,8213.7]
+,['Date(2014, 11, 01, 08, 02, 24)',20079.8,17168.4,20025.9,17165.0,20052.9,17158.3,10026.4,8572.4]
+,['Date(2014, 11, 01, 08, 23, 13)',50331.8,32172.1,50384.3,32162.3,50384.3,32188.5,25179.0,16089.3]
+,['Date(2014, 11, 01, 08, 43, 57)',46102.4,25083.0,46076.0,25066.5,46102.4,25089.6,23051.2,12541.5]
+,['Date(2014, 11, 01, 09, 04, 43)',48453.0,23151.3,48453.0,23154.6,48426.7,23167.7,24226.5,11580.6]
+,['Date(2014, 11, 01, 09, 25, 28)',51177.8,27117.5,51177.8,27101.1,51177.8,27114.2,25588.9,13563.7]
+,['Date(2014, 11, 01, 09, 46, 16)',52279.4,27941.6,52279.4,27895.7,52305.6,27921.9,26139.7,13975.7]
+,['Date(2014, 11, 01, 10, 07, 13)',53247.3,27542.9,53247.3,27572.2,53247.3,27536.3,26623.7,13771.4]
+,['Date(2014, 11, 01, 10, 28, 06)',54094.2,26406.5,54094.2,26403.3,54094.2,26383.7,27060.2,13190.2]
+		]);
+
+		var options_ADAPT_KBS = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "I/O Adapter stats in KB per second (Stacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_ADAPT_KBS").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_ADAPT_KBS, options_ADAPT_KBS);
+		});
+
+			var data_ADAPT_TPS = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'fcs1_xfer-tps','fcs0_xfer-tps','fcs2_xfer-tps','fcs3_xfer-tps']
+,['Date(2014, 11, 01, 00, 40, 25)',720.3,720.3,720.3,360.1]
+,['Date(2014, 11, 01, 01, 00, 27)',1252.1,1252.1,1252.1,626.1]
+,['Date(2014, 11, 01, 01, 20, 28)',1260.4,1260.4,1259.6,630.2]
+,['Date(2014, 11, 01, 01, 40, 30)',1242.8,1242.8,1242.8,621.4]
+,['Date(2014, 11, 01, 02, 00, 34)',1250.1,1250.1,1250.1,625.1]
+,['Date(2014, 11, 01, 02, 20, 36)',2193.8,2193.8,2194.7,1096.9]
+,['Date(2014, 11, 01, 02, 40, 38)',1474.1,1474.1,1474.1,737.1]
+,['Date(2014, 11, 01, 03, 00, 40)',1494.1,1494.1,1493.2,747.0]
+,['Date(2014, 11, 01, 03, 20, 41)',1333.3,1333.3,1333.3,666.6]
+,['Date(2014, 11, 01, 03, 40, 43)',1403.0,1403.0,1403.0,701.5]
+,['Date(2014, 11, 01, 04, 00, 46)',1502.5,1502.5,1503.3,751.2]
+,['Date(2014, 11, 01, 04, 20, 48)',1866.3,1866.3,1865.5,933.2]
+,['Date(2014, 11, 01, 04, 40, 50)',2686.5,2686.5,2686.5,1343.3]
+,['Date(2014, 11, 01, 05, 00, 54)',3235.4,3235.4,3235.4,1617.7]
+,['Date(2014, 11, 01, 05, 20, 57)',4813.4,4813.4,4813.4,2406.7]
+,['Date(2014, 11, 01, 05, 41, 00)',3834.9,3834.9,3834.9,1917.4]
+,['Date(2014, 11, 01, 06, 01, 02)',3551.7,3551.7,3552.6,1775.9]
+,['Date(2014, 11, 01, 06, 21, 14)',5034.1,5034.1,5034.1,2517.0]
+,['Date(2014, 11, 01, 06, 41, 24)',5024.1,5024.1,5023.3,2512.1]
+,['Date(2014, 11, 01, 07, 01, 39)',5456.1,5456.1,5456.1,2728.0]
+,['Date(2014, 11, 01, 07, 21, 54)',5799.9,5799.9,5799.9,2899.9]
+,['Date(2014, 11, 01, 07, 42, 10)',5878.0,5878.0,5878.9,2939.0]
+,['Date(2014, 11, 01, 08, 02, 24)',6433.5,6433.5,6432.7,3216.8]
+,['Date(2014, 11, 01, 08, 23, 13)',16698.3,16698.3,16698.3,8349.2]
+,['Date(2014, 11, 01, 08, 43, 57)',15250.0,15250.0,15250.8,7625.0]
+,['Date(2014, 11, 01, 09, 04, 43)',15720.3,15720.3,15719.4,7860.1]
+,['Date(2014, 11, 01, 09, 25, 28)',16759.0,16759.0,16759.8,8379.5]
+,['Date(2014, 11, 01, 09, 46, 16)',17118.5,17118.5,17118.5,8559.2]
+,['Date(2014, 11, 01, 10, 07, 13)',17350.4,17350.4,17349.6,8675.2]
+,['Date(2014, 11, 01, 10, 28, 06)',17577.7,17577.7,17577.7,8788.8]
+		]);
+
+		var options_ADAPT_TPS = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "I/O Adapter stats in Transfers per second (Stacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_ADAPT_TPS").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_ADAPT_TPS, options_ADAPT_TPS);
+		});
+
+			var data_DISKBUSY = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk8','hdisk9','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,92.7,0.0,0.0,22.8,66.3,19.4,1.8,4.2,10.2,10.8]
+,['Date(2014, 11, 01, 00, 40, 25)',0.6,0.0,0.2,0.0,0.0,0.0,0.0,85.1,0.0,0.0,2.8,43.6,7.9,1.7,1.5,4.2,5.7]
+,['Date(2014, 11, 01, 01, 00, 27)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,87.8,0.0,0.0,9.2,31.7,17.6,38.9,8.4,14.7,6.9]
+,['Date(2014, 11, 01, 01, 20, 28)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,92.0,0.0,0.0,27.2,49.9,18.1,63.3,6.4,31.2,8.0]
+,['Date(2014, 11, 01, 01, 40, 30)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,90.6,0.0,0.0,8.5,37.0,3.0,59.6,2.0,24.3,6.9]
+,['Date(2014, 11, 01, 02, 00, 34)',1.4,0.0,0.1,0.0,0.0,0.0,0.0,90.0,0.0,0.0,12.6,71.4,10.0,8.4,5.0,24.4,8.0]
+,['Date(2014, 11, 01, 02, 20, 36)',1.5,0.0,0.2,0.0,0.0,0.0,0.0,96.7,0.0,0.0,54.4,95.1,58.2,1.4,27.2,43.6,14.8]
+,['Date(2014, 11, 01, 02, 40, 38)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,92.4,0.0,0.0,43.3,86.2,27.2,0.2,16.2,22.7,7.8]
+,['Date(2014, 11, 01, 03, 00, 40)',1.1,0.0,0.2,0.0,0.0,0.0,0.0,93.2,0.0,0.0,33.5,86.0,31.0,1.4,13.2,21.8,8.4]
+,['Date(2014, 11, 01, 03, 20, 41)',1.1,0.0,0.1,0.0,0.0,0.0,0.0,92.6,0.0,0.0,47.1,83.2,45.4,4.7,20.4,24.3,8.9]
+,['Date(2014, 11, 01, 03, 40, 43)',1.3,0.0,0.1,0.0,0.0,0.0,0.0,92.3,0.0,0.0,48.4,84.8,36.1,75.2,15.3,34.1,8.2]
+,['Date(2014, 11, 01, 04, 00, 46)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,94.3,0.0,0.0,60.8,87.4,34.7,58.6,10.7,33.7,8.7]
+,['Date(2014, 11, 01, 04, 20, 48)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,93.8,0.0,0.0,36.2,93.7,39.7,24.4,10.5,16.0,8.4]
+,['Date(2014, 11, 01, 04, 40, 50)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,98.4,0.0,0.0,50.2,94.0,61.9,1.2,40.2,10.8,8.8]
+,['Date(2014, 11, 01, 05, 00, 54)',0.9,0.0,0.2,0.0,0.0,0.0,0.0,98.6,0.0,0.0,47.5,76.7,51.8,0.1,36.4,38.0,10.9]
+,['Date(2014, 11, 01, 05, 20, 57)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.4,0.0,0.0,91.1,90.8,67.9,0.1,26.4,62.7,15.2]
+,['Date(2014, 11, 01, 05, 41, 00)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.3,0.0,0.0,73.6,83.7,54.9,0.1,27.6,73.5,14.3]
+,['Date(2014, 11, 01, 06, 01, 02)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.3,0.0,0.0,32.0,69.9,47.0,0.1,22.0,71.2,16.6]
+,['Date(2014, 11, 01, 06, 21, 14)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.6,0.0,0.0,43.0,86.4,52.2,0.1,23.9,67.4,33.2]
+,['Date(2014, 11, 01, 06, 41, 24)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,99.7,0.0,0.0,35.5,40.9,36.4,0.1,14.2,64.2,31.0]
+,['Date(2014, 11, 01, 07, 01, 39)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.5,0.0,0.0,35.8,64.9,27.9,0.1,10.2,62.4,33.3]
+,['Date(2014, 11, 01, 07, 21, 54)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,99.5,0.0,0.0,46.1,73.7,26.4,0.1,12.6,57.7,41.2]
+,['Date(2014, 11, 01, 07, 42, 10)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.6,0.0,0.0,52.1,60.7,35.7,0.1,13.0,60.3,42.2]
+,['Date(2014, 11, 01, 08, 02, 24)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.5,0.0,0.0,29.6,80.4,51.5,0.1,17.5,59.8,43.8]
+,['Date(2014, 11, 01, 08, 23, 13)',0.9,0.0,0.2,0.0,0.0,0.0,0.0,99.5,0.0,0.0,44.2,53.7,30.4,0.0,8.9,25.5,85.0]
+,['Date(2014, 11, 01, 08, 43, 57)',1.1,0.0,0.1,0.0,0.0,0.0,0.0,99.9,0.0,0.0,39.4,61.1,23.0,0.1,9.5,11.8,84.2]
+,['Date(2014, 11, 01, 09, 04, 43)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,99.9,0.0,0.0,18.1,37.6,18.6,0.0,5.2,12.0,85.1]
+,['Date(2014, 11, 01, 09, 25, 28)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,99.5,0.0,0.0,14.6,31.3,18.3,0.0,6.3,10.6,82.9]
+,['Date(2014, 11, 01, 09, 46, 16)',1.1,0.0,0.2,0.0,0.0,0.0,0.0,99.6,0.0,0.0,16.7,31.3,16.4,0.0,8.5,12.2,85.0]
+,['Date(2014, 11, 01, 10, 07, 13)',1.1,0.0,0.1,0.1,0.0,0.0,0.0,99.7,0.0,0.0,16.4,35.0,13.4,0.1,6.6,10.6,85.8]
+,['Date(2014, 11, 01, 10, 28, 06)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,99.7,0.0,0.0,12.4,17.2,14.0,0.0,7.0,9.1,85.9]
+		]);
+
+		var options_DISKBUSY = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Busy Percentage of the time (Stacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_DISKBUSY").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKBUSY, options_DISKBUSY);
+		});
+
+		var options_DISKBUSYu = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Busy Percentage of the time (UnStacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked: 0
+		};
+
+		document.getElementById("draw_DISKBUSYu").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKBUSY, options_DISKBUSYu);
+		});
+
+			var data_DISKREAD = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk8','hdisk9','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',120.6,0.0,8.6,0.0,0.0,0.0,0.0,10111.0,0.0,0.0,2586.8,9932.3,2398.4,8.5,950.9,674.1,971.9]
+,['Date(2014, 11, 01, 00, 40, 25)',138.2,0.0,8.4,0.0,0.0,0.0,0.0,7016.3,0.0,0.0,218.4,3281.6,897.2,11.9,96.4,876.3,551.0]
+,['Date(2014, 11, 01, 01, 00, 27)',135.5,0.0,8.6,0.0,0.0,0.0,0.0,11538.8,0.0,0.0,469.4,959.6,995.2,5315.3,1163.0,1773.5,760.7]
+,['Date(2014, 11, 01, 01, 20, 28)',1037.7,0.0,9.1,0.0,0.0,0.0,0.0,11428.6,0.0,0.0,724.3,597.9,331.6,4877.4,152.9,5985.4,657.9]
+,['Date(2014, 11, 01, 01, 40, 30)',171.3,0.0,9.8,0.0,0.0,0.0,0.0,11563.4,0.0,0.0,547.8,498.3,151.9,4037.7,51.5,5006.5,655.5]
+,['Date(2014, 11, 01, 02, 00, 34)',159.6,0.0,10.0,0.0,0.0,0.0,0.0,12185.7,0.0,0.0,546.2,3267.5,229.2,312.7,94.3,5730.1,759.9]
+,['Date(2014, 11, 01, 02, 20, 36)',166.0,0.0,10.1,0.0,0.0,0.0,0.0,19844.9,0.0,0.0,1841.2,5424.3,2790.2,354.2,735.3,6700.2,1723.7]
+,['Date(2014, 11, 01, 02, 40, 38)',167.7,0.0,9.9,0.0,0.0,0.0,0.0,13049.1,0.0,0.0,2463.5,8803.6,1943.9,9.3,2336.8,5098.1,821.2]
+,['Date(2014, 11, 01, 03, 00, 40)',150.4,0.0,9.6,0.0,0.0,0.0,0.0,14087.7,0.0,0.0,1125.4,6438.5,1083.4,6.0,1171.0,4340.4,820.7]
+,['Date(2014, 11, 01, 03, 20, 41)',153.1,0.0,9.8,0.0,0.0,0.0,0.0,12246.4,0.0,0.0,1697.4,3429.4,2160.7,629.0,1585.7,4978.6,787.4]
+,['Date(2014, 11, 01, 03, 40, 43)',163.7,0.0,9.7,0.0,0.0,0.0,0.0,11327.6,0.0,0.0,930.3,2967.1,471.9,6680.3,541.1,4613.7,687.4]
+,['Date(2014, 11, 01, 04, 00, 46)',159.1,0.0,9.9,0.0,0.0,0.0,0.0,12380.1,0.0,0.0,1506.6,3832.0,1004.3,4603.5,1088.2,5198.6,745.6]
+,['Date(2014, 11, 01, 04, 20, 48)',122.1,0.0,8.9,0.0,0.0,0.0,0.0,16809.2,0.0,0.0,770.2,5714.7,1666.7,1839.4,579.1,1394.7,917.6]
+,['Date(2014, 11, 01, 04, 40, 50)',140.7,0.0,8.8,0.0,0.0,0.0,0.0,24366.8,0.0,0.0,479.2,1664.7,514.7,356.3,319.7,1133.1,1032.0]
+,['Date(2014, 11, 01, 05, 00, 54)',137.5,0.0,9.0,0.0,0.0,0.0,0.0,28595.5,0.0,0.0,797.5,1814.8,683.5,6.8,537.0,3800.2,1463.7]
+,['Date(2014, 11, 01, 05, 20, 57)',137.6,0.0,9.1,0.0,0.0,0.0,0.0,41084.9,0.0,0.0,8398.6,4780.0,2806.7,3.5,1331.9,5720.6,2138.3]
+,['Date(2014, 11, 01, 05, 41, 00)',149.9,0.0,9.1,0.0,0.0,0.0,0.0,33694.8,0.0,0.0,5672.0,2581.7,1247.1,74.2,537.7,6725.2,2042.4]
+,['Date(2014, 11, 01, 06, 01, 02)',138.2,0.0,9.2,0.0,0.0,0.0,0.0,32041.3,0.0,0.0,777.7,2674.9,961.7,6.3,518.0,6686.7,2495.9]
+,['Date(2014, 11, 01, 06, 21, 14)',127.9,0.0,8.8,0.0,0.0,0.0,0.0,49170.4,0.0,0.0,913.1,4719.6,1249.9,10.5,386.4,4169.7,5491.4]
+,['Date(2014, 11, 01, 06, 41, 24)',141.3,0.0,8.9,0.0,0.0,0.0,0.0,49558.7,0.0,0.0,999.4,371.5,372.8,3.4,485.2,4428.3,4745.2]
+,['Date(2014, 11, 01, 07, 01, 39)',143.4,0.0,8.9,0.0,0.0,0.0,0.0,54374.9,0.0,0.0,700.6,1641.4,396.3,3.4,428.7,4296.7,5406.5]
+,['Date(2014, 11, 01, 07, 21, 54)',134.7,0.0,8.8,0.0,0.0,0.0,0.0,58074.0,0.0,0.0,1954.7,4576.4,1203.5,2.5,709.5,3166.8,6979.4]
+,['Date(2014, 11, 01, 07, 42, 10)',139.6,0.0,8.7,0.0,0.0,0.0,0.0,57852.9,0.0,0.0,1838.7,1697.2,858.1,1.7,680.4,3177.6,7049.1]
+,['Date(2014, 11, 01, 08, 02, 24)',132.6,0.0,8.7,0.0,0.0,0.0,0.0,61783.1,0.0,0.0,617.4,4658.2,2146.0,2.6,850.1,3171.0,6849.4]
+,['Date(2014, 11, 01, 08, 23, 13)',122.7,0.0,8.2,0.0,0.0,0.0,0.0,176001.8,0.0,0.0,227.7,1042.2,579.1,0.0,284.7,637.9,22343.2]
+,['Date(2014, 11, 01, 08, 43, 57)',121.3,0.0,8.0,0.0,0.0,0.0,0.0,164413.9,0.0,0.0,173.5,443.2,112.9,0.8,71.3,698.8,18444.8]
+,['Date(2014, 11, 01, 09, 04, 43)',124.7,0.0,8.0,0.0,0.0,0.0,0.0,173256.9,0.0,0.0,185.1,279.9,121.1,0.0,76.8,635.5,19009.6]
+,['Date(2014, 11, 01, 09, 25, 28)',130.4,0.0,8.2,0.0,0.0,0.0,0.0,182379.4,0.0,0.0,128.3,331.0,366.4,0.0,121.2,199.3,21113.6]
+,['Date(2014, 11, 01, 09, 46, 16)',149.5,0.0,8.3,0.0,0.0,0.0,0.0,185444.0,0.0,0.0,139.2,390.1,162.5,0.0,239.1,512.5,22112.2]
+,['Date(2014, 11, 01, 10, 07, 13)',138.9,0.0,8.0,33.5,0.0,0.0,0.0,188923.3,0.0,0.0,163.3,483.9,164.7,12.5,70.3,424.0,22550.7]
+,['Date(2014, 11, 01, 10, 28, 06)',89.0,0.0,7.9,0.0,0.0,0.0,0.0,194378.3,0.0,0.0,129.2,166.9,359.2,0.0,141.5,178.9,21003.4]
+		]);
+
+		var options_DISKREAD = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Read KB per second (Stacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_DISKREAD").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKREAD, options_DISKREAD);
+		});
+
+		var options_DISKREADu = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Read KB per second (UnStacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked: 0
+		};
+
+		document.getElementById("draw_DISKREADu").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKREAD, options_DISKREADu);
+		});
+
+			var data_DISKWRITE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk8','hdisk9','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',60.4,0.0,30.6,0.0,0.0,0.0,0.1,7669.7,0.0,0.0,293.1,138.9,26.6,2031.1,25.6,1568.7,79.1]
+,['Date(2014, 11, 01, 00, 40, 25)',499.7,0.0,29.1,0.0,0.0,0.0,0.1,5105.5,0.0,0.0,21.8,7.3,0.2,3824.5,7.8,493.0,70.6]
+,['Date(2014, 11, 01, 01, 00, 27)',1231.3,0.0,67.2,0.0,0.0,0.0,0.1,7684.5,0.0,0.0,340.3,118.3,39.7,6882.6,88.3,4214.7,69.4]
+,['Date(2014, 11, 01, 01, 20, 28)',1802.6,0.0,27.5,0.0,0.0,0.0,0.1,6955.8,0.0,0.0,1389.8,228.7,175.0,4895.3,65.7,6644.4,204.8]
+,['Date(2014, 11, 01, 01, 40, 30)',4172.2,0.0,27.2,0.0,0.0,0.0,0.1,7909.3,0.0,0.0,2215.1,445.5,138.6,3224.8,22.2,12550.0,69.7]
+,['Date(2014, 11, 01, 02, 00, 34)',4774.4,0.0,28.1,0.0,0.0,0.0,0.1,8557.7,0.0,0.0,2408.0,1054.6,0.4,18.2,42.1,14670.0,69.7]
+,['Date(2014, 11, 01, 02, 20, 36)',5402.1,0.0,28.9,0.0,0.0,0.0,0.1,14703.4,0.0,0.0,2865.4,1080.6,33.3,234.8,230.2,16328.2,76.0]
+,['Date(2014, 11, 01, 02, 40, 38)',4208.7,0.0,27.3,0.0,0.0,0.0,0.1,8752.3,0.0,0.0,2292.6,706.6,36.1,231.9,299.4,12567.5,68.5]
+,['Date(2014, 11, 01, 03, 00, 40)',3560.3,0.0,26.7,0.0,0.0,0.0,0.1,8825.1,0.0,0.0,1964.9,237.3,30.7,3310.5,439.3,11336.3,69.4]
+,['Date(2014, 11, 01, 03, 20, 41)',4184.6,0.0,27.4,0.0,0.0,0.0,0.1,7950.2,0.0,0.0,2178.2,177.9,21.6,3929.4,549.4,12044.8,70.4]
+,['Date(2014, 11, 01, 03, 40, 43)',3597.2,0.0,26.7,0.0,0.0,0.0,0.1,7805.1,0.0,0.0,2004.0,387.5,76.7,6668.2,392.5,11696.5,70.6]
+,['Date(2014, 11, 01, 04, 00, 46)',4154.7,0.0,27.5,0.0,0.0,0.0,0.1,8562.2,0.0,0.0,2148.6,395.6,93.3,4626.1,525.0,12608.6,71.6]
+,['Date(2014, 11, 01, 04, 20, 48)',630.7,0.0,23.9,0.0,0.0,0.0,0.1,13479.6,0.0,0.0,888.0,274.6,57.0,1446.5,175.4,3140.1,69.8]
+,['Date(2014, 11, 01, 04, 40, 50)',630.6,0.0,27.9,0.0,0.0,0.0,0.1,22050.4,0.0,0.0,260.1,188.4,30.7,165.9,12.6,1756.5,67.8]
+,['Date(2014, 11, 01, 05, 00, 54)',1805.9,0.0,30.1,0.0,0.0,0.0,0.1,25508.7,0.0,0.0,623.1,270.9,81.0,26.7,219.2,6584.9,69.2]
+,['Date(2014, 11, 01, 05, 20, 57)',2365.9,0.0,25.0,0.0,0.0,0.0,0.1,37014.7,0.0,0.0,1023.0,250.0,92.6,17.7,20.4,7531.1,64.4]
+,['Date(2014, 11, 01, 05, 41, 00)',2381.4,0.0,25.0,0.0,0.0,0.0,0.1,27356.6,0.0,0.0,1111.0,154.1,123.4,71.8,27.3,9418.2,68.4]
+,['Date(2014, 11, 01, 06, 01, 02)',2384.5,0.0,25.0,0.0,0.0,0.0,0.1,25401.5,0.0,0.0,1139.8,173.7,95.8,0.4,22.7,9191.1,75.3]
+,['Date(2014, 11, 01, 06, 21, 14)',1540.6,0.0,23.9,0.0,0.0,0.0,0.1,49500.9,0.0,0.0,831.4,85.9,64.0,6.4,16.2,6370.1,104.8]
+,['Date(2014, 11, 01, 06, 41, 24)',1417.7,0.0,23.6,0.0,0.0,0.0,0.1,47039.9,0.0,0.0,772.1,88.1,49.0,0.1,17.8,6565.8,102.8]
+,['Date(2014, 11, 01, 07, 01, 39)',1763.0,0.0,23.6,0.0,0.0,0.0,0.1,52522.7,0.0,0.0,738.9,104.2,38.3,0.1,25.7,5694.2,115.1]
+,['Date(2014, 11, 01, 07, 21, 54)',1192.3,0.0,23.1,0.0,0.0,0.0,0.1,60729.8,0.0,0.0,541.7,137.5,32.1,0.1,17.2,4529.3,122.8]
+,['Date(2014, 11, 01, 07, 42, 10)',1188.3,0.0,23.4,0.0,0.0,0.0,0.1,58861.4,0.0,0.0,568.1,131.4,25.8,4.2,15.7,4729.7,117.3]
+,['Date(2014, 11, 01, 08, 02, 24)',1189.9,0.0,23.2,0.0,0.0,0.0,0.1,62164.2,0.0,0.0,475.8,162.3,47.0,0.1,19.9,4452.7,110.6]
+,['Date(2014, 11, 01, 08, 23, 13)',51.7,0.0,26.2,0.0,0.0,0.0,0.1,127242.2,0.0,0.0,170.5,76.2,22.9,0.1,26.1,891.1,57.1]
+,['Date(2014, 11, 01, 08, 43, 57)',491.6,0.0,27.5,0.0,0.0,0.0,0.1,99408.3,0.0,0.0,48.6,23.9,12.4,0.5,15.0,368.1,38.8]
+,['Date(2014, 11, 01, 09, 04, 43)',152.3,0.0,26.7,0.0,0.0,0.0,0.1,91558.4,0.0,0.0,77.4,29.3,21.5,0.7,52.3,608.7,50.2]
+,['Date(2014, 11, 01, 09, 25, 28)',54.7,0.0,27.7,0.0,0.0,0.0,0.1,107977.9,0.0,0.0,41.5,22.5,5.2,0.9,14.8,333.6,46.2]
+,['Date(2014, 11, 01, 09, 46, 16)',257.8,0.0,27.6,0.0,0.0,0.0,0.1,110667.1,0.0,0.0,46.3,30.3,8.1,3.7,18.2,403.5,244.2]
+,['Date(2014, 11, 01, 10, 07, 13)',175.5,0.0,26.9,0.0,0.0,0.0,0.1,109458.2,0.0,0.0,57.4,26.1,12.8,0.1,21.7,383.7,52.4]
+,['Date(2014, 11, 01, 10, 28, 06)',53.4,0.0,27.1,0.0,0.0,0.0,0.1,105080.4,0.0,0.0,45.4,22.5,7.3,0.1,14.5,280.3,46.0]
+		]);
+
+		var options_DISKWRITE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Write KB per second (Stacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_DISKWRITE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKWRITE, options_DISKWRITE);
+		});
+
+		var options_DISKWRITEu = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Write KB per second (UnStacked)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked: 0
+		};
+
+		document.getElementById("draw_DISKWRITEu").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKWRITE, options_DISKWRITEu);
+		});
+
+			var data_DISKBSIZE = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk8','hdisk9','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',17.6,0.0,15.5,0.0,0.0,0.0,4.0,5.2,0.0,0.0,23.0,56.0,26.0,61.8,56.0,8.8,5.0]
+,['Date(2014, 11, 01, 00, 40, 25)',53.2,0.0,15.5,0.0,0.0,0.0,4.0,5.0,0.0,0.0,28.4,79.8,81.2,155.3,20.1,6.7,5.0]
+,['Date(2014, 11, 01, 01, 00, 27)',88.7,0.0,28.5,0.0,0.0,0.0,4.0,5.0,0.0,0.0,13.6,11.5,28.8,24.9,16.6,22.8,5.0]
+,['Date(2014, 11, 01, 01, 20, 28)',129.3,0.0,15.4,0.0,0.0,0.0,4.0,5.0,0.0,0.0,18.2,8.9,10.4,22.2,10.9,27.1,5.9]
+,['Date(2014, 11, 01, 01, 40, 30)',158.5,0.0,15.4,0.0,0.0,0.0,4.0,5.1,0.0,0.0,24.8,10.5,12.8,19.8,10.1,47.3,5.0]
+,['Date(2014, 11, 01, 02, 00, 34)',164.9,0.0,15.4,0.0,0.0,0.0,4.0,5.2,0.0,0.0,31.8,18.1,14.4,24.6,9.8,51.6,4.9]
+,['Date(2014, 11, 01, 02, 20, 36)',169.9,0.0,15.3,0.0,0.0,0.0,4.0,5.3,0.0,0.0,16.5,10.8,8.2,17.7,10.5,45.5,5.1]
+,['Date(2014, 11, 01, 02, 40, 38)',159.0,0.0,15.4,0.0,0.0,0.0,4.0,5.1,0.0,0.0,20.3,17.4,27.4,122.8,13.2,46.7,4.9]
+,['Date(2014, 11, 01, 03, 00, 40)',150.8,0.0,15.4,0.0,0.0,0.0,4.0,5.1,0.0,0.0,19.5,15.3,10.5,144.5,10.1,44.7,5.0]
+,['Date(2014, 11, 01, 03, 20, 41)',158.3,0.0,15.4,0.0,0.0,0.0,4.0,5.1,0.0,0.0,17.2,12.3,23.7,62.5,15.1,46.9,5.0]
+,['Date(2014, 11, 01, 03, 40, 43)',151.3,0.0,15.4,0.0,0.0,0.0,4.0,5.1,0.0,0.0,19.7,8.6,8.6,22.3,12.3,40.2,4.9]
+,['Date(2014, 11, 01, 04, 00, 46)',158.1,0.0,15.4,0.0,0.0,0.0,4.0,5.2,0.0,0.0,19.0,8.7,8.5,22.1,11.0,46.3,4.9]
+,['Date(2014, 11, 01, 04, 20, 48)',64.1,0.0,15.4,0.0,0.0,0.0,4.0,4.8,0.0,0.0,23.9,21.3,14.4,19.0,28.2,14.0,5.0]
+,['Date(2014, 11, 01, 04, 40, 50)',61.8,0.0,15.5,0.0,0.0,0.0,4.0,4.7,0.0,0.0,11.1,8.4,8.2,16.5,8.3,11.6,5.0]
+,['Date(2014, 11, 01, 05, 00, 54)',110.3,0.0,15.5,0.0,0.0,0.0,4.0,4.8,0.0,0.0,12.9,9.9,9.2,106.8,8.6,12.5,5.0]
+,['Date(2014, 11, 01, 05, 20, 57)',130.4,0.0,15.4,0.0,0.0,0.0,4.0,4.7,0.0,0.0,41.0,18.4,15.6,106.0,15.6,9.6,5.1]
+,['Date(2014, 11, 01, 05, 41, 00)',130.4,0.0,15.4,0.0,0.0,0.0,4.0,4.8,0.0,0.0,37.0,17.0,13.1,74.3,15.4,9.1,5.0]
+,['Date(2014, 11, 01, 06, 01, 02)',130.5,0.0,15.4,0.0,0.0,0.0,4.0,5.0,0.0,0.0,17.2,11.1,20.1,40.1,10.1,8.9,4.9]
+,['Date(2014, 11, 01, 06, 21, 14)',107.1,0.0,15.4,0.0,0.0,0.0,4.0,5.6,0.0,0.0,28.4,32.9,14.5,49.3,9.4,9.5,5.0]
+,['Date(2014, 11, 01, 06, 41, 24)',103.2,0.0,15.4,0.0,0.0,0.0,4.0,5.5,0.0,0.0,14.1,8.9,17.1,35.6,29.6,9.0,4.9]
+,['Date(2014, 11, 01, 07, 01, 39)',115.6,0.0,15.4,0.0,0.0,0.0,4.0,5.6,0.0,0.0,15.6,8.2,9.7,35.7,8.5,9.3,4.9]
+,['Date(2014, 11, 01, 07, 21, 54)',93.8,0.0,15.4,0.0,0.0,0.0,4.0,5.8,0.0,0.0,14.1,36.8,20.7,36.4,18.7,9.1,5.0]
+,['Date(2014, 11, 01, 07, 42, 10)',94.4,0.0,15.4,0.0,0.0,0.0,4.0,5.7,0.0,0.0,12.3,8.9,8.7,80.9,8.1,9.5,4.9]
+,['Date(2014, 11, 01, 08, 02, 24)',92.4,0.0,15.4,0.0,0.0,0.0,4.0,5.4,0.0,0.0,16.4,34.7,27.9,30.0,18.7,9.2,4.9]
+,['Date(2014, 11, 01, 08, 23, 13)',18.6,0.0,15.5,0.0,0.0,0.0,4.0,4.9,0.0,0.0,12.6,30.6,36.8,4.3,24.1,5.6,5.0]
+,['Date(2014, 11, 01, 08, 43, 57)',53.6,0.0,15.4,0.0,0.0,0.0,4.0,4.6,0.0,0.0,9.6,19.0,12.2,31.3,9.3,9.5,5.1]
+,['Date(2014, 11, 01, 09, 04, 43)',27.8,0.0,15.5,0.0,0.0,0.0,4.0,4.5,0.0,0.0,10.6,13.6,14.3,22.6,12.8,9.2,5.1]
+,['Date(2014, 11, 01, 09, 25, 28)',19.2,0.0,15.5,0.0,0.0,0.0,4.0,4.6,0.0,0.0,12.1,21.8,42.5,26.1,15.4,5.6,5.3]
+,['Date(2014, 11, 01, 09, 46, 16)',31.5,0.0,15.5,0.0,0.0,0.0,4.0,4.6,0.0,0.0,10.0,22.9,18.6,81.4,23.5,7.7,5.3]
+,['Date(2014, 11, 01, 10, 07, 13)',29.8,0.5,15.3,87.7,0.5,0.5,2.3,4.6,0.5,0.5,11.7,20.4,23.5,73.1,10.0,8.6,5.3]
+,['Date(2014, 11, 01, 10, 28, 06)',16.3,0.0,15.5,0.0,0.0,0.0,4.0,4.5,0.0,0.0,10.4,11.2,34.1,5.0,11.9,6.1,5.2]
+		]);
+
+		var options_DISKBSIZE = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Block Size KB",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_DISKBSIZE").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKBSIZE, options_DISKBSIZE);
+		});
+
+			var data_DISKXFER = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk8','hdisk9','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',10.3,0.0,2.5,0.0,0.0,0.0,0.0,3420.6,0.0,0.0,125.3,179.7,93.3,33.0,17.4,254.2,208.7]
+,['Date(2014, 11, 01, 00, 40, 25)',12.0,0.0,2.4,0.0,0.0,0.0,0.0,2447.4,0.0,0.0,8.4,41.2,11.1,24.7,5.2,204.9,123.2]
+,['Date(2014, 11, 01, 01, 00, 27)',15.4,0.0,2.7,0.0,0.0,0.0,0.0,3809.1,0.0,0.0,59.5,93.6,35.9,489.6,75.5,262.4,165.2]
+,['Date(2014, 11, 01, 01, 20, 28)',22.0,0.0,2.4,0.0,0.0,0.0,0.0,3685.5,0.0,0.0,115.9,92.5,48.7,441.1,20.1,465.5,146.6]
+,['Date(2014, 11, 01, 01, 40, 30)',27.4,0.0,2.4,0.0,0.0,0.0,0.0,3826.1,0.0,0.0,111.3,89.6,22.8,366.7,7.3,371.4,146.3]
+,['Date(2014, 11, 01, 02, 00, 34)',29.9,0.0,2.5,0.0,0.0,0.0,0.0,4027.8,0.0,0.0,92.8,238.3,16.0,13.5,13.9,395.4,169.0]
+,['Date(2014, 11, 01, 02, 20, 36)',32.8,0.0,2.5,0.0,0.0,0.0,0.0,6524.3,0.0,0.0,284.6,604.4,342.3,33.3,91.9,506.3,354.1]
+,['Date(2014, 11, 01, 02, 40, 38)',27.5,0.0,2.4,0.0,0.0,0.0,0.0,4254.7,0.0,0.0,234.5,545.2,72.2,2.0,200.1,378.0,180.7]
+,['Date(2014, 11, 01, 03, 00, 40)',24.6,0.0,2.4,0.0,0.0,0.0,0.0,4536.2,0.0,0.0,158.3,437.3,106.2,23.0,159.0,350.8,177.2]
+,['Date(2014, 11, 01, 03, 20, 41)',27.4,0.0,2.4,0.0,0.0,0.0,0.0,3946.0,0.0,0.0,225.1,292.7,92.1,72.9,140.9,362.7,170.9]
+,['Date(2014, 11, 01, 03, 40, 43)',24.9,0.0,2.4,0.0,0.0,0.0,0.0,3747.9,0.0,0.0,149.2,388.9,64.1,599.8,75.7,405.8,153.5]
+,['Date(2014, 11, 01, 04, 00, 46)',27.3,0.0,2.4,0.0,0.0,0.0,0.0,4061.8,0.0,0.0,192.7,483.4,128.9,417.8,146.6,384.5,165.9]
+,['Date(2014, 11, 01, 04, 20, 48)',11.8,0.0,2.1,0.0,0.0,0.0,0.0,6253.5,0.0,0.0,69.5,281.2,119.3,173.4,26.8,323.4,198.0]
+,['Date(2014, 11, 01, 04, 40, 50)',12.5,0.0,2.4,0.0,0.0,0.0,0.0,9840.2,0.0,0.0,66.6,221.2,66.7,31.6,40.2,248.6,220.2]
+,['Date(2014, 11, 01, 05, 00, 54)',17.6,0.0,2.5,0.0,0.0,0.0,0.0,11282.0,0.0,0.0,110.4,211.4,83.4,0.3,88.1,833.8,307.4]
+,['Date(2014, 11, 01, 05, 20, 57)',19.2,0.0,2.2,0.0,0.0,0.0,0.0,16636.2,0.0,0.0,229.7,273.9,186.0,0.2,86.9,1387.0,432.4]
+,['Date(2014, 11, 01, 05, 41, 00)',19.4,0.0,2.2,0.0,0.0,0.0,0.0,12641.2,0.0,0.0,183.5,161.4,104.7,2.0,36.7,1769.0,422.0]
+,['Date(2014, 11, 01, 06, 01, 02)',19.3,0.0,2.2,0.0,0.0,0.0,0.0,11413.0,0.0,0.0,111.3,257.1,52.7,0.2,53.8,1778.2,519.8]
+,['Date(2014, 11, 01, 06, 21, 14)',15.6,0.0,2.1,0.0,0.0,0.0,0.0,17543.4,0.0,0.0,61.5,146.1,90.4,0.3,42.7,1111.5,1117.5]
+,['Date(2014, 11, 01, 06, 41, 24)',15.1,0.0,2.1,0.0,0.0,0.0,0.0,17646.3,0.0,0.0,125.9,51.9,24.7,0.1,17.0,1221.7,986.7]
+,['Date(2014, 11, 01, 07, 01, 39)',16.5,0.0,2.1,0.0,0.0,0.0,0.0,19210.9,0.0,0.0,92.1,211.9,44.7,0.1,53.7,1069.6,1119.3]
+,['Date(2014, 11, 01, 07, 21, 54)',14.1,0.0,2.1,0.0,0.0,0.0,0.0,20527.9,0.0,0.0,177.6,128.0,59.6,0.1,38.9,846.6,1407.4]
+,['Date(2014, 11, 01, 07, 42, 10)',14.1,0.0,2.1,0.0,0.0,0.0,0.0,20631.8,0.0,0.0,195.2,205.7,101.7,0.1,85.4,833.6,1448.2]
+,['Date(2014, 11, 01, 08, 02, 24)',14.3,0.0,2.1,0.0,0.0,0.0,0.0,23135.1,0.0,0.0,66.7,139.0,78.7,0.1,46.4,831.5,1413.8]
+,['Date(2014, 11, 01, 08, 23, 13)',9.4,0.0,2.2,0.0,0.0,0.0,0.0,61812.5,0.0,0.0,31.7,36.5,16.4,0.0,12.9,274.0,4517.4]
+,['Date(2014, 11, 01, 08, 43, 57)',11.4,0.0,2.3,0.0,0.0,0.0,0.0,57256.1,0.0,0.0,23.2,24.6,10.3,0.0,9.3,112.8,3603.2]
+,['Date(2014, 11, 01, 09, 04, 43)',10.0,0.0,2.2,0.0,0.0,0.0,0.0,58923.6,0.0,0.0,24.7,22.7,10.0,0.0,10.1,135.6,3708.6]
+,['Date(2014, 11, 01, 09, 25, 28)',9.6,0.0,2.3,0.0,0.0,0.0,0.0,62888.6,0.0,0.0,14.0,16.3,8.7,0.0,8.8,95.3,4018.2]
+,['Date(2014, 11, 01, 09, 46, 16)',12.9,0.0,2.3,0.0,0.0,0.0,0.0,64061.4,0.0,0.0,18.6,18.4,9.2,0.0,10.9,119.4,4219.7]
+,['Date(2014, 11, 01, 10, 07, 13)',10.5,0.0,2.3,0.4,0.0,0.0,0.1,64947.3,0.0,0.0,18.9,24.9,7.5,0.2,9.2,94.0,4287.1]
+,['Date(2014, 11, 01, 10, 28, 06)',8.8,0.0,2.3,0.0,0.0,0.0,0.0,66113.2,0.0,0.0,16.8,16.9,10.8,0.0,13.1,75.7,4065.1]
+		]);
+
+		var options_DISKXFER = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Disk Transfers per second",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_DISKXFER").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_DISKXFER, options_DISKXFER);
+		});
+
+			var data_JFS = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'/','/home','/usr','/var','/tmp','/admin','/opt','/var/adm/ras/livedump','/oraredo1','/oraredo2','/oraredo3','/oradata','/orabk','/oraarch','/oratemp','/orainst','/oradata2','/oraarch2','/orabk2','/csi','/nmon','/a02','/a03','/opt/IBM/ITM','/SME']
+,['Date(2014, 11, 01, 00, 20, 22)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,0.9,56.3,65.4,0.6,1.1,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 00, 40, 25)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,1.1,56.3,65.4,0.6,1.1,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 01, 00, 27)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,1.7,56.3,65.4,0.6,2.8,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 01, 20, 28)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,2.6,56.3,65.7,0.6,2.8,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 01, 40, 30)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,4.8,56.3,65.7,0.6,2.8,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 02, 00, 34)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,7.2,56.3,65.4,0.6,2.8,0.7,0.0,0.0,19.6,39.0,31.8,19.7]
+,['Date(2014, 11, 01, 02, 20, 36)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,10.0,56.3,65.4,0.6,2.8,0.7,0.0,0.0,19.6,39.2,31.8,19.7]
+,['Date(2014, 11, 01, 02, 40, 38)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,12.2,56.3,65.4,0.6,2.8,0.7,0.0,0.0,19.6,39.2,31.8,19.7]
+,['Date(2014, 11, 01, 03, 00, 40)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,14.0,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,39.2,31.8,19.7]
+,['Date(2014, 11, 01, 03, 20, 41)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,16.2,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,39.2,31.8,19.7]
+,['Date(2014, 11, 01, 03, 40, 43)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,18.0,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,38.8,31.8,19.7]
+,['Date(2014, 11, 01, 04, 00, 46)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,20.1,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,38.8,31.8,19.7]
+,['Date(2014, 11, 01, 04, 20, 48)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,20.4,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,38.8,31.8,19.7]
+,['Date(2014, 11, 01, 04, 40, 50)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,20.7,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,39.1,31.8,19.7]
+,['Date(2014, 11, 01, 05, 00, 54)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,21.7,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,39.6,31.8,19.7]
+,['Date(2014, 11, 01, 05, 20, 57)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,22.9,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,40.1,31.8,19.7]
+,['Date(2014, 11, 01, 05, 41, 00)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,24.1,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 06, 01, 02)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,25.3,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 06, 21, 14)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,26.1,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,40.8,31.8,19.7]
+,['Date(2014, 11, 01, 06, 41, 24)',32.0,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,26.8,56.3,65.5,0.6,2.8,0.7,0.0,0.0,19.6,41.0,31.8,19.7]
+,['Date(2014, 11, 01, 07, 01, 39)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,27.7,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.4,31.8,19.7]
+,['Date(2014, 11, 01, 07, 21, 54)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,28.3,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.5,31.8,19.7]
+,['Date(2014, 11, 01, 07, 42, 10)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,28.9,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.5,31.8,19.7]
+,['Date(2014, 11, 01, 08, 02, 24)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.5,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 08, 23, 13)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.5,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 08, 43, 57)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.7,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 09, 04, 43)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.8,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 09, 25, 28)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.8,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.6,31.8,19.7]
+,['Date(2014, 11, 01, 09, 46, 16)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,29.9,56.3,65.6,0.6,2.8,0.7,0.0,0.0,19.6,40.7,31.8,19.7]
+,['Date(2014, 11, 01, 10, 07, 13)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,30.0,56.3,63.8,0.6,2.8,0.7,0.0,0.0,19.6,40.7,31.8,19.7]
+,['Date(2014, 11, 01, 10, 28, 06)',32.1,62.0,55.3,17.9,64.0,0.1,67.2,0.1,50.4,50.4,50.4,81.7,31.8,30.0,56.3,63.9,0.6,2.8,0.7,0.0,0.0,19.6,40.7,31.8,19.7]
+		]);
+
+		var options_JFS = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Journal File System Percent Full",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_JFS").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_JFS, options_JFS);
+		});
+
+			var data_IPC = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'sem','msg']
+,['Date(2014, 11, 01, 00, 20, 22)',1000,100]
+,['Date(2014, 11, 01, 00, 40, 25)',1500,360]
+,['Date(2014, 11, 01, 01, 00, 27)',1250,650]
+,['Date(2014, 11, 01, 01, 20, 28)',950,134]
+,['Date(2014, 11, 01, 01, 40, 30)',423,72]
+,['Date(2014, 11, 01, 02, 00, 34)',123,95]
+,['Date(2014, 11, 01, 02, 20, 36)',529,47]
+,['Date(2014, 11, 01, 02, 40, 38)',0,0]
+,['Date(2014, 11, 01, 03, 00, 40)',0,0]
+,['Date(2014, 11, 01, 03, 20, 41)',450,259]
+,['Date(2014, 11, 01, 03, 40, 43)',550,245]
+,['Date(2014, 11, 01, 04, 00, 46)',495,341]
+,['Date(2014, 11, 01, 04, 20, 48)',312,321]
+,['Date(2014, 11, 01, 04, 40, 50)',284,92]
+,['Date(2014, 11, 01, 05, 00, 54)',0,0]
+,['Date(2014, 11, 01, 05, 20, 57)',0,0]
+,['Date(2014, 11, 01, 05, 41, 00)',0,0]
+,['Date(2014, 11, 01, 06, 01, 02)',0,0]
+,['Date(2014, 11, 01, 06, 21, 14)',0,0]
+,['Date(2014, 11, 01, 06, 41, 24)',0,0]
+,['Date(2014, 11, 01, 07, 01, 39)',0,0]
+,['Date(2014, 11, 01, 07, 21, 54)',0,0]
+,['Date(2014, 11, 01, 07, 42, 10)',0,0]
+,['Date(2014, 11, 01, 08, 02, 24)',0,0]
+,['Date(2014, 11, 01, 08, 23, 13)',0,0]
+,['Date(2014, 11, 01, 08, 43, 57)',0,0]
+,['Date(2014, 11, 01, 09, 04, 43)',0,0]
+,['Date(2014, 11, 01, 09, 25, 28)',0,0]
+,['Date(2014, 11, 01, 09, 46, 16)',0,0]
+,['Date(2014, 11, 01, 10, 07, 13)',0,0]
+,['Date(2014, 11, 01, 10, 28, 06)',0,0]
+		]);
+
+		var options_IPC = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "InterProcess Comms - Semaphore & Message Queues",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_IPC").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_IPC, options_IPC);
+		});
+
+		}
+		</script>
+	</head>
+	 <body bgcolor="#EEEEFF">
+	nmon data file: <b>sampleC.nmon</b>
+	<br>
+	<button id="draw_PHYSICAL_CPU" style="color:black;">PHYSICAL_CPU</button>
+	<button id="draw_POOLIDLE" style="color:black;">POOLIDLE</button>
+	<button id="draw_CPU_UTIL" style="color:red;">CPU_UTIL</button>
+	<button id="draw_CPU_USE" style="color:red;">CPU_USE</button>
+	<button id="draw_RUNQ" style="color:red;">RUNQ</button>
+	<button id="draw_PSWITCH" style="color:red;">PSWITCH</button>
+	<button id="draw_SYSCALL" style="color:red;">SYSCALL</button>
+	<button id="draw_READWRITE" style="color:red;">READWRITE</button>
+	<button id="draw_FORKEXEC" style="color:red;">FORKEXEC</button>
+	<button id="draw_FILEIO" style="color:red;">FILEIO</button>
+	<button id="draw_REALMEM" style="color:blue;">REALMEM</button>
+	<button id="draw_VIRTMEM" style="color:blue;">VIRTMEM</button>
+	<button id="draw_FSCACHE" style="color:blue;">FSCACHE</button>
+	<button id="draw_PAGING" style="color:blue;">PAGING</button>
+	<button id="draw_SWAPIN" style="color:blue;">SWAPIN</button>
+	<button id="draw_TOPSUM" style="color:black;">TOPSUM</button>
+	<button id="draw_TOPCMD" style="color:black;">TOPCMD</button>
+<br>
+	<button id="draw_NET" style="color:purple;">NET</button>
+	<button id="draw_NETPACKET" style="color:purple;">NETPACKET</button>
+	<button id="draw_NETSIZE" style="color:purple;">NETSIZE</button>
+	<button id="draw_ADAPT_KBS" style="color:green;">ADAPT_KBS</button>
+	<button id="draw_ADAPT_TPS" style="color:green;">ADAPT_TPS</button>
+	<button id="draw_DISKBUSY" style="color:brown;">DISKBUSY</button>
+	<button id="draw_DISKBUSYu" style="color:brown;">DISKBUSYu</button>
+	<button id="draw_DISKREAD" style="color:brown;">DISKREAD</button>
+	<button id="draw_DISKREADu" style="color:brown;">DISKREADu</button>
+	<button id="draw_DISKWRITE" style="color:brown;">DISKWRITE</button>
+	<button id="draw_DISKWRITEu" style="color:brown;">DISKWRITEu</button>
+	<button id="draw_DISKBSIZE" style="color:brown;">DISKBSIZE</button>
+	<button id="draw_DISKXFER" style="color:brown;">DISKXFER</button>
+	<button id="draw_JFS" style="color:brown;">JFS</button>
+	<button id="draw_IPC" style="color:black;">IPC</button>
+
+	<div id="chart_master" style="width:100%; height:75%;">
+	<h2 style="color:blue">Click on a Graph button above, to display that graph</h2>
+	</div>
+
+<table><tr><td>
+<li>Host:sampleC
+<li>Date:01-DEC-2014
+<li>Time:00:00:06
+<li>Interval:1200
+<li>Snapshots: 31
+<td>
+<li>Online Virtual CPUs                        : 7
+<li>Entitled Capacity                          : 7.00
+<li>Mode                                       : Uncapped
+<li>Online Memory                              : 63488 MB
+<li>Type                                       : Shared-SMT-4
+<td>
+<li>System Model: IBM,8205-E6C
+<li>Machine Serial Number: 06F412R
+<li>Processor Type: PowerPC_POWER7
+<li>Processor Implementation Mode: POWER 7
+<li>Processor Version: PV_7_Compat
+<td>
+<li>Processor Clock Speed: 3720 MHz
+<li>CPU Type: 64-bit
+<li>Kernel Type: 64-bit
+<li>LPAR Info: 2 sampleC
+<li>Platform Firmware level: AL740_095
+<td valign=top>
+<li>AIX Level 6100-07-030.07
+<li>Power Saving Mode                          : Disabled
+<hr>
+<li>Graphed by nmonchart v 23
+<li>Author: Nigel Griffiths @mr_nmon
+</table>
+	</body>
+</html>
