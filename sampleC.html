@@ -1,6 +1,1215 @@
 <html>
 	<head>
 		<title>nmonChart</title>
+<script>
+function config() {
+    var myWindow = window.open("", "MsgWindow", "width=1024, height=800");
+    myWindow.document.write("<h2>Configuration data for sampleC.nmon <br>Use PageDown or Scroll bar (if available)</h2><br>\
+<b>progname</b> = topas_nmon<br>\
+<b>command</b> = /usr/bin/topas_nmon -F /SME/nmondata/2014/12/sampleC_20141201_00:00.nmon -T -s 1200 -c 72 -N -L -A -youtput_dir=/SME/nmondata/2014/12/sampleC_20141201_00:00.nmon -ystart_time=00:00:06<br>\
+<b>version</b> = TOPAS-NMON<br>\
+<b>build</b> = AIX<br>\
+<b>disks_per_line</b> = 150<br>\
+<b>host</b> = sampleC<br>\
+<b>user</b> = root<br>\
+<b>AIX</b> = 6.1.7.17<br>\
+<b>TL</b> = 07<br>\
+<b>runname</b> = sampleC<br>\
+<b>time</b> = 00:00:06<br>\
+<b>date</b> = 01-DEC-2014<br>\
+<b>interval</b> = 1200<br>\
+<b>snapshots</b> = 72<br>\
+<b>hardware</b> = Architecture PowerPC Implementation POWER7_in_P7_mode 64 bit<br>\
+<b>cpus</b> = 28<br>\
+<b>kernel</b> =  HW-type=CHRP=Common H/W Reference Platform Bus=PCI LPAR=Dynamic Multi-Processor 64 bit<br>\
+<b>SerialNumber</b> = 06F412R<br>\
+<b>LPARNumberName</b> = 2<br>\
+<b>MachineType</b> = IBM<br>\
+<b>NodeName</b> = sampleC<br>\
+<b>timestampsize</b> = 0<br>\
+<b>BBBB</b> 0000 name,size(GB),disc attach type<br>\
+<b>BBBB</b> 0001 hdisk1,98.43,Disk type NOT SCSI/SSA/SAS/FC = <hdisk1 Available 00-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 000 hdisk1<br>\
+<b>BBBC</b> 001 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 002 lv.oraarch            769     769     154..154..153..154..154 /oraarch<br>\
+<b>BBBB</b> 0002 hdisk2,98.43,Disk type NOT SCSI/SSA/SAS/FC = <hdisk2 Available 00-01-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 003 hdisk2<br>\
+<b>BBBC</b> 004 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 005 lv.oraarch            769     769     154..154..153..154..154 /oraarch<br>\
+<b>BBBB</b> 0003 hdisk3,98.43,Disk type NOT SCSI/SSA/SAS/FC = <hdisk3 Available 00-01-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 006 hdisk3<br>\
+<b>BBBC</b> 007 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 008 lv.oraarch            222     222     00..154..68..00..00   /oraarch<br>\
+<b>BBBC</b> 009 lv.oraarch2           20      20      06..00..14..00..00    /oraarch2<br>\
+<b>BBBB</b> 0004 hdisk4,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk4 Available 00-01-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 010 hdisk4<br>\
+<b>BBBC</b> 011 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 012 lv.orabk              961     961     193..192..192..192..192 /orabk<br>\
+<b>BBBB</b> 0005 hdisk5,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk5 Available 00-01-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 013 hdisk5<br>\
+<b>BBBC</b> 014 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 015 lv.orabk              961     961     193..192..192..192..192 /orabk<br>\
+<b>BBBB</b> 0006 hdisk6,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk6 Available 00-01-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 016 hdisk6<br>\
+<b>BBBC</b> 017 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 018 lv.orabk              961     961     193..192..192..192..192 /orabk<br>\
+<b>BBBB</b> 0007 hdisk7,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk7 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 019 hdisk7<br>\
+<b>BBBC</b> 020 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 021 lv.orabk2             478     478     193..03..192..90..00  /orabk2<br>\
+<b>BBBC</b> 022 lv.orabk              189     189     00..189..00..00..00   /orabk<br>\
+<b>BBBB</b> 0008 hdisk0,98.43,Disk type NOT SCSI/SSA/SAS/FC = <hdisk0 Available 00-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 023 hdisk0<br>\
+<b>BBBC</b> 024 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 025 hd4                   40      40      00..00..40..00..00    /<br>\
+<b>BBBC</b> 026 hd2                   56      56      00..00..40..16..00    /usr<br>\
+<b>BBBC</b> 027 hd9var                32      32      00..00..32..00..00    /var<br>\
+<b>BBBC</b> 028 hd3                   16      16      00..00..16..00..00    /tmp<br>\
+<b>BBBC</b> 029 hd1                   56      56      04..00..18..34..00    /home<br>\
+<b>BBBC</b> 030 hd10opt               48      48      08..00..00..40..00    /opt<br>\
+<b>BBBC</b> 031 hd5                   4       4       04..00..00..00..00    N/A<br>\
+<b>BBBC</b> 032 hd6                   196     196     02..154..06..34..00   N/A<br>\
+<b>BBBC</b> 033 hd8                   1       1       00..00..01..00..00    N/A<br>\
+<b>BBBC</b> 034 fslv00                16      16      00..00..00..16..00    /SME<br>\
+<b>BBBC</b> 035 itmlv                 16      16      16..00..00..00..00    /opt/IBM/ITM<br>\
+<b>BBBC</b> 036 livedump              4       4       04..00..00..00..00    /var/adm/ras/livedump<br>\
+<b>BBBC</b> 037 lg_dumplv             32      32      16..00..00..14..02    N/A<br>\
+<b>BBBC</b> 038 nmonlv                40      40      40..00..00..00..00    /nmon<br>\
+<b>BBBC</b> 039 csilv                 56      56      56..00..00..00..00    /csi<br>\
+<b>BBBC</b> 040 hd11admin             4       4       04..00..00..00..00    /admin<br>\
+<b>BBBB</b> 0009 hdisk8,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk8 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 041 hdisk8<br>\
+<b>BBBC</b> 042 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 043 lv.orabk2             961     961     193..192..192..192..192 /orabk2<br>\
+<b>BBBB</b> 0010 hdisk9,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk9 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 044 hdisk9<br>\
+<b>BBBC</b> 045 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 046 lv.orabk2             961     961     193..192..192..192..192 /orabk2<br>\
+<b>BBBB</b> 0011 hdisk10,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk10 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 047 hdisk10<br>\
+<b>BBBC</b> 048 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 049 lv.oradata            961     961     193..192..192..192..192 /oradata<br>\
+<b>BBBB</b> 0012 hdisk11,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk11 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 050 hdisk11<br>\
+<b>BBBC</b> 051 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 052 lv.oradata            961     961     193..192..192..192..192 /oradata<br>\
+<b>BBBB</b> 0013 hdisk12,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk12 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 053 hdisk12<br>\
+<b>BBBC</b> 054 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 055 lv.oradata            961     961     193..192..192..192..192 /oradata<br>\
+<b>BBBB</b> 0014 hdisk16,49.15,Disk type NOT SCSI/SSA/SAS/FC = <hdisk16 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 056 hdisk16<br>\
+<b>BBBC</b> 057 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 058 lv.oratemp            240     240     77..77..76..10..00    /oratemp<br>\
+<b>BBBB</b> 0015 hdisk13,492.03,Disk type NOT SCSI/SSA/SAS/FC = <hdisk13 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 059 hdisk13<br>\
+<b>BBBC</b> 060 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 061 lv.oradata2           8       8       08..00..00..00..00    /oradata2<br>\
+<b>BBBC</b> 062 lv.oradata            317     317     00..192..125..00..00  /oradata<br>\
+<b>BBBB</b> 0016 hdisk15,32.77,Disk type NOT SCSI/SSA/SAS/FC = <hdisk15 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 063 hdisk15<br>\
+<b>BBBC</b> 064 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 065 lv.oraredo1           36      36      00..36..00..00..00    /oraredo1<br>\
+<b>BBBC</b> 066 lv.oraredo2           36      36      36..00..00..00..00    /oraredo2<br>\
+<b>BBBC</b> 067 lv.oraredo3           36      36      00..15..21..00..00    /oraredo3<br>\
+<b>BBBB</b> 0017 hdisk14,49.15,Disk type NOT SCSI/SSA/SAS/FC = <hdisk14 Available 01-00-02 MPIO 2810 XIV Disk><br>\
+<b>BBBC</b> 068 hdisk14<br>\
+<b>BBBC</b> 069 LV NAME               LPs     PPs     DISTRIBUTION          MOUNT POINT<br>\
+<b>BBBC</b> 070 lv.orainst            384     384     77..77..76..77..77    /orainst<br>\
+<b>BBBC</b> 071 hdisk0          00f7f412affdfd65                    rootvg          active      <br>\
+<b>BBBC</b> 072 hdisk10         00f7f412dad6eef1                    vg.oradata      active      <br>\
+<b>BBBC</b> 073 hdisk11         00f7f412dad6ef3b                    vg.oradata      active      <br>\
+<b>BBBC</b> 074 hdisk4          00f7f412dab413ea                    vg.orabk        active      <br>\
+<b>BBBC</b> 075 hdisk12         00f7f412dad6ef84                    vg.oradata      active      <br>\
+<b>BBBC</b> 076 hdisk13         00f7f412dad6efcc                    vg.oradata      active      <br>\
+<b>BBBC</b> 077 hdisk5          00f7f412dab41435                    vg.orabk        active      <br>\
+<b>BBBC</b> 078 hdisk1          00f7f412da83b89a                    vg.oraarch      active      <br>\
+<b>BBBC</b> 079 hdisk2          00f7f412da83b8e3                    vg.oraarch      active      <br>\
+<b>BBBC</b> 080 hdisk3          00f7f412da83b92c                    vg.oraarch      active      <br>\
+<b>BBBC</b> 081 hdisk6          00f7f412dab4147f                    vg.orabk        active      <br>\
+<b>BBBC</b> 082 hdisk7          00f7f412dab414ce                    vg.orabk        active      <br>\
+<b>BBBC</b> 083 hdisk8          00f7f412dab41517                    vg.orabk        active      <br>\
+<b>BBBC</b> 084 hdisk9          00f7f412dab4155d                    vg.orabk        active      <br>\
+<b>BBBC</b> 085 hdisk14         00f7f412dad777f8                    vg.orainst      active      <br>\
+<b>BBBC</b> 086 hdisk15         00f7f412dad80bdf                    vg.oraredo      active      <br>\
+<b>BBBC</b> 087 hdisk16         00f7f412dad8c74e                    vg.oratemp      active      <br>\
+<b>BBBV</b> 000 VOLUME GROUP<br>\
+<b>BBBV</b> 001 VG STATE<br>\
+<b>BBBV</b> 002 VG PERMISSION<br>\
+<b>BBBV</b> 003 MAX LVs<br>\
+<b>BBBV</b> 004 LVs<br>\
+<b>BBBV</b> 005 OPEN LVs<br>\
+<b>BBBV</b> 006 TOTAL PVs<br>\
+<b>BBBV</b> 007 STALE PVs<br>\
+<b>BBBV</b> 008 ACTIVE PVs<br>\
+<b>BBBV</b> 009 MAX PPs per VG<br>\
+<b>BBBV</b> 010 MAX PPs per PV<br>\
+<b>BBBV</b> 011 LTG size (Dynamic)<br>\
+<b>BBBV</b> 012 HOT SPARE<br>\
+<b>BBBV</b> 013 PV RESTRICTION<br>\
+<b>BBBV</b> 014 <br>\
+<b>BBBV</b> 015 VOLUME GROUP<br>\
+<b>BBBV</b> 016 VG STATE<br>\
+<b>BBBV</b> 017 VG PERMISSION<br>\
+<b>BBBV</b> 018 MAX LVs<br>\
+<b>BBBV</b> 019 LVs<br>\
+<b>BBBV</b> 020 OPEN LVs<br>\
+<b>BBBV</b> 021 TOTAL PVs<br>\
+<b>BBBV</b> 022 STALE PVs<br>\
+<b>BBBV</b> 023 ACTIVE PVs<br>\
+<b>BBBV</b> 024 MAX PPs per VG<br>\
+<b>BBBV</b> 025 MAX PPs per PV<br>\
+<b>BBBV</b> 026 LTG size (Dynamic)<br>\
+<b>BBBV</b> 027 HOT SPARE<br>\
+<b>BBBV</b> 028 PV RESTRICTION<br>\
+<b>BBBV</b> 029 <br>\
+<b>BBBV</b> 030 VOLUME GROUP<br>\
+<b>BBBV</b> 031 VG STATE<br>\
+<b>BBBV</b> 032 VG PERMISSION<br>\
+<b>BBBV</b> 033 MAX LVs<br>\
+<b>BBBV</b> 034 LVs<br>\
+<b>BBBV</b> 035 OPEN LVs<br>\
+<b>BBBV</b> 036 TOTAL PVs<br>\
+<b>BBBV</b> 037 STALE PVs<br>\
+<b>BBBV</b> 038 ACTIVE PVs<br>\
+<b>BBBV</b> 039 MAX PPs per VG<br>\
+<b>BBBV</b> 040 MAX PPs per PV<br>\
+<b>BBBV</b> 041 LTG size (Dynamic)<br>\
+<b>BBBV</b> 042 HOT SPARE<br>\
+<b>BBBV</b> 043 PV RESTRICTION<br>\
+<b>BBBV</b> 044 <br>\
+<b>BBBV</b> 045 VOLUME GROUP<br>\
+<b>BBBV</b> 046 VG STATE<br>\
+<b>BBBV</b> 047 VG PERMISSION<br>\
+<b>BBBV</b> 048 MAX LVs<br>\
+<b>BBBV</b> 049 LVs<br>\
+<b>BBBV</b> 050 OPEN LVs<br>\
+<b>BBBV</b> 051 TOTAL PVs<br>\
+<b>BBBV</b> 052 STALE PVs<br>\
+<b>BBBV</b> 053 ACTIVE PVs<br>\
+<b>BBBV</b> 054 MAX PPs per VG<br>\
+<b>BBBV</b> 055 MAX PPs per PV<br>\
+<b>BBBV</b> 056 LTG size (Dynamic)<br>\
+<b>BBBV</b> 057 HOT SPARE<br>\
+<b>BBBV</b> 058 PV RESTRICTION<br>\
+<b>BBBV</b> 059 <br>\
+<b>BBBV</b> 060 VOLUME GROUP<br>\
+<b>BBBV</b> 061 VG STATE<br>\
+<b>BBBV</b> 062 VG PERMISSION<br>\
+<b>BBBV</b> 063 MAX LVs<br>\
+<b>BBBV</b> 064 LVs<br>\
+<b>BBBV</b> 065 OPEN LVs<br>\
+<b>BBBV</b> 066 TOTAL PVs<br>\
+<b>BBBV</b> 067 STALE PVs<br>\
+<b>BBBV</b> 068 ACTIVE PVs<br>\
+<b>BBBV</b> 069 MAX PPs per VG<br>\
+<b>BBBV</b> 070 MAX PPs per PV<br>\
+<b>BBBV</b> 071 LTG size (Dynamic)<br>\
+<b>BBBV</b> 072 HOT SPARE<br>\
+<b>BBBV</b> 073 PV RESTRICTION<br>\
+<b>BBBV</b> 074 <br>\
+<b>BBBV</b> 075 VOLUME GROUP<br>\
+<b>BBBV</b> 076 VG STATE<br>\
+<b>BBBV</b> 077 VG PERMISSION<br>\
+<b>BBBV</b> 078 MAX LVs<br>\
+<b>BBBV</b> 079 LVs<br>\
+<b>BBBV</b> 080 OPEN LVs<br>\
+<b>BBBV</b> 081 TOTAL PVs<br>\
+<b>BBBV</b> 082 STALE PVs<br>\
+<b>BBBV</b> 083 ACTIVE PVs<br>\
+<b>BBBV</b> 084 MAX PPs per VG<br>\
+<b>BBBV</b> 085 MAX PPs per PV<br>\
+<b>BBBV</b> 086 LTG size (Dynamic)<br>\
+<b>BBBV</b> 087 HOT SPARE<br>\
+<b>BBBV</b> 088 PV RESTRICTION<br>\
+<b>BBBV</b> 089 <br>\
+<b>BBBV</b> 090 VOLUME GROUP<br>\
+<b>BBBV</b> 091 VG STATE<br>\
+<b>BBBV</b> 092 VG PERMISSION<br>\
+<b>BBBV</b> 093 MAX LVs<br>\
+<b>BBBV</b> 094 LVs<br>\
+<b>BBBV</b> 095 OPEN LVs<br>\
+<b>BBBV</b> 096 TOTAL PVs<br>\
+<b>BBBV</b> 097 STALE PVs<br>\
+<b>BBBV</b> 098 ACTIVE PVs<br>\
+<b>BBBV</b> 099 MAX PPs per VG<br>\
+<b>BBBV</b> 100 MAX PPs per PV<br>\
+<b>BBBV</b> 101 LTG size (Dynamic)<br>\
+<b>BBBV</b> 102 HOT SPARE<br>\
+<b>BBBV</b> 103 PV RESTRICTION<br>\
+<b>BBBN</b> 000 NetworkName,MTU,Mbits,Name<br>\
+<b>BBBN</b> 001 en8,1500,10240,Standard Ethernet Network Interface<br>\
+<b>BBBN</b> 002 en9,1500,1024,Standard Ethernet Network Interface<br>\
+<b>BBBN</b> 003 en10,1500,1024,Standard Ethernet Network Interface<br>\
+<b>BBBN</b> 004 lo0,16896,0,Loopback Network Interface<br>\
+<b>BBBD</b> 000 Disk Adapter Information sampleC<br>\
+<b>BBBD</b> 001 Adapter_number,Name,Disks, Description<br>\
+<b>BBBD</b> 002 0,fcs1,17,8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+<b>BBBD</b> 003 1,fcs0,17,8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+<b>BBBD</b> 004 2,fcs2,17,8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+<b>BBBD</b> 005 3,fcs3,17,8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+<b>BBBL</b> 01 lparno,2<br>\
+<b>BBBL</b> 02 lparname,sampleC<br>\
+<b>BBBL</b> 03 CPU in sys,12<br>\
+<b>BBBL</b> 04 Virtual CPU,7<br>\
+<b>BBBL</b> 05 Logical CPU,28<br>\
+<b>BBBL</b> 06 Pool CPU,8<br>\
+<b>BBBL</b> 07 smt threads,4<br>\
+<b>BBBL</b> 08 capped,0<br>\
+<b>BBBL</b> 09 min Virtual,1<br>\
+<b>BBBL</b> 10 max Virtual,7<br>\
+<b>BBBL</b> 11 min Logical,1<br>\
+<b>BBBL</b> 12 max Logical,28<br>\
+<b>BBBL</b> 13 min Capacity,1.0  <br>\
+<b>BBBL</b> 14 max Capacity,7.0  <br>\
+<b>BBBL</b> 15 Entitled Capacity,7.0  <br>\
+<b>BBBL</b> 16 Weight,200<br>\
+<b>BBBL</b> 17 min Memory MB,1024<br>\
+<b>BBBL</b> 18 max Memory MB,94208<br>\
+<b>BBBL</b> 19 online Memory,63488<br>\
+<b>BBBL</b> 20 pool id,1<br>\
+<b>BBBL</b> 21 Flags,LPARed DRable SMT Shared UnCapped Migratable Not-Donating AMSable.<br>\
+000 <b>uptime</b> <br>\
+001 <b>uptime</b>   12:00AM   up 429 days<br>\
+002 <b>lsconf</b> <br>\
+003 <b>lsconf</b> System Model: IBM<br>\
+004 <b>lsconf</b> Machine Serial Number: 06F412R<br>\
+005 <b>lsconf</b> Processor Type: PowerPC_POWER7<br>\
+006 <b>lsconf</b> Processor Implementation Mode: POWER 7<br>\
+007 <b>lsconf</b> Processor Version: PV_7_Compat<br>\
+008 <b>lsconf</b> Number Of Processors: 7<br>\
+009 <b>lsconf</b> Processor Clock Speed: 3720 MHz<br>\
+010 <b>lsconf</b> CPU Type: 64-bit<br>\
+011 <b>lsconf</b> Kernel Type: 64-bit<br>\
+012 <b>lsconf</b> LPAR Info: 2 sampleC<br>\
+013 <b>lsconf</b> Memory Size: 63488 MB<br>\
+014 <b>lsconf</b> Good Memory Size: 63488 MB<br>\
+015 <b>lsconf</b> Platform Firmware level: AL740_095<br>\
+016 <b>lsconf</b> Firmware Version: IBM<br>\
+017 <b>lsconf</b> Console Login: enable<br>\
+018 <b>lsconf</b> Auto Restart: true<br>\
+019 <b>lsconf</b> Full Core: false<br>\
+020 <b>lsconf</b>  <br>\
+021 <b>lsconf</b> Network Information<br>\
+022 <b>lsconf</b> 	Host Name: sampleC<br>\
+023 <b>lsconf</b> 	IP Address: 172.17.83.12<br>\
+024 <b>lsconf</b> 	Sub Netmask: 255.255.255.0<br>\
+025 <b>lsconf</b> 	Gateway: 172.17.83.1<br>\
+026 <b>lsconf</b> 	Name Server: 172.17.38.13<br>\
+027 <b>lsconf</b> 	Domain Name: symphony.local<br>\
+028 <b>lsconf</b>  <br>\
+029 <b>lsconf</b> Paging Space Information<br>\
+030 <b>lsconf</b> 	Total Paging Space: 25088MB<br>\
+031 <b>lsconf</b> 	Percent Used: 17%<br>\
+032 <b>lsconf</b>  <br>\
+033 <b>lsconf</b> Volume Groups Information<br>\
+034 <b>lsconf</b> e============================================================================= <br>\
+035 <b>lsconf</b> Active VGs<br>\
+036 <b>lsconf</b> e============================================================================= <br>\
+037 <b>lsconf</b> vg.orabk:<br>\
+038 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+039 <b>lsconf</b> hdisk4            active            961         0           00..00..00..00..00<br>\
+040 <b>lsconf</b> hdisk5            active            961         0           00..00..00..00..00<br>\
+041 <b>lsconf</b> hdisk6            active            961         0           00..00..00..00..00<br>\
+042 <b>lsconf</b> hdisk7            active            961         294         00..00..00..102..192<br>\
+043 <b>lsconf</b> hdisk8            active            961         0           00..00..00..00..00<br>\
+044 <b>lsconf</b> hdisk9            active            961         0           00..00..00..00..00<br>\
+045 <b>lsconf</b> e============================================================================= <br>\
+046 <b>lsconf</b>  <br>\
+047 <b>lsconf</b> vg.oradata:<br>\
+048 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+049 <b>lsconf</b> hdisk10           active            961         0           00..00..00..00..00<br>\
+050 <b>lsconf</b> hdisk11           active            961         0           00..00..00..00..00<br>\
+051 <b>lsconf</b> hdisk12           active            961         0           00..00..00..00..00<br>\
+052 <b>lsconf</b> hdisk13           active            961         636         185..00..67..192..192<br>\
+053 <b>lsconf</b> e============================================================================= <br>\
+054 <b>lsconf</b>  <br>\
+055 <b>lsconf</b> vg.oraarch:<br>\
+056 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+057 <b>lsconf</b> hdisk1            active            769         0           00..00..00..00..00<br>\
+058 <b>lsconf</b> hdisk2            active            769         0           00..00..00..00..00<br>\
+059 <b>lsconf</b> hdisk3            active            769         527         148..00..71..154..154<br>\
+060 <b>lsconf</b> e============================================================================= <br>\
+061 <b>lsconf</b>  <br>\
+062 <b>lsconf</b> vg.oraredo:<br>\
+063 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+064 <b>lsconf</b> hdisk15           active            256         148         16..00..30..51..51<br>\
+065 <b>lsconf</b> e============================================================================= <br>\
+066 <b>lsconf</b>  <br>\
+067 <b>lsconf</b> vg.oratemp:<br>\
+068 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+069 <b>lsconf</b> hdisk16           active            384         144         00..00..00..67..77<br>\
+070 <b>lsconf</b> e============================================================================= <br>\
+071 <b>lsconf</b>  <br>\
+072 <b>lsconf</b> vg.orainst:<br>\
+073 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+074 <b>lsconf</b> hdisk14           active            384         0           00..00..00..00..00<br>\
+075 <b>lsconf</b> e============================================================================= <br>\
+076 <b>lsconf</b>  <br>\
+077 <b>lsconf</b> rootvg:<br>\
+078 <b>lsconf</b> PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION<br>\
+079 <b>lsconf</b> hdisk0            active            769         152         00..00..00..00..152<br>\
+080 <b>lsconf</b> e============================================================================= <br>\
+081 <b>lsconf</b>  <br>\
+082 <b>lsconf</b> INSTALLED RESOURCE LIST<br>\
+083 <b>lsconf</b> <br>\
+084 <b>lsconf</b> The following resources are installed on the machine.<br>\
+085 <b>lsconf</b> p/- = Added or deleted from Resource List.<br>\
+086 <b>lsconf</b> m   = Diagnostic support not available.<br>\
+087 <b>lsconf</b> 	<br>\
+088 <b>lsconf</b>   Model Architecture: chrp<br>\
+089 <b>lsconf</b>   Model Implementation: Multiple Processor<br>\
+090 <b>lsconf</b> 	<br>\
+091 <b>lsconf</b> p sys0                                                                           System Object<br>\
+092 <b>lsconf</b> p sysplanar0                                                                     System Planar<br>\
+093 <b>lsconf</b> m vio0                                                                           Virtual I/O Bus<br>\
+094 <b>lsconf</b> m ent8             U8205.E6C.06F412R-V2-C302-T1                                  Virtual I/O Ethernet Adapter (l-lan)<br>\
+095 <b>lsconf</b> m vsa0             U8205.E6C.06F412R-V2-C0                                       LPAR Virtual Serial Adapter<br>\
+096 <b>lsconf</b> m vty0             U8205.E6C.06F412R-V2-C0-L0                                    Asynchronous Terminal<br>\
+097 <b>lsconf</b> m pci3             U78AA.001.WZSHZFB-P1                                          PCI Express Bus<br>\
+098 <b>lsconf</b> p ent4             U78AA.001.WZSHZFB-P1-C4-T1                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+099 <b>lsconf</b> p ent5             U78AA.001.WZSHZFB-P1-C4-T2                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+100 <b>lsconf</b> p ent6             U78AA.001.WZSHZFB-P1-C4-T3                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+101 <b>lsconf</b> p ent7             U78AA.001.WZSHZFB-P1-C4-T4                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+102 <b>lsconf</b> m pci2             U78AA.001.WZSHZFB-P1                                          PCI Express Bus<br>\
+103 <b>lsconf</b> p ent0             U78AA.001.WZSHZFB-P1-C3-T1                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+104 <b>lsconf</b> p ent1             U78AA.001.WZSHZFB-P1-C3-T2                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+105 <b>lsconf</b> p ent2             U78AA.001.WZSHZFB-P1-C3-T3                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+106 <b>lsconf</b> p ent3             U78AA.001.WZSHZFB-P1-C3-T4                                    4-Port Gigabit Ethernet PCI-Express Adapter (e414571614102004)<br>\
+107 <b>lsconf</b> m pci1             U5877.001.9K8H588-P1                                          PCI Express Bus<br>\
+108 <b>lsconf</b> p fcs2             U5877.001.9K8H588-P1-C4-T1                                    8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+109 <b>lsconf</b> m fcnet2           U5877.001.9K8H588-P1-C4-T1                                    Fibre Channel Network Protocol Device<br>\
+110 <b>lsconf</b> p fscsi2           U5877.001.9K8H588-P1-C4-T1                                    FC SCSI I/O Controller Protocol Device<br>\
+111 <b>lsconf</b> m hdisk12          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LD000000000000   MPIO 2810 XIV Disk<br>\
+112 <b>lsconf</b> m hdisk13          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LE000000000000   MPIO 2810 XIV Disk<br>\
+113 <b>lsconf</b> m hdisk7           U5877.001.9K8H588-P1-C4-T1-W5001738065870140-L8000000000000   MPIO 2810 XIV Disk<br>\
+114 <b>lsconf</b> m hdisk8           U5877.001.9K8H588-P1-C4-T1-W5001738065870140-L9000000000000   MPIO 2810 XIV Disk<br>\
+115 <b>lsconf</b> m hdisk9           U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LA000000000000   MPIO 2810 XIV Disk<br>\
+116 <b>lsconf</b> m hdisk14          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LF000000000000   MPIO 2810 XIV Disk<br>\
+117 <b>lsconf</b> m hdisk15          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-L10000000000000  MPIO 2810 XIV Disk<br>\
+118 <b>lsconf</b> m hdisk16          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-L11000000000000  MPIO 2810 XIV Disk<br>\
+119 <b>lsconf</b> m sfwcomm2         U5877.001.9K8H588-P1-C4-T1-W0-L0                              Fibre Channel Storage Framework Comm<br>\
+120 <b>lsconf</b> m hdisk10          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LB000000000000   MPIO 2810 XIV Disk<br>\
+121 <b>lsconf</b> m hdisk11          U5877.001.9K8H588-P1-C4-T1-W5001738065870140-LC000000000000   MPIO 2810 XIV Disk<br>\
+122 <b>lsconf</b> p fcs3             U5877.001.9K8H588-P1-C4-T2                                    8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+123 <b>lsconf</b> m fcnet3           U5877.001.9K8H588-P1-C4-T2                                    Fibre Channel Network Protocol Device<br>\
+124 <b>lsconf</b> p fscsi3           U5877.001.9K8H588-P1-C4-T2                                    FC SCSI I/O Controller Protocol Device<br>\
+125 <b>lsconf</b> m sfwcomm3         U5877.001.9K8H588-P1-C4-T2-W0-L0                              Fibre Channel Storage Framework Comm<br>\
+126 <b>lsconf</b> m pci0             U5877.001.9K8H588-P1                                          PCI Express Bus<br>\
+127 <b>lsconf</b> p fcs0             U5877.001.9K8H588-P1-C3-T1                                    8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+128 <b>lsconf</b> m fcnet0           U5877.001.9K8H588-P1-C3-T1                                    Fibre Channel Network Protocol Device<br>\
+129 <b>lsconf</b> p fscsi0           U5877.001.9K8H588-P1-C3-T1                                    FC SCSI I/O Controller Protocol Device<br>\
+130 <b>lsconf</b> m hdisk1           U5877.001.9K8H588-P1-C3-T1-W5001738065870140-L2000000000000   MPIO 2810 XIV Disk<br>\
+131 <b>lsconf</b> m sfwcomm0         U5877.001.9K8H588-P1-C3-T1-W0-L0                              Fibre Channel Storage Framework Comm<br>\
+132 <b>lsconf</b> m dac0             U5877.001.9K8H588-P1-C3-T1-W5001738065870140-L0               MPIO XIV Controller<br>\
+133 <b>lsconf</b> m hdisk0           U5877.001.9K8H588-P1-C3-T1-W5001738065870140-L1000000000000   MPIO 2810 XIV Disk<br>\
+134 <b>lsconf</b> p fcs1             U5877.001.9K8H588-P1-C3-T2                                    8Gb PCI Express Dual Port FC Adapter (df1000f114108a03)<br>\
+135 <b>lsconf</b> m fcnet1           U5877.001.9K8H588-P1-C3-T2                                    Fibre Channel Network Protocol Device<br>\
+136 <b>lsconf</b> p fscsi1           U5877.001.9K8H588-P1-C3-T2                                    FC SCSI I/O Controller Protocol Device<br>\
+137 <b>lsconf</b> m hdisk4           U5877.001.9K8H588-P1-C3-T2-W5001738065870142-L5000000000000   MPIO 2810 XIV Disk<br>\
+138 <b>lsconf</b> m hdisk5           U5877.001.9K8H588-P1-C3-T2-W5001738065870142-L6000000000000   MPIO 2810 XIV Disk<br>\
+139 <b>lsconf</b> m hdisk2           U5877.001.9K8H588-P1-C3-T2-W5001738065870142-L3000000000000   MPIO 2810 XIV Disk<br>\
+140 <b>lsconf</b> m hdisk3           U5877.001.9K8H588-P1-C3-T2-W5001738065870142-L4000000000000   MPIO 2810 XIV Disk<br>\
+141 <b>lsconf</b> m hdisk6           U5877.001.9K8H588-P1-C3-T2-W5001738065870142-L7000000000000   MPIO 2810 XIV Disk<br>\
+142 <b>lsconf</b> m sfwcomm1         U5877.001.9K8H588-P1-C3-T2-W0-L0                              Fibre Channel Storage Framework Comm<br>\
+143 <b>lsconf</b> p L2cache0                                                                       L2 Cache<br>\
+144 <b>lsconf</b> p mem0                                                                           Memory<br>\
+145 <b>lsconf</b> p proc0                                                                          Processor<br>\
+146 <b>lsconf</b> p proc4                                                                          Processor<br>\
+147 <b>lsconf</b> p proc8                                                                          Processor<br>\
+148 <b>lsconf</b> p proc12                                                                         Processor<br>\
+149 <b>lsconf</b> p proc16                                                                         Processor<br>\
+150 <b>lsconf</b> p proc20                                                                         Processor<br>\
+151 <b>lsconf</b> p proc24                                                                         Processor<br>\
+152 <b>lsps -a</b> <br>\
+153 <b>lsps -a</b> Page Space      Physical Volume   Volume Group Size %Used Active  Auto  Type Chksum<br>\
+154 <b>lsps -a</b> hd6             hdisk0            rootvg       25088MB    17   yes   yes    lv     0<br>\
+155 <b>lparstat -i</b> <br>\
+156 <b>lparstat -i</b> Node Name                                  : sampleC<br>\
+157 <b>lparstat -i</b> Partition Name                             : sampleC<br>\
+158 <b>lparstat -i</b> Partition Number                           : 2<br>\
+159 <b>lparstat -i</b> Type                                       : Shared-SMT-4<br>\
+160 <b>lparstat -i</b> Mode                                       : Uncapped<br>\
+161 <b>lparstat -i</b> Entitled Capacity                          : 7.00<br>\
+162 <b>lparstat -i</b> Partition Group-ID                         : 32770<br>\
+163 <b>lparstat -i</b> Shared Pool ID                             : 1<br>\
+164 <b>lparstat -i</b> Online Virtual CPUs                        : 7<br>\
+165 <b>lparstat -i</b> Maximum Virtual CPUs                       : 7<br>\
+166 <b>lparstat -i</b> Minimum Virtual CPUs                       : 1<br>\
+167 <b>lparstat -i</b> Online Memory                              : 63488 MB<br>\
+168 <b>lparstat -i</b> Maximum Memory                             : 94208 MB<br>\
+169 <b>lparstat -i</b> Minimum Memory                             : 1024 MB<br>\
+170 <b>lparstat -i</b> Variable Capacity Weight                   : 200<br>\
+171 <b>lparstat -i</b> Minimum Capacity                           : 1.00<br>\
+172 <b>lparstat -i</b> Maximum Capacity                           : 7.00<br>\
+173 <b>lparstat -i</b> Capacity Increment                         : 0.01<br>\
+174 <b>lparstat -i</b> Maximum Physical CPUs in system            : 12<br>\
+175 <b>lparstat -i</b> Active Physical CPUs in system             : 12<br>\
+176 <b>lparstat -i</b> Active CPUs in Pool                        : 8<br>\
+177 <b>lparstat -i</b> Shared Physical CPUs in system             : 8<br>\
+178 <b>lparstat -i</b> Maximum Capacity of Pool                   : 900<br>\
+179 <b>lparstat -i</b> Entitled Capacity of Pool                  : 800<br>\
+180 <b>lparstat -i</b> Unallocated Capacity                       : 0.00<br>\
+181 <b>lparstat -i</b> Physical CPU Percentage                    : 100.00%<br>\
+182 <b>lparstat -i</b> Unallocated Weight                         : 0<br>\
+183 <b>lparstat -i</b> Memory Mode                                : Dedicated<br>\
+184 <b>lparstat -i</b> Total I/O Memory Entitlement               : -<br>\
+185 <b>lparstat -i</b> Variable Memory Capacity Weight            : -<br>\
+186 <b>lparstat -i</b> Memory Pool ID                             : -<br>\
+187 <b>lparstat -i</b> Physical Memory in the Pool                : -<br>\
+188 <b>lparstat -i</b> Hypervisor Page Size                       : -<br>\
+189 <b>lparstat -i</b> Unallocated Variable Memory Capacity Weight: -<br>\
+190 <b>lparstat -i</b> Unallocated I/O Memory entitlement         : -<br>\
+191 <b>lparstat -i</b> Memory Group ID of LPAR                    : -<br>\
+192 <b>lparstat -i</b> Desired Virtual CPUs                       : 7<br>\
+193 <b>lparstat -i</b> Desired Memory                             : 63488 MB<br>\
+194 <b>lparstat -i</b> Desired Variable Capacity Weight           : 200<br>\
+195 <b>lparstat -i</b> Desired Capacity                           : 7.00<br>\
+196 <b>lparstat -i</b> Target Memory Expansion Factor             : -<br>\
+197 <b>lparstat -i</b> Target Memory Expansion Size               : -<br>\
+198 <b>lparstat -i</b> Power Saving Mode                          : Disabled<br>\
+199 <b>lparstat -H</b> <br>\
+200 <b>lparstat -H</b> <br>\
+201 <b>lparstat -H</b> System configuration: type=Shared mode=Uncapped smt=4 lcpu=28 mem=63488MB psize=8 ent=7.00 <br>\
+202 <b>lparstat -H</b> <br>\
+203 <b>lparstat -H</b>            Detailed information on Hypervisor Calls<br>\
+204 <b>lparstat -H</b> <br>\
+205 <b>lparstat -H</b> Hypervisor        Number of    %Total Time   %Hypervisor   Avg Call    Max Call<br>\
+206 <b>lparstat -H</b>   Call              Calls         Spent      Time Spent    Time(ns)    Time(ns)<br>\
+207 <b>lparstat -H</b> <br>\
+208 <b>lparstat -H</b> remove             462759925946            0.2           0.0        544      982843<br>\
+209 <b>lparstat -H</b> read               128680017176            0.0           0.0        138       52906<br>\
+210 <b>lparstat -H</b> nclear_mod                0            0.0           0.0          0           0<br>\
+211 <b>lparstat -H</b> page_init          956413248855            0.5           0.0        534       59187<br>\
+212 <b>lparstat -H</b> clear_ref          47593255889            0.0           0.0        312      207468<br>\
+213 <b>lparstat -H</b> protect            2222193667            0.0           0.0        696      487156<br>\
+214 <b>lparstat -H</b> put_tce            541174048935            0.1           0.0        181       55359<br>\
+215 <b>lparstat -H</b> xirr               128398217109            0.1           0.0        590      676406<br>\
+216 <b>lparstat -H</b> eoi                124048108655            0.0           0.0        297       55125<br>\
+217 <b>lparstat -H</b> ipi                8605841921            0.0           0.0        288     4681593<br>\
+218 <b>lparstat -H</b> cppr               122591815870            0.0           0.0        171     4161234<br>\
+219 <b>lparstat -H</b> asr                       0            0.0           0.0          0           0<br>\
+220 <b>lparstat -H</b> others             62750516170            0.1           0.0       1712     3420062<br>\
+221 <b>lparstat -H</b> enter              1242953935873            0.4           0.0        294       56250<br>\
+222 <b>lparstat -H</b> cede               189205980655           40.0           1.1     213339    252306900718<br>\
+223 <b>lparstat -H</b> migrate_dma           98453            0.0           0.0      14393      141562<br>\
+224 <b>lparstat -H</b> put_rtce                  0            0.0           0.0          0           0<br>\
+225 <b>lparstat -H</b> confer             10351766775         3734.7          98.6   364221638    8719791715919094<br>\
+226 <b>lparstat -H</b> prod               74920556029            0.1           0.0        880     5938296<br>\
+227 <b>lparstat -H</b> get_ppp            38819222            0.0           0.0       1414       17375<br>\
+228 <b>lparstat -H</b> set_ppp                   0            0.0           0.0          0           0<br>\
+229 <b>lparstat -H</b> purr                      0            0.0           0.0          0           0<br>\
+230 <b>lparstat -H</b> pic                38819206            0.0           0.0        215       14125<br>\
+231 <b>lparstat -H</b> bulk_remove        205007876983            0.4           0.0       1857      565312<br>\
+232 <b>lparstat -H</b> send_crq                  0            0.0           0.0          0           0<br>\
+233 <b>lparstat -H</b> copy_rdma                 0            0.0           0.0          0           0<br>\
+234 <b>lparstat -H</b> get_tce                   0            0.0           0.0          0           0<br>\
+235 <b>lparstat -H</b> send_logical_lan   31814559655            0.1           0.0       2707     3420125<br>\
+236 <b>lparstat -H</b> add_logicl_lan_buf 30905221557            0.0           0.0        762      237640<br>\
+237 <b>lparstat -H</b> h_remove_rtce             0            0.0           0.0          0           0<br>\
+238 <b>lparstat -H</b> h_ipoll            1423313861            0.0           0.0        108       13562<br>\
+239 <b>lparstat -H</b> h_stuff_tce        60560248538            0.1           0.0        893      163265<br>\
+240 <b>lparstat -H</b> h_get_mpp                 0            0.0           0.0          0           0<br>\
+241 <b>lparstat -H</b> h_set_mpp                 0            0.0           0.0          0           0<br>\
+242 <b>lparstat -H</b> h_get_mpp_x               0            0.0           0.0          0           0<br>\
+243 <b>lparstat -H</b> h_get_em_parms     74972267           10.3           0.3   138228463    5466328832337953<br>\
+244 <b>lparstat -H</b> h_vpm_pstat               0            0.0           0.0          0           0<br>\
+245 <b>lparstat -H</b> h_hfi_start_interface        0            0.0           0.0          0           0<br>\
+246 <b>lparstat -H</b> h_hfi_stop_interface        0            0.0           0.0          0           0<br>\
+247 <b>lparstat -H</b> h_hfi_query_interface        0            0.0           0.0          0           0<br>\
+248 <b>lparstat -H</b> h_hfi_query_window        0            0.0           0.0          0           0<br>\
+249 <b>lparstat -H</b> h_hfi_open_window         0            0.0           0.0          0           0<br>\
+250 <b>lparstat -H</b> h_hfi_close_window        0            0.0           0.0          0           0<br>\
+251 <b>lparstat -H</b> h_hfi_dump_info           0            0.0           0.0          0           0<br>\
+252 <b>lparstat -H</b> h_hfi_adapter_attach        0            0.0           0.0          0           0<br>\
+253 <b>lparstat -H</b> h_hfi_modify_rcxt         0            0.0           0.0          0           0<br>\
+254 <b>lparstat -H</b> h_hfi_route_info          0            0.0           0.0          0           0<br>\
+255 <b>lparstat -H</b> h_cau_write_index         0            0.0           0.0          0           0<br>\
+256 <b>lparstat -H</b> h_cau_read_index          0            0.0           0.0          0           0<br>\
+257 <b>lparstat -H</b> h_nmmu_start              0            0.0           0.0          0           0<br>\
+258 <b>lparstat -H</b> h_nmmu_stop               0            0.0           0.0          0           0<br>\
+259 <b>lparstat -H</b> h_nmmu_allocate_resource        0            0.0           0.0          0           0<br>\
+260 <b>lparstat -H</b> h_nmmu_free_resource        0            0.0           0.0          0           0<br>\
+261 <b>lparstat -H</b> h_nmmu_modify_resource        0            0.0           0.0          0           0<br>\
+262 <b>lparstat -H</b> h_confer_adjunct          0            0.0           0.0          0           0<br>\
+263 <b>lparstat -H</b> h_adjunct_mode            0            0.0           0.0          0           0<br>\
+264 <b>lparstat -H</b> h_get_ppp_x               0            0.0           0.0          0           0<br>\
+265 <b>lparstat -H</b> h_cop_op                  0            0.0           0.0          0           0<br>\
+266 <b>lparstat -H</b> h_stop_cop_op             0            0.0           0.0          0           0<br>\
+267 <b>lparstat -H</b> h_random                  0            0.0           0.0          0           0<br>\
+268 <b>lparstat -H</b> h_enter_decomp            0            0.0           0.0          0           0<br>\
+269 <b>lparstat -H</b> h_remove_comp             0            0.0           0.0          0           0<br>\
+270 <b>lparstat -H</b> h_put_tce_indirect        0            0.0           0.0          0           0<br>\
+271 <b>lparstat -H</b> n-------------------------------------------------------------------------------<br>\
+272 <b>emstat</b> <br>\
+273 <b>emstat</b> <br>\
+274 <b>emstat</b>   Alignment  Alignment  Emulation  Emulation<br>\
+275 <b>emstat</b>   SinceBoot      Delta  SinceBoot      Delta<br>\
+276 <b>emstat</b>        2016          0          0          0<br>\
+277 <b>emstat</b>        2016          0          0          0<br>\
+278 <b>mpstat -d</b> <br>\
+279 <b>mpstat -d</b> <br>\
+280 <b>mpstat -d</b> System configuration: lcpu=28 ent=7.0 mode=Uncapped <br>\
+281 <b>mpstat -d</b> <br>\
+282 <b>mpstat -d</b> cpu     cs    ics  bound     rq   push S3pull  S3grd  S0rd  S1rd  S2rd  S3rd  S4rd  S5rd   ilcs   vlcs S3hrd S4hrd S5hrd<br>\
+283 <b>mpstat -d</b>   0 46414742309 12562346022      1      3    382 673760199 390280018  94.0   0.5   0.0   3.5   0.0   2.0      0 25225511897  85.1   0.0  14.9<br>\
+284 <b>mpstat -d</b>   1 4274949750 1202564245      0      0     41 2392373  12800  91.2   8.4   0.0   0.3   0.0   0.1      0 7344159344  96.8   0.0   3.2<br>\
+285 <b>mpstat -d</b>   2 202828261 64771708      0      0     33    563   4223  87.4  11.3   0.0   1.3   0.0   0.0      0 4209551193  98.8   0.0   1.2<br>\
+286 <b>mpstat -d</b>   3 193546557 60530932      0      0     30    642   4068  87.3  11.3   0.0   1.4   0.0   0.0      0 4163723462  98.7   0.0   1.3<br>\
+287 <b>mpstat -d</b>   4 19399565910 4167325364      1      1     64 390819881 56207493  89.7   0.7   0.0   7.6   0.0   2.0      0 11958588138  85.9   0.0  14.1<br>\
+288 <b>mpstat -d</b>   5 3116912293 610909956      0      0     51 2328460  10138  91.3   8.2   0.0   0.4   0.0   0.1      0 5505732984  97.3   0.0   2.7<br>\
+289 <b>mpstat -d</b>   6 169769725 47823663      0      0     40    553   3147  89.6   8.8   0.0   1.5   0.0   0.0      0 3299026193  99.0   0.0   1.0<br>\
+290 <b>mpstat -d</b>   7 165714744 47840933      0      0     36    507   2882  89.8   8.6   0.0   1.6   0.0   0.0      0 3284375826  99.0   0.0   1.0<br>\
+291 <b>mpstat -d</b>   8 36054141799 10413201381      1      3    187 209250711 923472219  94.7   0.4   0.0   2.0   0.0   2.8      0 23836548386  91.2   0.0   8.8<br>\
+292 <b>mpstat -d</b>   9 3922109361 1456785195      0      0     59  98596  37515  93.2   6.5   0.0   0.3   0.0   0.0      0 6409847625  98.3   0.0   1.7<br>\
+293 <b>mpstat -d</b>  10 270311881 95104448      0      0     78    898  31522  89.9   8.9   0.0   1.1   0.0   0.0      0 3950354579  98.0   0.0   2.0<br>\
+294 <b>mpstat -d</b>  11 266189677 97389080      0      0     61    845  31212  90.2   8.7   0.0   1.2   0.0   0.0      0 3922252140  98.0   0.0   2.0<br>\
+295 <b>mpstat -d</b>  12 10926607624 2036078479      0      0     50 244529060 20286132  88.2   0.8   0.0   9.0   0.0   2.1      0 7846498910  84.5   0.0  15.5<br>\
+296 <b>mpstat -d</b>  13 2345786940 366901860      0      0     33 2252981   9428  92.1   7.3   0.0   0.5   0.0   0.1      0 3999055159  97.3   0.0   2.7<br>\
+297 <b>mpstat -d</b>  14 149546575 32317886      0      0     32    470   3111  89.2   9.1   0.0   1.7   0.0   0.0      0 2438798196  99.0   0.0   1.0<br>\
+298 <b>mpstat -d</b>  15 159026310 45165559      0      0      9    483   3267  90.1   8.3   0.0   1.6   0.0   0.0      0 2431328734  99.0   0.0   1.0<br>\
+299 <b>mpstat -d</b>  16 15315769771 3438862974      1      2     62 63948129 433963191  92.1   0.6   0.0   4.4   0.0   2.9      0 13571790117  97.1   0.0   2.9<br>\
+300 <b>mpstat -d</b>  17 2797828746 828699677      0      0     46  87050  24648  93.8   5.8   0.0   0.4   0.0   0.0      0 4834467829  99.1   0.0   0.9<br>\
+301 <b>mpstat -d</b>  18 230235014 74769522      0      0     75    813  23733  91.7   7.0   0.0   1.3   0.0   0.0      0 3008315467  98.0   0.0   2.0<br>\
+302 <b>mpstat -d</b>  19 236551301 86790059      0      0     52    771  23650  92.2   6.5   0.0   1.3   0.0   0.0      0 2992252942  98.1   0.0   1.9<br>\
+303 <b>mpstat -d</b>  20 6948197125 1293148168      0      0     32 170003128 11666114  87.2   0.9   0.0   9.6   0.0   2.3      0 16790754343  83.7   0.0  16.3<br>\
+304 <b>mpstat -d</b>  21 1904308413 292335010      0      0     67 2207847   9186  92.5   6.7   0.0   0.6   0.0   0.1      0 3011180282  97.3   0.0   2.7<br>\
+305 <b>mpstat -d</b>  22 157306266 43067792      0      0     38    428   3033  90.0   8.4   0.0   1.5   0.0   0.0 2555884 1863753386  99.0   0.0   1.0<br>\
+306 <b>mpstat -d</b>  23 158631309 47084752      0      0     51    415   3143  90.4   8.1   0.0   1.6   0.0   0.0 2411937 1856958733  99.1   0.0   0.9<br>\
+307 <b>mpstat -d</b>  24 8382291875 1404562656      1      1     86 13402638 275460305  91.4   0.6   0.0   4.9   0.0   3.0      0 8619419580  98.8   0.0   1.2<br>\
+308 <b>mpstat -d</b>  25 2113580335 548588990      0      0    102  74019  24246  94.8   4.8   0.0   0.4   0.0   0.0      0 3446610549  99.6   0.0   0.4<br>\
+309 <b>mpstat -d</b>  26 235844925 88065718      0      0     63    739  23187  92.7   6.1   0.0   1.2   0.0   0.0      0 2226812424  98.2   0.0   1.8<br>\
+310 <b>mpstat -d</b>  27 224289954 81349663      0      0     34    767  23343  92.6   6.1   0.0   1.3   0.0   0.0      0 2214272060  98.1   0.0   1.9<br>\
+311 <b>mpstat -d</b> ALL 166736584750 41534381692      5     10   1894 1775163966 2111646954  92.4   1.5   0.0   4.0   0.0   2.0 4967821 184261940478  89.9   0.0  10.1<br>\
+312 <b>lssrad</b> <br>\
+313 <b>lssrad</b> REF1   SRAD        MEM      CPU<br>\
+314 <b>lssrad</b> 0<br>\
+315 <b>lssrad</b>           0   31682.06      0-7 12-15 20-23<br>\
+316 <b>lssrad</b> 1<br>\
+317 <b>lssrad</b>           1   29880.00      8-11 16-19 24-27<br>\
+318 <b>vmo -L</b> <br>\
+319 <b>vmo -L</b> NAME                      CUR    DEF    BOOT   MIN    MAX    UNIT           TYPE<br>\
+320 <b>vmo -L</b>      DEPENDENCIES<br>\
+321 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+322 <b>vmo -L</b> ame_cpus_per_pool         n/a    8      8      1      1K     processors        B<br>\
+323 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+324 <b>vmo -L</b> ame_maxfree_mem           n/a    24M    24M    320K   16G    bytes             D<br>\
+325 <b>vmo -L</b>      ame_minfree_mem<br>\
+326 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+327 <b>vmo -L</b> ame_min_ucpool_size       n/a    0      0      5      95     % memory          D<br>\
+328 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+329 <b>vmo -L</b> ame_minfree_mem           n/a    8M     8M     64K    16383M bytes             D<br>\
+330 <b>vmo -L</b>      ame_maxfree_mem<br>\
+331 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+332 <b>vmo -L</b> ams_loan_policy           n/a    1      1      0      2      numeric           D<br>\
+333 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+334 <b>vmo -L</b> enhanced_affinity_affin_time<br>\
+335 <b>vmo -L</b>                           1      1      1      0      100    numeric           D<br>\
+336 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+337 <b>vmo -L</b> enhanced_affinity_vmpool_limit<br>\
+338 <b>vmo -L</b>                           10     10     10     -1     100    numeric           D<br>\
+339 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+340 <b>vmo -L</b> esid_allocator            0      0      0      0      1      boolean           D<br>\
+341 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+342 <b>vmo -L</b> force_relalias_lite       0      0      0      0      1      boolean           D<br>\
+343 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+344 <b>vmo -L</b> kernel_heap_psize         64K    0      0      0      16M    bytes             B<br>\
+345 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+346 <b>vmo -L</b> lgpg_regions              0      0      2K     0      8E-1                     D<br>\
+347 <b>vmo -L</b>      lgpg_size<br>\
+348 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+349 <b>vmo -L</b> lgpg_size                 0      0      16M    0      16M    bytes             D<br>\
+350 <b>vmo -L</b>      lgpg_regions<br>\
+351 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+352 <b>vmo -L</b> low_ps_handling           1      1      1      1      2                        D<br>\
+353 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+354 <b>vmo -L</b> maxfree                   1420   1088   1420   16     12697K 4KB pages         D<br>\
+355 <b>vmo -L</b>      minfree<br>\
+356 <b>vmo -L</b>      memory_frames<br>\
+357 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+358 <b>vmo -L</b> maxperm                   13842K        13842K                                 S<br>\
+359 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+360 <b>vmo -L</b> maxpin                    12793K        12793K                                 S<br>\
+361 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+362 <b>vmo -L</b> maxpin%                   80     80     80     1      100    % memory          D<br>\
+363 <b>vmo -L</b>      pinnable_frames<br>\
+364 <b>vmo -L</b>      memory_frames<br>\
+365 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+366 <b>vmo -L</b> memory_frames             15872K        15872K               4KB pages         S<br>\
+367 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+368 <b>vmo -L</b> memplace_data             0      0      0      0      2                        D<br>\
+369 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+370 <b>vmo -L</b> memplace_mapped_file      0      0      0      0      2                        D<br>\
+371 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+372 <b>vmo -L</b> memplace_shm_anonymous    0      0      0      0      2                        D<br>\
+373 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+374 <b>vmo -L</b> memplace_shm_named        0      0      0      0      2                        D<br>\
+375 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+376 <b>vmo -L</b> memplace_stack            0      0      0      0      2                        D<br>\
+377 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+378 <b>vmo -L</b> memplace_text             0      0      0      0      2                        D<br>\
+379 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+380 <b>vmo -L</b> memplace_unmapped_file    0      0      0      0      2                        D<br>\
+381 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+382 <b>vmo -L</b> minfree                   960    960    960    8      12697K 4KB pages         D<br>\
+383 <b>vmo -L</b>      maxfree<br>\
+384 <b>vmo -L</b>      memory_frames<br>\
+385 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+386 <b>vmo -L</b> minperm                   472494        472494                                 S<br>\
+387 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+388 <b>vmo -L</b> minperm%                  3      3      3      1      100    % memory          D<br>\
+389 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+390 <b>vmo -L</b> nokilluid                 0      0      0      0      4G-1   uid               D<br>\
+391 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+392 <b>vmo -L</b> npskill                   49K    49K    49K    1      6M-1   4KB pages         D<br>\
+393 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+394 <b>vmo -L</b> npswarn                   196K   196K   196K   1      6M-1   4KB pages         D<br>\
+395 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+396 <b>vmo -L</b> num_locks_per_semid       1      1      1      1      64     numeric           B<br>\
+397 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+398 <b>vmo -L</b> numpsblks                 6272K         6272K                4KB blocks        S<br>\
+399 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+400 <b>vmo -L</b> pinnable_frames           3719K         3719K                4KB pages         S<br>\
+401 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+402 <b>vmo -L</b> relalias_percentage       0      0      0      0      32K-1                    D<br>\
+403 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+404 <b>vmo -L</b> scrub                     0      0      0      0      1      boolean           D<br>\
+405 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+406 <b>vmo -L</b> v_pinshm                  0      0      0      0      1      boolean           D<br>\
+407 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+408 <b>vmo -L</b> vmm_default_pspa          0      0      0      -1     100    numeric           D<br>\
+409 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+410 <b>vmo -L</b> vmm_klock_mode            1      1      1      0      3      numeric           B<br>\
+411 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+412 <b>vmo -L</b> wlm_memlimit_nonpg        1      1      1      0      1      boolean           D<br>\
+413 <b>vmo -L</b> n-------------------------------------------------------------------------------<br>\
+414 <b>vmo -L</b> <br>\
+415 <b>vmo -L</b> n/a means parameter not supported by the current platform or kernel<br>\
+416 <b>vmo -L</b> <br>\
+417 <b>vmo -L</b> Parameter types:<br>\
+418 <b>vmo -L</b>     S = Static: cannot be changed<br>\
+419 <b>vmo -L</b>     D = Dynamic: can be freely changed<br>\
+420 <b>vmo -L</b>     B = Bosboot: can only be changed using bosboot and reboot<br>\
+421 <b>vmo -L</b>     R = Reboot: can only be changed during reboot<br>\
+422 <b>vmo -L</b>     C = Connect: changes are only effective for future socket connections<br>\
+423 <b>vmo -L</b>     M = Mount: changes are only effective for future mountings<br>\
+424 <b>vmo -L</b>     I = Incremental: can only be incremented<br>\
+425 <b>vmo -L</b>     d = deprecated: deprecated and cannot be changed<br>\
+426 <b>vmo -L</b> <br>\
+427 <b>vmo -L</b> Value conventions:<br>\
+428 <b>vmo -L</b>     K = Kilo: 2^10       G = Giga: 2^30       P = Peta: 2^50      <br>\
+429 <b>vmo -L</b>     M = Mega: 2^20       T = Tera: 2^40       E = Exa: 2^60       <br>\
+430 <b>ioo -L</b> <br>\
+431 <b>ioo -L</b> NAME                      CUR    DEF    BOOT   MIN    MAX    UNIT           TYPE<br>\
+432 <b>ioo -L</b>      DEPENDENCIES<br>\
+433 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+434 <b>ioo -L</b> aio_active                1             1                    boolean           S<br>\
+435 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+436 <b>ioo -L</b> aio_maxreqs               64K    64K    64K    4K     1M     numeric           D<br>\
+437 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+438 <b>ioo -L</b> aio_maxservers            30     30     30     1      20000  numeric           D<br>\
+439 <b>ioo -L</b>      aio_minservers<br>\
+440 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+441 <b>ioo -L</b> aio_minservers            3      3      3      0      20000  numeric           D<br>\
+442 <b>ioo -L</b>      aio_maxservers<br>\
+443 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+444 <b>ioo -L</b> aio_server_inactivity     300    300    300    1      86400  seconds           D<br>\
+445 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+446 <b>ioo -L</b> j2_atimeUpdateSymlink     0      0      0      0      1      boolean           D<br>\
+447 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+448 <b>ioo -L</b> j2_dynamicBufferPreallocation<br>\
+449 <b>ioo -L</b>                           16     16     16     0      256    16K slabs         D<br>\
+450 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+451 <b>ioo -L</b> j2_inodeCacheSize         400    400    400    1      1000                     D<br>\
+452 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+453 <b>ioo -L</b> j2_maxPageReadAhead       128    128    128    0      64K    4KB pages         D<br>\
+454 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+455 <b>ioo -L</b> j2_maxRandomWrite         0      0      0      0      64K    4KB pages         D<br>\
+456 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+457 <b>ioo -L</b> j2_metadataCacheSize      400    400    400    1      1000                     D<br>\
+458 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+459 <b>ioo -L</b> j2_minPageReadAhead       2      2      2      0      64K    4KB pages         D<br>\
+460 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+461 <b>ioo -L</b> j2_nPagesPerWriteBehindCluster<br>\
+462 <b>ioo -L</b>                           32     32     32     0      64K                      D<br>\
+463 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+464 <b>ioo -L</b> j2_nRandomCluster         0      0      0      0      64K    16KB clusters     D<br>\
+465 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+466 <b>ioo -L</b> j2_syncPageCount          0      0      0      0      64K    4KB pages         D<br>\
+467 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+468 <b>ioo -L</b> j2_syncPageLimit          16     16     16     1      64K    iterations        D<br>\
+469 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+470 <b>ioo -L</b> lvm_bufcnt                9      9      9      1      64     128KB/buffer      D<br>\
+471 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+472 <b>ioo -L</b> maxpgahead                8      8      8      0      4K     4KB pages         D<br>\
+473 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+474 <b>ioo -L</b> maxrandwrt                0      0      0      0      2G-1   4KB pages         D<br>\
+475 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+476 <b>ioo -L</b> numclust                  1      1      1      0      2G-1   16KB/cluster      D<br>\
+477 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+478 <b>ioo -L</b> numfsbufs                 196    196    196    1      2G-1                     M<br>\
+479 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+480 <b>ioo -L</b> pd_npages                 64K    64K    64K    1      512K   4KB pages         D<br>\
+481 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+482 <b>ioo -L</b> posix_aio_active          0             0                    boolean           S<br>\
+483 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+484 <b>ioo -L</b> posix_aio_maxreqs         64K    64K    64K    4K     1M     numeric           D<br>\
+485 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+486 <b>ioo -L</b> posix_aio_maxservers      30     30     30     1      20000  numeric           D<br>\
+487 <b>ioo -L</b>      aio_minservers<br>\
+488 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+489 <b>ioo -L</b> posix_aio_minservers      3      3      3      0      20000  numeric           D<br>\
+490 <b>ioo -L</b>      aio_maxservers<br>\
+491 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+492 <b>ioo -L</b> posix_aio_server_inactivity<br>\
+493 <b>ioo -L</b>                           300    300    300    1      86400  seconds           D<br>\
+494 <b>ioo -L</b> n-------------------------------------------------------------------------------<br>\
+495 <b>ioo -L</b> <br>\
+496 <b>ioo -L</b> n/a means parameter not supported by the current platform or kernel<br>\
+497 <b>ioo -L</b> <br>\
+498 <b>ioo -L</b> Parameter types:<br>\
+499 <b>ioo -L</b>     S = Static: cannot be changed<br>\
+500 <b>ioo -L</b>     D = Dynamic: can be freely changed<br>\
+501 <b>ioo -L</b>     B = Bosboot: can only be changed using bosboot and reboot<br>\
+502 <b>ioo -L</b>     R = Reboot: can only be changed during reboot<br>\
+503 <b>ioo -L</b>     C = Connect: changes are only effective for future socket connections<br>\
+504 <b>ioo -L</b>     M = Mount: changes are only effective for future mountings<br>\
+505 <b>ioo -L</b>     I = Incremental: can only be incremented<br>\
+506 <b>ioo -L</b>     d = deprecated: deprecated and cannot be changed<br>\
+507 <b>ioo -L</b> <br>\
+508 <b>ioo -L</b> Value conventions:<br>\
+509 <b>ioo -L</b>     K = Kilo: 2^10       G = Giga: 2^30       P = Peta: 2^50      <br>\
+510 <b>ioo -L</b>     M = Mega: 2^20       T = Tera: 2^40       E = Exa: 2^60       <br>\
+511 <b>schedo -L</b> <br>\
+512 <b>schedo -L</b> NAME                      CUR    DEF    BOOT   MIN    MAX    UNIT           TYPE<br>\
+513 <b>schedo -L</b>      DEPENDENCIES<br>\
+514 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+515 <b>schedo -L</b> affinity_lim              7      7      7      0      100    dispatches        D<br>\
+516 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+517 <b>schedo -L</b> big_tick_size             1      1      1      1      100    10 ms             D<br>\
+518 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+519 <b>schedo -L</b> ded_cpu_donate_thresh     80     80     80     0      100    % busy            D<br>\
+520 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+521 <b>schedo -L</b> fixed_pri_global          0      0      0      0      1      boolean           D<br>\
+522 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+523 <b>schedo -L</b> force_grq                 0      0      0      0      1      boolean           D<br>\
+524 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+525 <b>schedo -L</b> maxspin                   16K    16K    16K    1      4G-1   spins             D<br>\
+526 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+527 <b>schedo -L</b> pacefork                  10     10     10     10     2G-1   clock ticks       D<br>\
+528 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+529 <b>schedo -L</b> proc_disk_stats           1      1      1      0      1      boolean           D<br>\
+530 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+531 <b>schedo -L</b> sched_D                   16     16     16     0      32                       D<br>\
+532 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+533 <b>schedo -L</b> sched_R                   16     16     16     0      32                       D<br>\
+534 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+535 <b>schedo -L</b> tb_balance_S0             2      2      2      0      2      ticks             D<br>\
+536 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+537 <b>schedo -L</b> tb_balance_S1             2      2      2      0      2      ticks             D<br>\
+538 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+539 <b>schedo -L</b> tb_threshold              100    100    100    10     1000   ticks             D<br>\
+540 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+541 <b>schedo -L</b> timeslice                 1      1      1      0      2G-1   clock ticks       D<br>\
+542 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+543 <b>schedo -L</b> vpm_fold_policy           1      1      1      0      15                       D<br>\
+544 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+545 <b>schedo -L</b> vpm_xvcpus                0      0      0      -1     2G-1   processors        D<br>\
+546 <b>schedo -L</b> n-------------------------------------------------------------------------------<br>\
+547 <b>schedo -L</b> <br>\
+548 <b>schedo -L</b> n/a means parameter not supported by the current platform or kernel<br>\
+549 <b>schedo -L</b> <br>\
+550 <b>schedo -L</b> Parameter types:<br>\
+551 <b>schedo -L</b>     S = Static: cannot be changed<br>\
+552 <b>schedo -L</b>     D = Dynamic: can be freely changed<br>\
+553 <b>schedo -L</b>     B = Bosboot: can only be changed using bosboot and reboot<br>\
+554 <b>schedo -L</b>     R = Reboot: can only be changed during reboot<br>\
+555 <b>schedo -L</b>     C = Connect: changes are only effective for future socket connections<br>\
+556 <b>schedo -L</b>     M = Mount: changes are only effective for future mountings<br>\
+557 <b>schedo -L</b>     I = Incremental: can only be incremented<br>\
+558 <b>schedo -L</b>     d = deprecated: deprecated and cannot be changed<br>\
+559 <b>schedo -L</b> <br>\
+560 <b>schedo -L</b> Value conventions:<br>\
+561 <b>schedo -L</b>     K = Kilo: 2^10       G = Giga: 2^30       P = Peta: 2^50      <br>\
+562 <b>schedo -L</b>     M = Mega: 2^20       T = Tera: 2^40       E = Exa: 2^60       <br>\
+563 <b>nfso -L</b> <br>\
+564 <b>nfso -L</b> NAME                      CUR    DEF    BOOT   MIN    MAX    UNIT           TYPE<br>\
+565 <b>nfso -L</b>      DEPENDENCIES<br>\
+566 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+567 <b>nfso -L</b> client_delegation         1      1      1      0      1      On/Off            D<br>\
+568 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+569 <b>nfso -L</b> nfs_max_read_size         64K    64K    64K    512    64K    Bytes             D<br>\
+570 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+571 <b>nfso -L</b> nfs_max_write_size        64K    64K    64K    512    64K    Bytes             D<br>\
+572 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+573 <b>nfso -L</b> nfs_rfc1323               1      1      1      0      1      On/Off            D<br>\
+574 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+575 <b>nfso -L</b> nfs_securenfs_authtimeout 0      0      0      0      60     Seconds           D<br>\
+576 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+577 <b>nfso -L</b> nfs_server_base_priority  0      0      0      31     125    Pri               D<br>\
+578 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+579 <b>nfso -L</b> nfs_server_clread         1      1      1      0      1      On/Off            D<br>\
+580 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+581 <b>nfso -L</b> nfs_use_reserved_ports    0      0      0      0      1      On/Off            D<br>\
+582 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+583 <b>nfso -L</b> nfs_v3_server_readdirplus 1      1      1      0      1      On/Off            D<br>\
+584 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+585 <b>nfso -L</b> nfs_v4_fail_over_timeout  0      0      0      0      3600   Seconds           D<br>\
+586 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+587 <b>nfso -L</b> portcheck                 0      0      0      0      1      On/Off            D<br>\
+588 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+589 <b>nfso -L</b> server_delegation         1      1      1      0      1      On/Off            D<br>\
+590 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+591 <b>nfso -L</b> utf8_validation           1      1      1      0      1      On/Off            D<br>\
+592 <b>nfso -L</b> n-------------------------------------------------------------------------------<br>\
+593 <b>nfso -L</b> <br>\
+594 <b>nfso -L</b> n/a means parameter not supported by the current platform or kernel<br>\
+595 <b>nfso -L</b> <br>\
+596 <b>nfso -L</b> Parameter types:<br>\
+597 <b>nfso -L</b>     S = Static: cannot be changed<br>\
+598 <b>nfso -L</b>     D = Dynamic: can be freely changed<br>\
+599 <b>nfso -L</b>     B = Bosboot: can only be changed using bosboot and reboot<br>\
+600 <b>nfso -L</b>     R = Reboot: can only be changed during reboot<br>\
+601 <b>nfso -L</b>     C = Connect: changes are only effective for future socket connections<br>\
+602 <b>nfso -L</b>     M = Mount: changes are only effective for future mountings<br>\
+603 <b>nfso -L</b>     I = Incremental: can only be incremented<br>\
+604 <b>nfso -L</b> <br>\
+605 <b>nfso -L</b> Value conventions:<br>\
+606 <b>nfso -L</b>     K = Kilo: 2^10       G = Giga: 2^30       P = Peta: 2^50      <br>\
+607 <b>nfso -L</b>     M = Mega: 2^20       T = Tera: 2^40       E = Exa: 2^60       <br>\
+608 <b>lsattr -El sys0</b> <br>\
+609 <b>lsattr -El sys0</b> SW_dist_intr    false                                Enable SW distribution of interrupts              True<br>\
+610 <b>lsattr -El sys0</b> autorestart     true                                 Automatically REBOOT OS after a crash             True<br>\
+611 <b>lsattr -El sys0</b> boottype        disk                                 N/A                                               False<br>\
+612 <b>lsattr -El sys0</b> capacity_inc    0.01                                 Processor capacity increment                      False<br>\
+613 <b>lsattr -El sys0</b> capped          false                                Partition is capped                               False<br>\
+614 <b>lsattr -El sys0</b> chown_restrict  true                                 Chown Restriction Mode                            True<br>\
+615 <b>lsattr -El sys0</b> conslogin       enable                               System Console Login                              False<br>\
+616 <b>lsattr -El sys0</b> cpuguard        enable                               CPU Guard                                         True<br>\
+617 <b>lsattr -El sys0</b> dedicated       false                                Partition is dedicated                            False<br>\
+618 <b>lsattr -El sys0</b> enhanced_RBAC   true                                 Enhanced RBAC Mode                                True<br>\
+619 <b>lsattr -El sys0</b> ent_capacity    7.00                                 Entitled processor capacity                       False<br>\
+620 <b>lsattr -El sys0</b> frequency       6400000000                           System Bus Frequency                              False<br>\
+621 <b>lsattr -El sys0</b> fullcore        false                                Enable full CORE dump                             True<br>\
+622 <b>lsattr -El sys0</b> fwversion       IBM<br>\
+623 <b>lsattr -El sys0</b> ghostdev        0                                    Recreate devices in ODM on system change          True<br>\
+624 <b>lsattr -El sys0</b> id_to_partition 0X80001834D7300002                   Partition ID                                      False<br>\
+625 <b>lsattr -El sys0</b> id_to_system    0X80001834D7300000                   System ID                                         False<br>\
+626 <b>lsattr -El sys0</b> iostat          true                                 Continuously maintain DISK I/O history            True<br>\
+627 <b>lsattr -El sys0</b> keylock         normal                               State of system keylock at boot time              False<br>\
+628 <b>lsattr -El sys0</b> log_pg_dealloc  true                                 Log predictive memory page deallocation events    True<br>\
+629 <b>lsattr -El sys0</b> max_capacity    7.00                                 Maximum potential processor capacity              False<br>\
+630 <b>lsattr -El sys0</b> max_logname     9                                    Maximum login name length at boot time            True<br>\
+631 <b>lsattr -El sys0</b> maxbuf          20                                   Maximum number of pages in block I/O BUFFER CACHE True<br>\
+632 <b>lsattr -El sys0</b> maxmbuf         0                                    Maximum Kbytes of real memory allowed for MBUFS   True<br>\
+633 <b>lsattr -El sys0</b> maxpout         8193                                 HIGH water mark for pending write I/Os per file   True<br>\
+634 <b>lsattr -El sys0</b> maxuproc        16384                                Maximum number of PROCESSES allowed per user      True<br>\
+635 <b>lsattr -El sys0</b> min_capacity    1.00                                 Minimum potential processor capacity              False<br>\
+636 <b>lsattr -El sys0</b> minpout         4096                                 LOW water mark for pending write I/Os per file    True<br>\
+637 <b>lsattr -El sys0</b> modelname       IBM<br>\
+638 <b>lsattr -El sys0</b> ncargs          256                                  ARG/ENV list size in 4K byte blocks               True<br>\
+639 <b>lsattr -El sys0</b> nfs4_acl_compat secure                               NFS4 ACL Compatibility Mode                       True<br>\
+640 <b>lsattr -El sys0</b> os_uuid         43680052-b324-42ec-a32a-cfcac8d59906 N/A                                               True<br>\
+641 <b>lsattr -El sys0</b> pre430core      false                                Use pre-430 style CORE dump                       True<br>\
+642 <b>lsattr -El sys0</b> pre520tune      disable                              Pre-520 tuning compatibility mode                 True<br>\
+643 <b>lsattr -El sys0</b> realmem         65011712                             Amount of usable physical memory in Kbytes        False<br>\
+644 <b>lsattr -El sys0</b> rtasversion     1                                    Open Firmware RTAS version                        False<br>\
+645 <b>lsattr -El sys0</b> sed_config      select                               Stack Execution Disable (SED) Mode                True<br>\
+646 <b>lsattr -El sys0</b> systemid        IBM<br>\
+647 <b>lsattr -El sys0</b> variable_weight 200                                  Variable processor capacity weight                False<br>\
+648 <b>ipcs -a</b> <br>\
+649 <b>ipcs -a</b> IPC status from /dev/mem as of Mon Dec  1 00:00:16 GMT 2014<br>\
+650 <b>ipcs -a</b> T        ID     KEY        MODE       OWNER    GROUP  CREATOR   CGROUP CBYTES  QNUM QBYTES LSPID LRPID   STIME    RTIME    CTIME <br>\
+651 <b>ipcs -a</b> Message Queues:<br>\
+652 <b>ipcs -a</b> q         0 0x4107001c -Rrw-rw----     root   printq     root   printq         0         0   4194304      0      0 no-entry no-entry 20:14:57<br>\
+653 <b>ipcs -a</b> T        ID     KEY        MODE       OWNER    GROUP  CREATOR   CGROUP NATTCH     SEGSZ  CPID  LPID   ATIME    DTIME    CTIME <br>\
+654 <b>ipcs -a</b> Shared Memory:<br>\
+655 <b>ipcs -a</b> m   1048576 0x78100100 --rw-rw-rw-     root   system     root   system      2  33554432 4063508 13173016 23:38:58 23:58:58 20:15:12<br>\
+656 <b>ipcs -a</b> m   1048577 0x78000100 --rw-rw-rw-     root   system     root   system      2  33554432 4063508 13173016 23:38:58 23:58:58 20:15:12<br>\
+657 <b>ipcs -a</b> m         3 0x900dc0de --rw-------     root   system     root   system      1  16777232 3866898 3866898 20:15:12 no-entry 20:15:12<br>\
+658 <b>ipcs -a</b> m   3145870 0x7f122f70 --rw-rw----   oracle oinstall   oracle oinstall     35 1073754112 26477022 17170740  0:00:04  0:00:04 14:45:14<br>\
+659 <b>ipcs -a</b> m   6291746 0x0db300b4 --rw-rw----   oracle oinstall   oracle oinstall     90 38654717952 4718596 12910988  0:00:16  0:00:16 14:39:33<br>\
+660 <b>ipcs -a</b> m 559939876 0x0d00643a --rw-rw----     root   system     root   system      1      1440 23462186 17564150 22:28:20 22:28:20  7:24:54<br>\
+661 <b>ipcs -a</b> T        ID     KEY        MODE       OWNER    GROUP  CREATOR   CGROUP NSEMS   OTIME    CTIME <br>\
+662 <b>ipcs -a</b> Semaphores:<br>\
+663 <b>ipcs -a</b> s   3145728 0x00007c4d --ra-ra-ra-     root   system     root   system     1 23:57:58 20:14:15<br>\
+664 <b>ipcs -a</b> s         1 0x6200619b --ra-r--r--     root   system     root   system     1 20:14:14 20:14:14<br>\
+665 <b>ipcs -a</b> s   3145734 0xa100002a --ra-ra-ra-     root   system     root   system     2 10:41:49 20:15:03<br>\
+666 <b>ipcs -a</b> s        13 0x02003652 --ra-ra-ra-     root   system     root   system     2 20:15:12 20:15:12<br>\
+667 <b>ipcs -a</b> s        14 0x01003652 --ra-ra-ra-     root   system     root   system     2 20:15:12 20:15:12<br>\
+668 <b>ipcs -a</b> s   1048595 0x010060b8 --ra-------     root   system     root   system     1 22:28:33 20:15:20<br>\
+669 <b>vmstat -v</b> <br>\
+670 <b>vmstat -v</b>              16252928 memory pages<br>\
+671 <b>vmstat -v</b>              15749872 lruable pages<br>\
+672 <b>vmstat -v</b>               2797704 free pages<br>\
+673 <b>vmstat -v</b>                     4 memory pools<br>\
+674 <b>vmstat -v</b>              12443881 pinned pages<br>\
+675 <b>vmstat -v</b>                  80.0 maxpin percentage<br>\
+676 <b>vmstat -v</b>                   3.0 minperm percentage<br>\
+677 <b>vmstat -v</b>                  90.0 maxperm percentage<br>\
+678 <b>vmstat -v</b>                   0.0 numperm percentage<br>\
+679 <b>vmstat -v</b>                   501 file pages<br>\
+680 <b>vmstat -v</b>                   0.0 compressed percentage<br>\
+681 <b>vmstat -v</b>                     0 compressed pages<br>\
+682 <b>vmstat -v</b>                   0.0 numclient percentage<br>\
+683 <b>vmstat -v</b>                  90.0 maxclient percentage<br>\
+684 <b>vmstat -v</b>                   501 client pages<br>\
+685 <b>vmstat -v</b>                     0 remote pageouts scheduled<br>\
+686 <b>vmstat -v</b>                130458 pending disk I/Os blocked with no pbuf<br>\
+687 <b>vmstat -v</b>              45252595 paging space I/Os blocked with no psbuf<br>\
+688 <b>vmstat -v</b>                  2228 filesystem I/Os blocked with no fsbuf<br>\
+689 <b>vmstat -v</b>                   457 client filesystem I/Os blocked with no fsbuf<br>\
+690 <b>vmstat -v</b>                 67696 external pager filesystem I/Os blocked with no fsbuf<br>\
+691 <b>vmstat -v</b>                  82.8 percentage of memory used for computational pages<br>\
+692 <b>vmstat -s</b> <br>\
+693 <b>vmstat -s</b>         1090358707370 total address trans. faults<br>\
+694 <b>vmstat -s</b>           32136405519 page ins<br>\
+695 <b>vmstat -s</b>           24073398869 page outs<br>\
+696 <b>vmstat -s</b>            1085031102 paging space page ins<br>\
+697 <b>vmstat -s</b>             688715952 paging space page outs<br>\
+698 <b>vmstat -s</b>                     0 total reclaims<br>\
+699 <b>vmstat -s</b>          796384741498 zero filled pages faults<br>\
+700 <b>vmstat -s</b>              65125584 executable filled pages faults<br>\
+701 <b>vmstat -s</b>           56898553587 pages examined by clock<br>\
+702 <b>vmstat -s</b>               3416830 revolutions of the clock hand<br>\
+703 <b>vmstat -s</b>           22170098434 pages freed by the clock<br>\
+704 <b>vmstat -s</b>           10205040438 backtracks<br>\
+705 <b>vmstat -s</b>               1265080 free frame waits<br>\
+706 <b>vmstat -s</b>                     0 extend XPT waits<br>\
+707 <b>vmstat -s</b>           10104274898 pending I/O waits<br>\
+708 <b>vmstat -s</b>           55756427893 start I/Os<br>\
+709 <b>vmstat -s</b>           17706084519 iodones<br>\
+710 <b>vmstat -s</b>          253265758314 cpu context switches<br>\
+711 <b>vmstat -s</b>          119745248899 device interrupts<br>\
+712 <b>vmstat -s</b>            2860221053 software interrupts<br>\
+713 <b>vmstat -s</b>           56808760087 decrementer interrupts<br>\
+714 <b>vmstat -s</b>            4302927566 mpc-sent interrupts<br>\
+715 <b>vmstat -s</b>            4302926697 mpc-receive interrupts<br>\
+716 <b>vmstat -s</b>            4350109622 phantom interrupts<br>\
+717 <b>vmstat -s</b>                     0 traps<br>\
+718 <b>vmstat -s</b>         4309006293470 syscalls<br>\
+719 <b>vmstat -i</b> <br>\
+720 <b>vmstat -i</b> priority level    type   count module(handler)<br>\
+721 <b>vmstat -i</b>     0       2   hardware -125244773 i_mpc_int_handler(2ba39e0)<br>\
+722 <b>vmstat -i</b>     0  589825   hardware     0 /usr/lib/drivers/planar_pal_chrp(4196238)<br>\
+723 <b>vmstat -i</b>     1  655360   hardware  2727 /usr/lib/drivers/vconsdd(c01bb460)<br>\
+724 <b>vmstat -i</b>     3   12384   hardware -233887244 /etc/drivers/pci/efcddpin(42fc848)<br>\
+725 <b>vmstat -i</b>     3   12385   hardware -202448141 /etc/drivers/pci/efcddpin(42fc848)<br>\
+726 <b>vmstat -i</b>     3   12960   hardware -201211516 /etc/drivers/pci/efcddpin(42fc848)<br>\
+727 <b>vmstat -i</b>     3   12961   hardware -223865585 /etc/drivers/pci/efcddpin(42fc848)<br>\
+728 <b>vmstat -i</b>     3  127490   hardware 1298476254 /usr/lib/drivers/pci/musentdd(44f80b8)<br>\
+729 <b>vmstat -i</b>     3  127491   hardware 144180231 /usr/lib/drivers/pci/musentdd(44f80b8)<br>\
+730 <b>vmstat -i</b>     3  128514   hardware 107273508 /usr/lib/drivers/pci/musentdd(44f80b8)<br>\
+731 <b>vmstat -i</b>     3  128515   hardware 489002605 /usr/lib/drivers/pci/musentdd(44f80b8)<br>\
+732 <b>vmstat -i</b>     3  655662   hardware -1691353299 /usr/lib/drivers/vioentdd(423f830)<br>\
+733 <b>nfsstat -m</b> <br>\
+734 <b>nfsstat -m</b> da02 from /a02:symgratlas_nim<br>\
+735 <b>nfsstat -m</b>  Flags:   vers=3<br>\
+736 <b>nfsstat -m</b>  All:     srtt=0 (0ms)<br>\
+737 <b>nfsstat -m</b> <br>\
+738 <b>nfsstat -m</b> da03 from /a03:symgratlas_nim<br>\
+739 <b>nfsstat -m</b>  Flags:   vers=3<br>\
+740 <b>nfsstat -m</b>  All:     srtt=0 (0ms)<br>\
+741 <b>nfsstat -m</b> <br>\
+742 <b>nfsstat -n</b> <br>\
+743 <b>nfsstat -n</b> <br>\
+744 <b>nfsstat -n</b> Server nfs:<br>\
+745 <b>nfsstat -n</b> calls      badcalls   public_v2  public_v3  <br>\
+746 <b>nfsstat -n</b> 14718094   0          0          0          <br>\
+747 <b>nfsstat -n</b> Version 2: (0 calls)<br>\
+748 <b>nfsstat -n</b> null       getattr    setattr    root       lookup     readlink   read       <br>\
+749 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       <br>\
+750 <b>nfsstat -n</b> wrcache    write      create     remove     rename     link       symlink    <br>\
+751 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       <br>\
+752 <b>nfsstat -n</b> mkdir      rmdir      readdir    statfs     <br>\
+753 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       <br>\
+754 <b>nfsstat -n</b> Version 3: (14718094 calls)<br>\
+755 <b>nfsstat -n</b> null       getattr    setattr    lookup     access     readlink   read       <br>\
+756 <b>nfsstat -n</b> 21 0%      13584024 92% 35216 0% 22016 0%   26098 0%   0 0%       681622 4%  <br>\
+757 <b>nfsstat -n</b> write      create     mkdir      symlink    mknod      remove     rmdir      <br>\
+758 <b>nfsstat -n</b> 265411 1%  14133 0%   3841 0%    12 0%      0 0%       11118 0%   2619 0%    <br>\
+759 <b>nfsstat -n</b> rename     link       readdir    readdir+   fsstat     fsinfo     pathconf   <br>\
+760 <b>nfsstat -n</b> 402 0%     0 0%       2658 0%    3936 0%    49943 0%   1 0%       0 0%       <br>\
+761 <b>nfsstat -n</b> commit     <br>\
+762 <b>nfsstat -n</b> 15023 0%   <br>\
+763 <b>nfsstat -n</b> <br>\
+764 <b>nfsstat -n</b> Client nfs:<br>\
+765 <b>nfsstat -n</b> calls      badcalls   clgets     cltoomany  <br>\
+766 <b>nfsstat -n</b> 254012487  3229       0          0          <br>\
+767 <b>nfsstat -n</b> Version 2: (0 calls)<br>\
+768 <b>nfsstat -n</b> null       getattr    setattr    root       lookup     readlink   read       <br>\
+769 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       <br>\
+770 <b>nfsstat -n</b> wrcache    write      create     remove     rename     link       symlink    <br>\
+771 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       0 0%       <br>\
+772 <b>nfsstat -n</b> mkdir      rmdir      readdir    statfs     <br>\
+773 <b>nfsstat -n</b> 0 0%       0 0%       0 0%       0 0%       <br>\
+774 <b>nfsstat -n</b> Version 3: (254016895 calls)<br>\
+775 <b>nfsstat -n</b> null       getattr    setattr    lookup     access     readlink   read       <br>\
+776 <b>nfsstat -n</b> 0 0%       99652712 5% 2674138 1% 31222864 12% 18910644 7% 86 0%  862665 0%  <br>\
+777 <b>nfsstat -n</b> write      create     mkdir      symlink    mknod      remove     rmdir      <br>\
+778 <b>nfsstat -n</b> 26158649 10% 18106117 7% 0 0%    0 0%       0 0%       9191463 3% 0 0%       <br>\
+779 <b>nfsstat -n</b> rename     link       readdir    readdir+   fsstat     fsinfo     pathconf   <br>\
+780 <b>nfsstat -n</b> 1312 0%    0 0%       409158 0%  439448 0%  32223885 12% 61 0%    61800 0%   <br>\
+781 <b>nfsstat -n</b> commit     <br>\
+782 <b>nfsstat -n</b> 14101893 5% <br>\
+783 <b>wlmcntrl -q</b> <br>\
+784 <b>wlmcntrl -q</b> 1495-054 WLM is stopped<br>\
+785 <b>WLMclasses</b> <br>\
+786 <b>WLMclasses</b> m IBM_PROLOG_BEGIN_TAG <br>\
+787 <b>WLMclasses</b> m This is an automatically generated prolog. <br>\
+788 <b>WLMclasses</b> m  <br>\
+789 <b>WLMclasses</b> m bos610 src/bos/etc/wlm/classes 1.1 <br>\
+790 <b>WLMclasses</b> m  <br>\
+791 <b>WLMclasses</b> m Licensed Materials - Property of IBM <br>\
+792 <b>WLMclasses</b> m  <br>\
+793 <b>WLMclasses</b> m COPYRIGHT International Business Machines Corp. 1999 <br>\
+794 <b>WLMclasses</b> m All Rights Reserved <br>\
+795 <b>WLMclasses</b> m  <br>\
+796 <b>WLMclasses</b> m US Government Users Restricted Rights - Use<br>\
+797 <b>WLMclasses</b> m disclosure restricted by GSA ADP Schedule Contract with IBM Corp. <br>\
+798 <b>WLMclasses</b> m  <br>\
+799 <b>WLMclasses</b> m IBM_PROLOG_END_TAG <br>\
+800 <b>WLMclasses</b> System:<br>\
+801 <b>WLMclasses</b> <br>\
+802 <b>WLMclasses</b> Default:<br>\
+803 <b>WLMrules</b> <br>\
+804 <b>WLMrules</b> m IBM_PROLOG_BEGIN_TAG <br>\
+805 <b>WLMrules</b> m This is an automatically generated prolog. <br>\
+806 <b>WLMrules</b> m  <br>\
+807 <b>WLMrules</b> m bos610 src/bos/etc/wlm/rules 1.2 <br>\
+808 <b>WLMrules</b> m  <br>\
+809 <b>WLMrules</b> m Licensed Materials - Property of IBM <br>\
+810 <b>WLMrules</b> m  <br>\
+811 <b>WLMrules</b> m COPYRIGHT International Business Machines Corp. 1999<br>\
+812 <b>WLMrules</b> m All Rights Reserved <br>\
+813 <b>WLMrules</b> m  <br>\
+814 <b>WLMrules</b> m US Government Users Restricted Rights - Use<br>\
+815 <b>WLMrules</b> m disclosure restricted by GSA ADP Schedule Contract with IBM Corp. <br>\
+816 <b>WLMrules</b> m  <br>\
+817 <b>WLMrules</b> m IBM_PROLOG_END_TAG <br>\
+818 <b>WLMrules</b> m class resvd user group application type tag<br>\
+819 <b>WLMrules</b> System   -    root   -    -           -   -<br>\
+820 <b>WLMrules</b> Default  -    -      -    -           -   -<br>\
+821 <b>WLMlimits</b> <br>\
+822 <b>WLMlimits</b> m IBM_PROLOG_BEGIN_TAG <br>\
+823 <b>WLMlimits</b> m This is an automatically generated prolog. <br>\
+824 <b>WLMlimits</b> m  <br>\
+825 <b>WLMlimits</b> m bos610 src/bos/etc/wlm/limits 1.2 <br>\
+826 <b>WLMlimits</b> m  <br>\
+827 <b>WLMlimits</b> m Licensed Materials - Property of IBM <br>\
+828 <b>WLMlimits</b> m  <br>\
+829 <b>WLMlimits</b> m COPYRIGHT International Business Machines Corp. 1999<br>\
+830 <b>WLMlimits</b> m All Rights Reserved <br>\
+831 <b>WLMlimits</b> m  <br>\
+832 <b>WLMlimits</b> m US Government Users Restricted Rights - Use<br>\
+833 <b>WLMlimits</b> m disclosure restricted by GSA ADP Schedule Contract with IBM Corp. <br>\
+834 <b>WLMlimits</b> m  <br>\
+835 <b>WLMlimits</b> m IBM_PROLOG_END_TAG <br>\
+836 <b>WLMlimits</b> System:<br>\
+837 <b>WLMlimits</b> 	memory = 1%0.0%;100%<br>\
+838 <b>WLMshares</b> <br>\
+839 <b>WLMshares</b> m IBM_PROLOG_BEGIN_TAG <br>\
+840 <b>WLMshares</b> m This is an automatically generated prolog. <br>\
+841 <b>WLMshares</b> m  <br>\
+842 <b>WLMshares</b> m bos610 src/bos/etc/wlm/shares 1.1 <br>\
+843 <b>WLMshares</b> m  <br>\
+844 <b>WLMshares</b> m Licensed Materials - Property of IBM <br>\
+845 <b>WLMshares</b> m  <br>\
+846 <b>WLMshares</b> m COPYRIGHT International Business Machines Corp. 1999 <br>\
+847 <b>WLMshares</b> m All Rights Reserved <br>\
+848 <b>WLMshares</b> m  <br>\
+849 <b>WLMshares</b> m US Government Users Restricted Rights - Use<br>\
+850 <b>WLMshares</b> m disclosure restricted by GSA ADP Schedule Contract with IBM Corp. <br>\
+851 <b>WLMshares</b> m  <br>\
+852 <b>WLMshares</b> m IBM_PROLOG_END_TAG <br>\
+853 <b>mount</b> <br>\
+854 <b>mount</b>   node       mounted        mounted over    vfs       date        options      <br>\
+855 <b>mount</b> n------- ---------------  ---------------  ------ ------------ --------------- <br>\
+856 <b>mount</b>          /dev/hd4         /                jfs2   Sep 27 20:13 rw<br>\
+857 <b>mount</b>          /dev/hd2         /usr             jfs2   Sep 27 20:13 rw<br>\
+858 <b>mount</b>          /dev/hd9var      /var             jfs2   Sep 27 20:13 rw<br>\
+859 <b>mount</b>          /dev/hd3         /tmp             jfs2   Sep 27 20:13 rw<br>\
+860 <b>mount</b>          /dev/hd1         /home            jfs2   Sep 27 20:14 rw<br>\
+861 <b>mount</b>          /dev/hd11admin   /admin           jfs2   Sep 27 20:14 rw<br>\
+862 <b>mount</b>          /proc            /proc            procfs Sep 27 20:14 rw              <br>\
+863 <b>mount</b>          /dev/hd10opt     /opt             jfs2   Sep 27 20:14 rw<br>\
+864 <b>mount</b>          /dev/livedump    /var/adm/ras/livedump jfs2   Sep 27 20:14 rw<br>\
+865 <b>mount</b>          /dev/lv.oraredo1 /oraredo1        jfs2   Sep 27 20:14 rw<br>\
+866 <b>mount</b>          /dev/lv.oraredo2 /oraredo2        jfs2   Sep 27 20:14 rw<br>\
+867 <b>mount</b>          /dev/lv.oraredo3 /oraredo3        jfs2   Sep 27 20:14 rw<br>\
+868 <b>mount</b>          /dev/lv.oradata  /oradata         jfs2   Sep 27 20:14 rw<br>\
+869 <b>mount</b>          /dev/lv.orabk    /orabk           jfs2   Sep 27 20:14 rw<br>\
+870 <b>mount</b>          /dev/lv.oraarch  /oraarch         jfs2   Sep 27 20:14 rw<br>\
+871 <b>mount</b>          /dev/lv.oratemp  /oratemp         jfs2   Sep 27 20:14 rw<br>\
+872 <b>mount</b>          /dev/lv.orainst  /orainst         jfs2   Sep 27 20:14 rw<br>\
+873 <b>mount</b>          /dev/lv.oradata2 /oradata2        jfs2   Sep 27 20:14 rw<br>\
+874 <b>mount</b>          /dev/lv.oraarch2 /oraarch2        jfs2   Sep 27 20:14 rw<br>\
+875 <b>mount</b>          /dev/lv.orabk2   /orabk2          jfs2   Sep 27 20:14 rw<br>\
+876 <b>mount</b>          /dev/csilv       /csi             jfs2   Sep 27 20:14 rw<br>\
+877 <b>mount</b>          /dev/nmonlv      /nmon            jfs2   Sep 27 20:14 rw<br>\
+878 <b>mount</b>          /dev/itmlv       /opt/IBM/ITM     jfs2   Sep 27 20:14 rw<br>\
+879 <b>mount</b>          /dev/fslv00      /SME             jfs2   Sep 27 20:14 rw<br>\
+880 <b>mount</b> symgratlas_nim /a02             /a02             nfs3   Sep 27 20:14 ro<br>\
+881 <b>mount</b> symgratlas_nim /a03             /a03             nfs3   Sep 27 20:14 bg<br>\
+882 <b>lsattr -El aio0</b> <br>\
+883 <b>oslevel</b> <br>\
+884 <b>oslevel</b> 6100-07<br>\
+885 <b>oslevel</b> 6100-06<br>\
+886 <b>oslevel</b> 6100-05<br>\
+887 <b>oslevel</b> 6100-04<br>\
+888 <b>oslevel</b> 6100-03<br>\
+889 <b>oslevel</b> 6100-02<br>\
+890 <b>oslevel</b> 6100-01<br>\
+891 <b>oslevel</b> 6100-00<br>\
+892 <b>oslevel</b> <br>\
+893 <b>oslevel</b> 6100-07-030.07<br>\
+894 <b>ps v</b> <br>\
+895 <b>ps v</b>       PID    TTY STAT  TIME PGIN  SIZE   RSS   LIM  TSIZ   TRS %CPU %MEM COMMAND<br>\
+896 <b>ps v</b>  28442638  pts/2 A     0:00    0   540    16    xx   950     0  0.0  0.0 vi TSM<br>\
+897 <b>ps v</b>  15401226  pts/2 A     0:00    2   604   260    xx   243   244  0.0  0.0 -ksh <br>\
+898 <b>ps v</b>  25755918  pts/3 A     0:00 1927   600   260    xx   243   244  0.0  0.0 -ksh <br>\
+899 <b>ifconfig</b> <br>\
+900 <b>ifconfig</b> en8: flags=1e080863<br>\
+901 <b>ifconfig</b> 	inet 192.168.160.22 netmask 0xffffff00 broadcast 192.168.160.255<br>\
+902 <b>ifconfig</b> 	 tcp_sendspace 262144 tcp_recvspace 262144 rfc1323 1<br>\
+903 <b>ifconfig</b> en9: flags=5e080863<br>\
+904 <b>ifconfig</b> 	inet 172.17.83.12 netmask 0xffffff00 broadcast 172.17.83.255<br>\
+905 <b>ifconfig</b> 	 tcp_sendspace 131072 tcp_recvspace 65536 rfc1323 0<br>\
+906 <b>ifconfig</b> en10: flags=5e080863<br>\
+907 <b>ifconfig</b> 	inet 172.17.35.135 netmask 0xffffff00 broadcast 172.17.35.255<br>\
+908 <b>ifconfig</b> 	 tcp_sendspace 131072 tcp_recvspace 65536 rfc1323 0<br>\
+909 <b>ifconfig</b> lo0: flags=e08084b<br>\
+910 <b>ifconfig</b> 	inet 127.0.0.1 netmask 0xff000000 broadcast 127.255.255.255<br>\
+911 <b>ifconfig</b> 	inet6 ::1%1/0<br>\
+912 <b>ifconfig</b> 	 tcp_sendspace 131072 tcp_recvspace 131072 rfc1323 1<br>\
+913 <b>netstat</b> <br>\
+914 <b>netstat</b> Routing tables<br>\
+915 <b>netstat</b> Destination        Gateway           Flags   Refs     Use  If   Exp  Groups<br>\
+916 <b>netstat</b> <br>\
+917 <b>netstat</b> Route Tree for Protocol Family 2 (Internet):<br>\
+918 <b>netstat</b> default            172.17.83.1       UG       55 2179662659 en9      -      -   <br>\
+919 <b>netstat</b> 127/8              127.0.0.1         U       161  49203319 lo0      -      -   <br>\
+920 <b>netstat</b> 172.17.35.0        172.17.35.135     UHSb      0         0 en10     -      -   =><br>\
+921 <b>netstat</b> 172.17.35/24       172.17.35.135     U         5  58860931 en10     -      -   <br>\
+922 <b>netstat</b> 172.17.35.135      127.0.0.1         UGHS    197 379431379 lo0      -      -   <br>\
+923 <b>netstat</b> 172.17.35.255      172.17.35.135     UHSb      2     63192 en10     -      -   <br>\
+924 <b>netstat</b> 172.17.83.0        172.17.83.12      UHSb      0         0 en9      -      -   =><br>\
+925 <b>netstat</b> 172.17.83/24       172.17.83.12      U         1         5 en9      -      -   <br>\
+926 <b>netstat</b> 172.17.83.12       127.0.0.1         UGHS      0  26303321 lo0      -      -   <br>\
+927 <b>netstat</b> 172.17.83.255      172.17.83.12      UHSb      0         8 en9      -      -   <br>\
+928 <b>netstat</b> 192.168.160.0      192.168.160.22    UHSb      0         0 en8      -      -   =><br>\
+929 <b>netstat</b> 192.168.160/24     192.168.160.22    U        20 4046668278 en8      -      -   <br>\
+930 <b>netstat</b> 192.168.160.22     127.0.0.1         UGHS    212 300651126 lo0      -      -   <br>\
+931 <b>netstat</b> 192.168.160.255    192.168.160.22    UHSb      0    101636 en8      -      -   <br>\
+932 <b>netstat</b> 195.75.142/24      172.17.35.1       UGS       4  29276193 en10     -      -   <br>\
+933 <b>netstat</b> 195.75.142.160     172.17.35.1       UGHS      0         0 en10     -      -   <br>\
+934 <b>netstat</b> <br>\
+935 <b>netstat</b> Route Tree for Protocol Family 24 (Internet v6):<br>\
+936 <b>netstat</b> ::1%1              ::1%1             UH        9   4935501 lo0      -      -   <br>\
+937 <b>emgr -l</b> <br>\
+");
+}
+</script>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script type="text/javascript">
 		google.load("visualization", "1.1", {packages:["corechart"]});
@@ -47,7 +1256,7 @@
 
 		var options_PHYSICAL_CPU = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "VM Physical CPU Use of Shared CPU",
+			title: "Physical CPU Use of Shared CPU(s)",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -60,6 +1269,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -107,7 +1321,7 @@
 
 		var options_POOLIDLE = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Whole machine Physical CPU Pool Use (If all PoolIdle=0 it means perf stats are not switch on at VM level)",
+			title: "Whole machine Shared Physical CPU Pool Use (If all PoolIdle=0 it means perf stats are not switch on at VM level)",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -120,6 +1334,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -182,6 +1401,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  1
 		};
 
@@ -229,7 +1453,7 @@
 
 		var options_REALMEM = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Real Memory - RAM",
+			title: "Real Memory - RAM in MB",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -242,6 +1466,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -290,7 +1519,7 @@
 
 		var options_VIRTMEM = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Virtual Memory - Paging Space",
+			title: "Virtual Memory - Paging Space in MB",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -303,6 +1532,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -351,7 +1585,7 @@
 
 		var options_FSCACHE = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Filesystem Cache Memory Use Percentage",
+			title: "Filesystem Cache Memory Use (numperm) Percentage",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -364,6 +1598,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -412,7 +1651,7 @@
 
 		var options_RUNQ = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Run Queue - processes ready to run",
+			title: "Run Queue - processes that running or ready to run",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -425,6 +1664,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -473,7 +1717,7 @@
 
 		var options_PSWITCH = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Process Switch - between processes",
+			title: "Process Switches per second - between processes",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -486,6 +1730,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -534,7 +1783,7 @@
 
 		var options_SYSCALL = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "System calls from application to the kernel",
+			title: "System Calls per second from application to the kernel",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -547,6 +1796,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -595,7 +1849,7 @@
 
 		var options_READWRITE = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Read and Write System calls - for disk & network I/O",
+			title: "Read and Write System Calls per second - for disk & network I/O",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -608,6 +1862,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -656,7 +1915,7 @@
 
 		var options_FORKEXEC = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Fork and Exec System calls - creating processes",
+			title: "Fork() and Exec() System Calls per second - creating processes",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -669,6 +1928,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -717,7 +1981,7 @@
 
 		var options_FILEIO = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "File I/O through System call read & write = disk, pipe & sockets in bytes",
+			title: "File I/O through read() & write() System Calls (disk, pipe & network socket) in bytes per second",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -730,6 +1994,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -778,7 +2047,7 @@
 
 		var options_PAGING = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Paging from Pagespace (pgin & pgout) & Paging from Filesystem (pgsin & pgsout)",
+			title: "Paging from Pagespace (pgin & pgout) & Paging from Filesystem (pgsin & pgsout) per second",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -791,6 +2060,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -853,6 +2127,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  0
 		};
 
@@ -864,7 +2143,7 @@
 		});
 
 			var data_CPU_USE = google.visualization.arrayToDataTable([
-['CPU','User-Time-Total','System-Util-Total']
+['CPU','User%','System%']
 ,['CPU01',36.2,28.1]
 ,['CPU02',8.0,7.7]
 ,['CPU03',3.3,4.3]
@@ -897,7 +2176,7 @@
 
 		var options_CPU_USE = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Logical CPU Core Use (Power SMT or x86 Hyperthreads) Average(User%+System%)",
+			title: "Use of Logical CPU Core Threads - POWER=SMT or x86=Hyperthreads",
 			focusTarget: "category",
 			vAxis: {
 				gridlines: {
@@ -986,7 +2265,7 @@
 
 		var options_TOPCMD = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Top Process Commands by CPU (Percentage of a core)",
+			title: "Top Process Commands by CPU (Percentage of a CPU core)",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -999,6 +2278,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -1061,6 +2345,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  0
 		};
 
@@ -1121,6 +2410,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -1183,6 +2477,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  0
 		};
 
@@ -1242,6 +2541,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  1
 		};
@@ -1303,6 +2607,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  1
 		};
 
@@ -1363,6 +2672,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  1
 		};
@@ -1451,6 +2765,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  1
 		};
 
@@ -1537,6 +2856,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  1
 		};
@@ -1625,6 +2949,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  0
 		};
 
@@ -1685,6 +3014,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -1747,6 +3081,11 @@
 					count: 11
 				}
 			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
 			isStacked:  0
 		};
 
@@ -1794,7 +3133,7 @@
 
 		var options_IPC = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "InterProcess Comms - Semaphore & Message Queues",
+			title: "InterProcess Comms - Semaphores per second & Message Queues send per seconds",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -1807,6 +3146,11 @@
 					color: "lightgrey",
 					count: 11
 				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
 			},
 			isStacked:  0
 		};
@@ -1822,41 +3166,42 @@
 		</script>
 	</head>
 	 <body bgcolor="#EEEEFF">
-	nmon data file: <b>sampleC.nmon</b>
+	nmon data file: <b>sampleC.nmon</b>  
+	<button onclick="config()"><b>Configuration</b></button> 
+	<button id="draw_TOPSUM" style="color:black;"><b>Top Summary</b></button>
+	<button id="draw_TOPCMD" style="color:black;"><b>Top Commands</b></button>
 	<br>
-	<button id="draw_PHYSICAL_CPU" style="color:black;">PHYSICAL_CPU</button>
-	<button id="draw_POOLIDLE" style="color:black;">POOLIDLE</button>
-	<button id="draw_CPU_UTIL" style="color:red;">CPU_UTIL</button>
-	<button id="draw_CPU_USE" style="color:red;">CPU_USE</button>
-	<button id="draw_RUNQ" style="color:red;">RUNQ</button>
-	<button id="draw_PSWITCH" style="color:red;">PSWITCH</button>
-	<button id="draw_SYSCALL" style="color:red;">SYSCALL</button>
-	<button id="draw_READWRITE" style="color:red;">READWRITE</button>
-	<button id="draw_FORKEXEC" style="color:red;">FORKEXEC</button>
-	<button id="draw_FILEIO" style="color:red;">FILEIO</button>
-	<button id="draw_REALMEM" style="color:blue;">REALMEM</button>
-	<button id="draw_VIRTMEM" style="color:blue;">VIRTMEM</button>
-	<button id="draw_FSCACHE" style="color:blue;">FSCACHE</button>
-	<button id="draw_PAGING" style="color:blue;">PAGING</button>
-	<button id="draw_SWAPIN" style="color:blue;">SWAPIN</button>
-	<button id="draw_TOPSUM" style="color:black;">TOPSUM</button>
-	<button id="draw_TOPCMD" style="color:black;">TOPCMD</button>
+	<button id="draw_PHYSICAL_CPU" style="color:black;"><b>Physical CPU</b></button>
+	<button id="draw_POOLIDLE" style="color:black;"><b>Pool Idle</b></button>
+	<button id="draw_CPU_UTIL" style="color:red;"><b>CPU Util.</b></button>
+	<button id="draw_CPU_USE" style="color:red;"><b>CPU Use</b></button>
+	<button id="draw_RUNQ" style="color:red;"><b>RunQ</b></button>
+	<button id="draw_PSWITCH" style="color:red;"><b>pSwitch</b></button>
+	<button id="draw_SYSCALL" style="color:red;"><b>SysCall</b></button>
+	<button id="draw_READWRITE" style="color:red;"><b>ReadWrite</b></button>
+	<button id="draw_FORKEXEC" style="color:red;"><b>ForkExec</b></button>
+	<button id="draw_FILEIO" style="color:red;"><b>File I/O</b></button>
+	<button id="draw_REALMEM" style="color:blue;"><b>Real Mem</b></button>
+	<button id="draw_VIRTMEM" style="color:blue;"><b>Virt Mem</b></button>
+	<button id="draw_FSCACHE" style="color:blue;"><b>FS Cache</b></button>
+	<button id="draw_PAGING" style="color:blue;"><b>Paging</b></button>
+	<button id="draw_SWAPIN" style="color:blue;"><b>Swaping </b></button>
 <br>
-	<button id="draw_NET" style="color:purple;">NET</button>
-	<button id="draw_NETPACKET" style="color:purple;">NETPACKET</button>
-	<button id="draw_NETSIZE" style="color:purple;">NETSIZE</button>
-	<button id="draw_ADAPT_KBS" style="color:green;">ADAPT_KBS</button>
-	<button id="draw_ADAPT_TPS" style="color:green;">ADAPT_TPS</button>
-	<button id="draw_DISKBUSY" style="color:brown;">DISKBUSY</button>
-	<button id="draw_DISKBUSYu" style="color:brown;">DISKBUSYu</button>
-	<button id="draw_DISKREAD" style="color:brown;">DISKREAD</button>
-	<button id="draw_DISKREADu" style="color:brown;">DISKREADu</button>
-	<button id="draw_DISKWRITE" style="color:brown;">DISKWRITE</button>
-	<button id="draw_DISKWRITEu" style="color:brown;">DISKWRITEu</button>
-	<button id="draw_DISKBSIZE" style="color:brown;">DISKBSIZE</button>
-	<button id="draw_DISKXFER" style="color:brown;">DISKXFER</button>
-	<button id="draw_JFS" style="color:brown;">JFS</button>
-	<button id="draw_IPC" style="color:black;">IPC</button>
+	<button id="draw_NET" style="color:purple;"><b>Network</b></button>
+	<button id="draw_NETPACKET" style="color:purple;"><b>Net Packets</b></button>
+	<button id="draw_NETSIZE" style="color:purple;"><b>Net Size</b></button>
+	<button id="draw_ADAPT_KBS" style="color:green;"><b>Adapter KBs</b></button>
+	<button id="draw_ADAPT_TPS" style="color:green;"><b>Adapter Tps</b></button>
+	<button id="draw_DISKBUSY" style="color:brown;"><b>Disk Busy</b></button>
+	<button id="draw_DISKBUSYu" style="color:brown;"><b>Unstacked</b></button>
+	<button id="draw_DISKREAD" style="color:brown;"><b>Disk Read</b></button>
+	<button id="draw_DISKREADu" style="color:brown;"><b>Unstacked</b></button>
+	<button id="draw_DISKWRITE" style="color:brown;"><b>Disk Write</b></button>
+	<button id="draw_DISKWRITEu" style="color:brown;"><b>Unstacked</b></button>
+	<button id="draw_DISKBSIZE" style="color:brown;"><b>Disk BSize</b></button>
+	<button id="draw_DISKXFER" style="color:brown;"><b>Disk Xfer</b></button>
+	<button id="draw_JFS" style="color:brown;"><b>JFS</b></button>
+	<button id="draw_IPC" style="color:black;"><b>IPC</b></button>
 
 	<div id="chart_master" style="width:100%; height:75%;">
 	<h2 style="color:blue">Click on a Graph button above, to display that graph</h2>
@@ -1890,8 +3235,9 @@
 <li>AIX Level 6100-07-030.07
 <li>Power Saving Mode                          : Disabled
 <hr>
-<li>Graphed by nmonchart v 23
-<li>Author: Nigel Griffiths @mr_nmon
+<li>Graphed by <a href=http://nmon.sourceforge.net/pmwiki.php?n=Site.Nmonchart>nmonchart</a> v 31
+<li>Developer: Nigel Griffiths @mr_nmon
+<li>Zoom=ON Left-click & Drag=Zoom-in. Right-click=Reset.
 </table>
 	</body>
 </html>

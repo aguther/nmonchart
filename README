@@ -1,4 +1,4 @@
-README for nmonchart 22 by Nigel Griffiths
+README for nmonchart 31 by Nigel Griffiths
 ==========================================
 
 The Korn shell script file nmonchart transforms .nmon performance capture files in to .html files for a webserver site.
@@ -40,6 +40,89 @@ Output file size
 Also note nmonchart output files are typically much smaller than the original nmon file.
 Something like 20% of the size.
 This is unlike the nmon Analyser file output which can typically be twice the size.
+
+----
+New Features from nmonchart version 31
+- Fix for Top Processes sort arguments for Linux which handles -t, differently.
+- Fix Linux machines with no disks reported in AAA,disks,0 line - we skip graphing the disks
+- Added sampleD.nmon and sampleD.html as a much larger & more interesting set of nmon stats 
+- Note: sampleC had some stats faked up my me!
+----
+New Features from nmonchart version 30
+- work around differences of echo and print for AIX and Linux - see PRINTN in the script.
+----
+New Features from nmonchart version 29
+Zoom In and Out added  - thanks to Ivan Goncharov for the hint
+- Left-click and drag the mouse to highlight an area to Zoom then when you let go it will Zoom In
+- Right-click to Reset and see the whole graph again
+----
+New Features from nmonchart version 28
+1) Added PROCCOUNT (count of processes) as this was release via an AIXpert Blog about nmon Extermal Data Collectors
+2) Added MORE1 and MORE3 examples for people adding their own stats.
+3) Buttons for adapter typo fixed
+----
+New Features from nmonchart version 27
+The buttons labels are upper and lowercase = look nicer 
+Added the nmon Configuration button to pop-up a window with the AAA and BBB data 
+Unfortunately, this highlights browser behaving differently 
+- Firefox no scroll bars so use PageDown 
+- Chrome has scroll bars 
+- Internet Explorer I get a blank windows but it works for other people 
+The Top Process Summary and Top Commands Buttons moved up at the top line to save space 
+If you do not want the Config button (it does add to the .html size) set wantCONFIG=0 near the top of the nmonchart script - =1 means we want it.
+----
+New Features from nmonchart version 27
+1) Better Configurtion button support
+2) Top  Commands bubble diagram and graph move to the top line
+3) Graph title improvements and clarification
+4) Buttons in mixed case for readability
+5) Link to nmonchart download and information website
+----
+New Features from nmonchart version 26
+- not released
+----
+New Features from nmonchart version 25
+Added the following AIX Disk Service time stats which are collected if you add the nmon -d option
+In the nmon file these lines start with DISKSERV DISKREADSERV DISKWRITESERV DISKWAIT
+- Disk Service time in milli-seconds
+- Disk Read Service time in milli-seconds
+- Disk Write Service time in milli-seconds
+- Disk Wait  time in milli-seconds
+
+New Features from nmonchart version 24
+1) Disk Groups
+Now supported User Defined Disks Groups data.  nmon -g filename   or nmon -g auto
+- This is particularly good for nmon for Linux ae -g auto will remove all the disk + partition duplication
+- In the data frile look for likes starting like DGBUSY etc.
+- Also very good to group your disks like database, backup, dump, or rdbms_log, rdbms_data
+- New Graphs
+    DGBUSY - Disk Group busy percentage for each disk - Stacked lines
+    DGBUSYu - Disk Group busy percentage for each disk - Unstacked lines
+    DGREAD - Disk Group read throughput in KBytes per second for each disk - Stacked lines
+    DGREADu - Disk Group read throughput in KBytes per second for each disk - Unstacked lines
+    DGWRITE - Disk Group write throughput in KBytes per second for each disk - Stacked lines
+    DGWRITEu - Disk Group write throughput in KBytes per second for each disk - Unstacked lines
+    DGSIZE - Disk Group block sizes
+    DGXTER - Disk Group Transfers per second
+
+2) S822LC can have NVidia GPU adapters
+- A special nmon version 16c to capture, GPU stats: GPU Util, Memory Util, Temperature, Watts and GPU MHz
+- In the data look for lines starting with GPU_
+- Note each adapters has two GPUs so a total of four
+- New Graphs
+    GPU_UTIL - NVidea GPU Stats, GPU CPU Utilisation percent
+    GPU_MEM - NVidea GPU Stats, GPU Memory Utilisation percent
+    GPU_TEMP - NVidea GPU Stats, Temperature in degrees Centigrade
+    GPU_WATTS - NVidea GPU Stats, input electrical power in Watts
+    GPU_MHZ - NVidea GPU Stats, GPU Mhz
+
+3) Linux Utilisation stats now ten of them
+- Linux now has ten utuilisaiton stats: user, nice, system, ide, wait for IO, steal, irq, soft irq, guest and guert nice
+- nmon for LInux 16c onwards captures these
+- Note a CPU core thread is reported as 100% otherwise machines with 160 only ever reports tiny percentages.
+- New Graph
+    CPUUTIL_ALL
+    Not included the data for each CPU core thread - my machines have up to 160!!!
 
 ----
 Summary of the graphs
