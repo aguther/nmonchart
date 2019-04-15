@@ -2,7 +2,7 @@
 
 # defines
 NAME=nmonchart
-VERSION=31
+VERSION=35
 
 # pack sources
 tar -cvzf "${NAME}-${VERSION}.tar.gz" --exclude .git --exclude "*.tar.gz" --transform s/./"${NAME}-${VERSION}"/ ./*

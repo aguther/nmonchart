@@ -1,4 +1,4 @@
-README for nmonchart 31 by Nigel Griffiths
+README for nmonchart 34 by Nigel Griffiths
 ==========================================
 
 The Korn shell script file nmonchart transforms .nmon performance capture files in to .html files for a webserver site.
@@ -41,6 +41,29 @@ Also note nmonchart output files are typically much smaller than the original nm
 Something like 20% of the size.
 This is unlike the nmon Analyser file output which can typically be twice the size.
 
+----
+New Features from nmonchart version 35 - thanks to Klaus Franke for the speed up code snippet
+- Good speed up in performance - specially with large numbers of snapshots (i.e. many thousands)
+- Added four AIX Fibre Channel Graphs by request. Not you need to run nmon with the -^ to include FC stats.
+  FC READ & WRITE KB/s and FC TRANSFERS IN and OUT/s
+- Removed the need for the 2nd parameter - it used the 1st parameter & will replace the .nmon with .html
+  If not ending in .nmon it just added the .html anyway.
+----
+New Features from nmonchart version 34 - thanks to Enrico Joedecke for the fix and suggestions
+- Fix to TopDisks by adding the paste command -d, option
+- Added to Linux nmon files from PowerVM (POWER hypervisor) PhysicalCPU and Shared CPU Pool Free graphs
+- For Linux the RunQueue graph incldes Blocked processes
+- JFS data "nan" short for "not a number" (usually not a real filesystem) replaced with -1.234 so graphs work
+----
+New Features from nmonchart version 33
+- Added the Top 15 Disks graph - button on the top line
+- Top disks are determined by the sum of all the Busy percentages for each disk
+- Short lived peaks to high percentages may not appear as a busy disk
+- This top 15 disks can help when the nmon file has many tens to houndred or thousands of disks.
+----
+New Features from nmonchart version 32
+- Added the AIX MemUse graph for Process%, File system cache%, System%, Free%
+- Added handling of Linux GPU, if there is just one GPU
 ----
 New Features from nmonchart version 31
 - Fix for Top Processes sort arguments for Linux which handles -t, differently.

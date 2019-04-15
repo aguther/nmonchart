@@ -1106,7 +1106,7 @@ function config() {
 834 <b>WLMlimits</b> m  <br>\
 835 <b>WLMlimits</b> m IBM_PROLOG_END_TAG <br>\
 836 <b>WLMlimits</b> System:<br>\
-837 <b>WLMlimits</b> 	memory = 1%0.0%;100%<br>\
+837 <b>WLMlimits</b> 	memory = 1%-100%;100%<br>\
 838 <b>WLMshares</b> <br>\
 839 <b>WLMshares</b> m IBM_PROLOG_BEGIN_TAG <br>\
 840 <b>WLMshares</b> m This is an automatically generated prolog. <br>\
@@ -1162,7 +1162,7 @@ function config() {
 890 <b>oslevel</b> 6100-01<br>\
 891 <b>oslevel</b> 6100-00<br>\
 892 <b>oslevel</b> <br>\
-893 <b>oslevel</b> 6100-07-030.07<br>\
+893 <b>oslevel</b> 6100-07-03-1207<br>\
 894 <b>ps v</b> <br>\
 895 <b>ps v</b>       PID    TTY STAT  TIME PGIN  SIZE   RSS   LIM  TSIZ   TRS %CPU %MEM COMMAND<br>\
 896 <b>ps v</b>  28442638  pts/2 A     0:00    0   540    16    xx   950     0  0.0  0.0 vi TSM<br>\
@@ -1256,7 +1256,7 @@ function config() {
 
 		var options_PHYSICAL_CPU = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Physical CPU Use of Shared CPU(s)",
+			title: "Physical CPU Use of Shared CPU(s) (Note:if Entitlement=VP then LPAR is capped)",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -1612,6 +1612,72 @@ function config() {
 
 		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
 		chart.draw( data_FSCACHE, options_FSCACHE);
+		});
+
+			var data_MEMNEW = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'Process%','FScache%','System%','Free%']
+,['Date(2014, 11, 01, 00, 20, 22)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 00, 40, 25)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 01, 00, 27)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 01, 20, 28)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 01, 40, 30)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 02, 00, 34)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 02, 20, 36)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 02, 40, 38)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 03, 00, 40)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 03, 20, 41)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 03, 40, 43)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 04, 00, 46)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 04, 20, 48)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 04, 40, 50)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 05, 00, 54)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 05, 20, 57)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 05, 41, 00)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 06, 01, 02)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 06, 21, 14)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 06, 41, 24)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 07, 01, 39)',62.9,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 07, 21, 54)',62.8,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 07, 42, 10)',62.9,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 08, 02, 24)',62.9,0.0,20.0,17.2]
+,['Date(2014, 11, 01, 08, 23, 13)',62.9,0.0,20.0,17.1]
+,['Date(2014, 11, 01, 08, 43, 57)',63.0,0.0,20.0,17.0]
+,['Date(2014, 11, 01, 09, 04, 43)',63.0,0.0,20.0,17.0]
+,['Date(2014, 11, 01, 09, 25, 28)',63.0,0.0,20.0,17.0]
+,['Date(2014, 11, 01, 09, 46, 16)',63.0,0.0,20.0,17.0]
+,['Date(2014, 11, 01, 10, 07, 13)',63.0,0.0,20.0,17.0]
+,['Date(2014, 11, 01, 10, 28, 06)',63.0,0.0,20.0,17.0]
+		]);
+
+		var options_MEMNEW = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Memory Use System, Process, Cache & Free Memory Percentage",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
+			isStacked:  1
+		};
+
+		document.getElementById("draw_MEMNEW").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_MEMNEW, options_MEMNEW);
 		});
 
 			var data_RUNQ = google.visualization.arrayToDataTable([
@@ -2192,6 +2258,72 @@ function config() {
 
 		chart = new google.visualization.ColumnChart(document.getElementById("chart_master"));
 		chart.draw( data_CPU_USE, options_CPU_USE);
+		});
+
+			var data_TOPDISK = google.visualization.arrayToDataTable([
+[{type: 'datetime', label: 'Datetime' },'hdisk1','hdisk2','hdisk3','hdisk4','hdisk5','hdisk6','hdisk7','hdisk0','hdisk10','hdisk11','hdisk12','hdisk16','hdisk13','hdisk15','hdisk14']
+,['Date(2014, 11, 01, 00, 20, 22)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,92.7,22.8,66.3,19.4,1.8,4.2,10.2,10.8]
+,['Date(2014, 11, 01, 00, 40, 25)',0.6,0.0,0.2,0.0,0.0,0.0,0.0,85.1,2.8,43.6,7.9,1.7,1.5,4.2,5.7]
+,['Date(2014, 11, 01, 01, 00, 27)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,87.8,9.2,31.7,17.6,38.9,8.4,14.7,6.9]
+,['Date(2014, 11, 01, 01, 20, 28)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,92.0,27.2,49.9,18.1,63.3,6.4,31.2,8.0]
+,['Date(2014, 11, 01, 01, 40, 30)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,90.6,8.5,37.0,3.0,59.6,2.0,24.3,6.9]
+,['Date(2014, 11, 01, 02, 00, 34)',1.4,0.0,0.1,0.0,0.0,0.0,0.0,90.0,12.6,71.4,10.0,8.4,5.0,24.4,8.0]
+,['Date(2014, 11, 01, 02, 20, 36)',1.5,0.0,0.2,0.0,0.0,0.0,0.0,96.7,54.4,95.1,58.2,1.4,27.2,43.6,14.8]
+,['Date(2014, 11, 01, 02, 40, 38)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,92.4,43.3,86.2,27.2,0.2,16.2,22.7,7.8]
+,['Date(2014, 11, 01, 03, 00, 40)',1.1,0.0,0.2,0.0,0.0,0.0,0.0,93.2,33.5,86.0,31.0,1.4,13.2,21.8,8.4]
+,['Date(2014, 11, 01, 03, 20, 41)',1.1,0.0,0.1,0.0,0.0,0.0,0.0,92.6,47.1,83.2,45.4,4.7,20.4,24.3,8.9]
+,['Date(2014, 11, 01, 03, 40, 43)',1.3,0.0,0.1,0.0,0.0,0.0,0.0,92.3,48.4,84.8,36.1,75.2,15.3,34.1,8.2]
+,['Date(2014, 11, 01, 04, 00, 46)',1.3,0.0,0.2,0.0,0.0,0.0,0.0,94.3,60.8,87.4,34.7,58.6,10.7,33.7,8.7]
+,['Date(2014, 11, 01, 04, 20, 48)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,93.8,36.2,93.7,39.7,24.4,10.5,16.0,8.4]
+,['Date(2014, 11, 01, 04, 40, 50)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,98.4,50.2,94.0,61.9,1.2,40.2,10.8,8.8]
+,['Date(2014, 11, 01, 05, 00, 54)',0.9,0.0,0.2,0.0,0.0,0.0,0.0,98.6,47.5,76.7,51.8,0.1,36.4,38.0,10.9]
+,['Date(2014, 11, 01, 05, 20, 57)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.4,91.1,90.8,67.9,0.1,26.4,62.7,15.2]
+,['Date(2014, 11, 01, 05, 41, 00)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.3,73.6,83.7,54.9,0.1,27.6,73.5,14.3]
+,['Date(2014, 11, 01, 06, 01, 02)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.3,32.0,69.9,47.0,0.1,22.0,71.2,16.6]
+,['Date(2014, 11, 01, 06, 21, 14)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.6,43.0,86.4,52.2,0.1,23.9,67.4,33.2]
+,['Date(2014, 11, 01, 06, 41, 24)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,99.7,35.5,40.9,36.4,0.1,14.2,64.2,31.0]
+,['Date(2014, 11, 01, 07, 01, 39)',0.9,0.0,0.1,0.0,0.0,0.0,0.0,99.5,35.8,64.9,27.9,0.1,10.2,62.4,33.3]
+,['Date(2014, 11, 01, 07, 21, 54)',0.8,0.0,0.2,0.0,0.0,0.0,0.0,99.5,46.1,73.7,26.4,0.1,12.6,57.7,41.2]
+,['Date(2014, 11, 01, 07, 42, 10)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.6,52.1,60.7,35.7,0.1,13.0,60.3,42.2]
+,['Date(2014, 11, 01, 08, 02, 24)',0.8,0.0,0.1,0.0,0.0,0.0,0.0,99.5,29.6,80.4,51.5,0.1,17.5,59.8,43.8]
+,['Date(2014, 11, 01, 08, 23, 13)',0.9,0.0,0.2,0.0,0.0,0.0,0.0,99.5,44.2,53.7,30.4,0.0,8.9,25.5,85.0]
+,['Date(2014, 11, 01, 08, 43, 57)',1.1,0.0,0.1,0.0,0.0,0.0,0.0,99.9,39.4,61.1,23.0,0.1,9.5,11.8,84.2]
+,['Date(2014, 11, 01, 09, 04, 43)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,99.9,18.1,37.6,18.6,0.0,5.2,12.0,85.1]
+,['Date(2014, 11, 01, 09, 25, 28)',1.2,0.0,0.2,0.0,0.0,0.0,0.0,99.5,14.6,31.3,18.3,0.0,6.3,10.6,82.9]
+,['Date(2014, 11, 01, 09, 46, 16)',1.1,0.0,0.2,0.0,0.0,0.0,0.0,99.6,16.7,31.3,16.4,0.0,8.5,12.2,85.0]
+,['Date(2014, 11, 01, 10, 07, 13)',1.1,0.0,0.1,0.1,0.0,0.0,0.0,99.7,16.4,35.0,13.4,0.1,6.6,10.6,85.8]
+,['Date(2014, 11, 01, 10, 28, 06)',0.5,0.0,0.2,0.0,0.0,0.0,0.0,99.7,12.4,17.2,14.0,0.0,7.0,9.1,85.9]
+		]);
+
+		var options_TOPDISK = {
+			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
+			title: "Top 15 disks by sum(Busy%)",
+			focusTarget: "category",
+			hAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 30
+				}
+			},
+			vAxis: {
+				gridlines: {
+					color: "lightgrey",
+					count: 11
+				}
+			},
+			explorer: { actions: ["dragToZoom", "rightClickToReset"],
+				axis: "horizontal",
+				keepInBounds: true,
+				maxZoomIn: 20.0
+			},
+			isStacked:  0
+		};
+
+		document.getElementById("draw_TOPDISK").addEventListener("click", function() {
+		if (chart && chart.clearChart) chart.clearChart();
+
+		chart = new google.visualization.AreaChart(document.getElementById("chart_master"));
+		chart.draw( data_TOPDISK, options_TOPDISK);
 		});
 
 			var data_TOPSUM = google.visualization.arrayToDataTable([
@@ -3067,7 +3199,7 @@ function config() {
 
 		var options_JFS = {
 			chartArea: {left: "5%", width: "85%", top: "10%", height: "80%"},
-			title: "Journal File System Percent Full",
+			title: "Journal File System Percent Full (Note: -1.234 = stats not avaialble)",
 			focusTarget: "category",
 			hAxis: {
 				gridlines: {
@@ -3170,6 +3302,7 @@ function config() {
 	<button onclick="config()"><b>Configuration</b></button> 
 	<button id="draw_TOPSUM" style="color:black;"><b>Top Summary</b></button>
 	<button id="draw_TOPCMD" style="color:black;"><b>Top Commands</b></button>
+	<button id="draw_TOPDISK" style="color:black;"><b>Top Disk</b></button>
 	<br>
 	<button id="draw_PHYSICAL_CPU" style="color:black;"><b>Physical CPU</b></button>
 	<button id="draw_POOLIDLE" style="color:black;"><b>Pool Idle</b></button>
@@ -3184,6 +3317,7 @@ function config() {
 	<button id="draw_REALMEM" style="color:blue;"><b>Real Mem</b></button>
 	<button id="draw_VIRTMEM" style="color:blue;"><b>Virt Mem</b></button>
 	<button id="draw_FSCACHE" style="color:blue;"><b>FS Cache</b></button>
+	<button id="draw_MEMNEW" style="color:blue;"><b>MemUse</b></button>
 	<button id="draw_PAGING" style="color:blue;"><b>Paging</b></button>
 	<button id="draw_SWAPIN" style="color:blue;"><b>Swaping </b></button>
 <br>
@@ -3232,10 +3366,10 @@ function config() {
 <li>LPAR Info: 2 sampleC
 <li>Platform Firmware level: AL740_095
 <td valign=top>
-<li>AIX Level 6100-07-030.07
+<li>AIX Level 6100-07-03-1207
 <li>Power Saving Mode                          : Disabled
 <hr>
-<li>Graphed by <a href=http://nmon.sourceforge.net/pmwiki.php?n=Site.Nmonchart>nmonchart</a> v 31
+<li>Graphed by <a href=http://nmon.sourceforge.net/pmwiki.php?n=Site.Nmonchart>nmonchart</a> v 35
 <li>Developer: Nigel Griffiths @mr_nmon
 <li>Zoom=ON Left-click & Drag=Zoom-in. Right-click=Reset.
 </table>

@@ -1,5 +1,5 @@
 Name:		nmonchart
-Version:	31
+Version:	35
 Release:	1%{?dist}
 Summary:	Nigel's .nmon to .html transformer for Linux
 License:	GPLv3
@@ -28,6 +28,9 @@ install -D -p -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 
 %changelog
+* Sat Apr 15 2019 Andreas Guther <github@guther.net> - 35-1
+- Update to version 35
+
 * Sat Aug 12 2017 Andreas Guther <github@guther.net> - 31-1
 - Update to version 31
 
